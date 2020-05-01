@@ -1,32 +1,42 @@
 openapi: 3.0.2
 info:
   title: Picture Perfect
-  description: "Sample API description. You can find more at [https://clumio.com](https://clumio.com/)."
-  termsOfService: http://swagger.io/terms/
+  description: >-
+    Sample API description. You can find more at
+    [https://clumio.com](https://clumio.com/).
+  termsOfService: 'http://swagger.io/terms/'
   contact:
     email: 1raghavmahajan@gmail.com
   license:
     name: Apache 2.0
-    url: http://www.apache.org/licenses/LICENSE-2.0.html
+    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
   version: 0.0.1b
-
 tags:
-  - name: Catalogue
-    description: This service is to retrieve and maintain the catalogue of movies, documentaries and television programs.
+  - name: Movie
+    description: >-
+      This service is to retrieve and maintain the catalogue of movies,
+      documentaries and television programs.
   - name: IAM
-    description: Identity and Access management - this is to authenticate a user, and identify if the user is general user or somebody who can manage the PicturePerfect operations based on a role and privilege
+    description: >-
+      Identity and Access management - this is to authenticate a user, and
+      identify if the user is general user or somebody who can manage the
+      PicturePerfect operations based on a role and privilege
   - name: Review
-    description: This service lets users add, update or delete an existing rating/review for a movie
+    description: >-
+      This service lets users add, update or delete an existing rating/review
+      for a movie
   - name: Show
-    description: This service lists the cineplexes where the movie is being screened in a given city
-
+    description: >-
+      This service lists the cineplexes where the movie is being screened in a
+      given city
+  - name: Admin
+    description: The services that require admin privileges
 paths:
-
-  /movies/catalogue:    
+  /movies/catalogue:
     get:
       tags:
-        - Catalogue
-      summary: Get a paginated list of movies, along with the associated media (links to the thumbnail pictures)
+        - Movie
+      summary: 'Get a paginated list of movies, along with the associated media'
       operationId: getMovieCatalogue
       parameters:
         - name: q
@@ -38,7 +48,7 @@ paths:
           explode: true
           schema:
             type: string
-        - name: limit 
+        - name: limit
           in: query
           description: limits query results (default size 20)
           required: false
@@ -84,20 +94,19 @@ paths:
               - DESC_byName
               - ASC_byRating
               - DESC_byRating
-
       responses:
-        200:
-          description: successful operation
+        '200':
+          description: OK
           content:
             application/json:
               schema:
                 type: array
                 items:
-                  $ref: "#/components/schemas/MovieLite"
-        
-    post: #replaces entire object
+                  $ref: '#/components/schemas/MovieLite'
+    post:
       tags:
-        - Catalogue
+        - Movie
+        - Admin
       summary: Add a movie to the catalogue
       operationId: addMovie
       requestBody:
@@ -105,27 +114,291 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/Movie"
+              $ref: '#/components/schemas/Movie'
         required: true
-
       responses:
-        200:
+        '200':
           $ref: '#/components/responses/Ok200'
-
-  
-  # /movies/catalogue/{id}:
-  #   get: #gets that movie catalogue object
-  #     tags:
-        
-  #   patch: #update specific attributes
-
-  # /movies/topMoviesByCategory:
-  
-  # /movies/catalogue?{query}:
-  
-  #region IAM
-
+    delete:
+      summary: Delete movies from catalogue
+      tags:
+        - Movie
+        - Admin
+      description: deletes the list of movies
+      operationId: deleteMoviesByID
+      parameters:
+        - name: movieIDs
+          in: query
+          description: IDs of movies that need to be deleted
+          required: true
+          schema:
+            type: array
+            items:
+              type: integer
+              format: int64
+      responses:
+        '200':
+          $ref: '#/components/responses/Ok200'
+  '/movies/catalogue/{movieID}':
+    parameters:
+      - in: path
+        name: movieID
+        schema:
+          type: integer
+          format: int64
+        required: true
+        description: The movie ID
+    get:
+      description: Get movie details
+      tags:
+        - Movie
+      operationId: getMovieDetails
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Movie'
+    post:
+      summary: Set movie details
+      tags:
+        - Movie
+        - Admin
+      description: Replaces entire movie object
+      operationId: postMovieDetails
+      requestBody:
+        description: movie object
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Movie'
+      responses:
+        '200':
+          $ref: '#/components/responses/Ok200'
+    patch:
+      summary: Update movie details
+      tags:
+        - Movie
+        - Admin
+      description: Update movie catalogue attribute
+      operationId: setMovieDetails
+      requestBody:
+        description: Movie Attributes that need to be updated
+        required: true
+        content:
+          '*/*':
+            schema:
+              $ref: '#/components/schemas/Movie'
+      responses:
+        '200':
+          description: OK
+    delete:
+      summary: Delete movie from catalogue
+      tags:
+        - Movie
+        - Admin
+      description: deletes the movie
+      operationId: deleteMovie
+      responses:
+        '200':
+          $ref: '#/components/responses/Ok200'
+  '/movies/catalogue/{movieID}/uploadImage':
+    post:
+      tags:
+        - Movie
+        - Admin
+      summary: upload an image related to the movie
+      operationId: uploadFile
+      parameters:
+        - name: movieID
+          in: path
+          description: ID of movie to update
+          required: true
+          schema:
+            type: integer
+            format: int64
+        - name: setAsThumbnail
+          in: query
+          description: sets the image as thumbnail if true
+          schema:
+            type: boolean
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              properties:
+                additionalMetadata:
+                  type: string
+                  description: Additional data to pass to server
+                file:
+                  type: string
+                  description: file to upload
+                  format: binary
+      responses:
+        '200':
+          $ref: '#/components/responses/Ok200'
+  /movies/topMoviesByCategory:
+    get:
+      tags:
+        - Movie
+      summary: Get a list of top/featured movies
+      operationId: getTopMovies
+      parameters:
+        - name: limit
+          in: query
+          description: limits query results (default size 20)
+          schema:
+            type: integer
+            minimum: 20
+            maximum: 50
+        - name: offset
+          in: query
+          description: paginates query results
+          schema:
+            type: integer
+            minimum: 0
+        - name: category
+          in: query
+          description: reqested category
+          required: true
+          allowEmptyValue: true
+          schema:
+            $ref: '#/components/schemas/TopCategories'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/MovieLite'
+    post:
+      tags:
+        - Movie
+        - Admin
+      summary: Set the list of featured movies
+      operationId: setFeaturedByCategory
+      parameters:
+        - name: category
+          in: query
+          description: category to be updated
+          required: true
+          allowEmptyValue: true
+          schema:
+            $ref: '#/components/schemas/TopCategories'
+      requestBody:
+        description: list of MovieIDs to be featured
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                type: integer
+                format: int64
+        required: true
+      responses:
+        '200':
+          $ref: '#/components/responses/Ok200'
+    put:
+      tags:
+        - Movie
+        - Admin
+      summary: Add movies to the list of featured movies
+      operationId: addFeaturedByCategory
+      parameters:
+        - name: category
+          in: query
+          description: category to be updated
+          required: true
+          allowEmptyValue: true
+          schema:
+            $ref: '#/components/schemas/TopCategories'
+      requestBody:
+        description: list of MovieIDs to be added
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                type: integer
+                format: int64
+        required: true
+      responses:
+        '200':
+          $ref: '#/components/responses/Ok200'
+    delete:
+      tags:
+        - Movie
+        - Admin
+      summary: Delete movies from the list of featured movies
+      operationId: deleteFeaturedByCategory
+      parameters:
+        - name: category
+          in: query
+          description: category to be updated
+          required: true
+          allowEmptyValue: true
+          schema:
+            $ref: '#/components/schemas/TopCategories'
+        - name: movieIDs
+          in: query
+          description: IDs of movies that need to be deleted
+          required: true
+          schema:
+            type: array
+            items:
+              type: integer
+              format: int64
+      responses:
+        '200':
+          $ref: '#/components/responses/Ok200'
   /user:
+    get:
+      tags:
+        - IAM
+        - Admin
+      summary: Gets the list of users
+      description: This can only be done by the administrator.
+      operationId: getAllUsers
+      parameters:
+        - name: q
+          in: query
+          description: Search for a specific user by userID/phone number
+          schema:
+            type: string
+        - name: limit
+          in: query
+          description: limits query results (default size 50)
+          schema:
+            type: integer
+            minimum: 20
+            maximum: 100
+        - name: offset
+          in: query
+          description: paginates query results
+          schema:
+            type: integer
+            minimum: 0
+        - name: sort
+          in: query
+          description: sort by name
+          schema:
+            type: string
+            enum:
+              - ASC_byName
+              - DESC_byName
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/MovieLite'
     post:
       tags:
         - IAM
@@ -135,13 +408,13 @@ paths:
       requestBody:
         description: Created user object
         content:
-          "*/*":
+          application/json:
             schema:
-              $ref: "#/components/schemas/User"
+              $ref: '#/components/schemas/User'
         required: true
       responses:
-        200:
-          description: successful operation
+        '200':
+          description: OK
           headers:
             X-Rate-Limit:
               description: calls per hour allowed by the user
@@ -153,15 +426,14 @@ paths:
               schema:
                 type: string
                 format: date-time
-          content: # TODO: auth
+          content:
             application/json:
               schema:
                 type: string
-        400:
-          $ref: "#/components/responses/BadRequest400"
-        429:
-          $ref: "#/components/responses/RateLimited429"
-        
+        '400':
+          $ref: '#/components/responses/BadRequest400'
+        '429':
+          $ref: '#/components/responses/RateLimited429'
   /user/login:
     get:
       tags:
@@ -182,8 +454,8 @@ paths:
           schema:
             type: string
       responses:
-        200:
-          description: successful operation
+        '200':
+          description: OK
           headers:
             X-Rate-Limit:
               description: calls per hour allowed by the user
@@ -195,16 +467,15 @@ paths:
               schema:
                 type: string
                 format: date-time
-          content: # TODO: auth
+          content:
             application/json:
               schema:
                 type: string
-        400:
+        '400':
           description: Invalid username/password supplied
           content: {}
-        429:
-          $ref: "#/components/responses/RateLimited429"
-  
+        '429':
+          $ref: '#/components/responses/RateLimited429'
   /user/logout:
     get:
       tags:
@@ -215,84 +486,63 @@ paths:
         default:
           description: successful operation
           content: {}
-  
-  /user/{userID}:
+  '/user/{userID}':
+    parameters:
+      - in: path
+        name: userID
+        schema:
+          type: integer
+          format: int64
+        required: true
+        description: The user ID
     get:
       tags:
         - IAM
       summary: Get user by user name
       operationId: getUser
-      parameters:
-        - name: userID
-          in: path
-          description: "The userID of the user needs to be fetched"
-          required: true
-          schema:
-            type: string
-
       responses:
-        200:
-          description: successful operation
+        '200':
+          description: OK
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/User"
-        400:
-          $ref: "#/components/responses/BadRequest400"
-        404:
-          $ref: "#/components/responses/NotFound404"
-    
+                $ref: '#/components/schemas/User'
+        '400':
+          $ref: '#/components/responses/BadRequest400'
+        '404':
+          $ref: '#/components/responses/NotFound404'
     put:
       tags:
         - IAM
       summary: Updated user
       description: This can only be done by the logged in user.
       operationId: updateUser
-      parameters:
-        - name: userID
-          in: path
-          description: userID or the user that needs to be updated
-          required: true
-          schema:
-            type: string
       requestBody:
         description: Updated user object
         content:
-          "*/*":
+          application/json:
             schema:
-              $ref: "#/components/schemas/User"
+              $ref: '#/components/schemas/User'
         required: true
       responses:
-        400:
-          $ref: "#/components/responses/BadRequest400"
-        404:
-          $ref: "#/components/responses/NotFound404"
-      
+        '400':
+          $ref: '#/components/responses/BadRequest400'
+        '404':
+          $ref: '#/components/responses/NotFound404'
     delete:
       tags:
         - IAM
       summary: Delete user
       description: This can only be done by the logged in user.
       operationId: deleteUser
-      parameters:
-        - name: username
-          in: path
-          description: The name that needs to be deleted
-          required: true
-          schema:
-            type: string
       responses:
-        400:
-          $ref: "#/components/responses/BadRequest400"
-        404:
-          $ref: "#/components/responses/NotFound404"
-
-  #endregion
-
+        '400':
+          $ref: '#/components/responses/BadRequest400'
+        '404':
+          $ref: '#/components/responses/NotFound404'
 components:
   schemas:
-
-    User:
+    UserLite:
       type: object
       properties:
         id:
@@ -310,16 +560,22 @@ components:
           type: string
         role:
           type: integer
-        reviews:
-          type: array
-          items:
-            type: review
-        billingAddress:
-          $ref: '#/components/schemas/Address'
         region:
           $ref: '#/components/schemas/Region'
-        # TODO: Associated media
-
+        billingAddress:
+          $ref: '#/components/schemas/Address'
+    User:
+      allOf:
+        - $ref: '#/components/schemas/MovieLite'
+        - type: object
+          properties:
+            reviews:
+              type: array
+              items:
+                $ref: '#/components/schemas/Review'
+            profile_pic:
+              type: string
+              format: uri
     Review:
       type: object
       properties:
@@ -334,7 +590,6 @@ components:
           $ref: '#/components/schemas/User'
         movie:
           $ref: '#/components/schemas/Movie'
-    
     MovieLite:
       type: object
       properties:
@@ -345,7 +600,7 @@ components:
           type: string
         language:
           $ref: '#/components/schemas/Language'
-        status: # manual
+        status:
           $ref: '#/components/schemas/MovieStatus'
         releaseData:
           type: string
@@ -362,7 +617,6 @@ components:
           $ref: '#/components/schemas/Certificate'
         category:
           $ref: '#/components/schemas/Category'
-
     Movie:
       allOf:
         - $ref: '#/components/schemas/MovieLite'
@@ -379,12 +633,11 @@ components:
               type: string
             directedBy:
               type: string
-            upcomingShows: # TODO: check if feasible
+            upcomingShows:
               type: array
               items:
                 $ref: '#/components/schemas/Show'
               maxItems: 5
-    
     Cineplex:
       type: object
       properties:
@@ -399,11 +652,10 @@ components:
           $ref: '#/components/schemas/Region'
         contactNo:
           type: string
-        shows: # Optional
+        shows:
           type: array
           items:
             $ref: '#/components/schemas/Show'
-    
     Reservation:
       type: object
       properties:
@@ -421,7 +673,7 @@ components:
         active:
           type: boolean
           default: false
-        userId: # TODO: optional
+        userId:
           type: integer
           format: int64
         seatsReserved:
@@ -436,7 +688,6 @@ components:
             paymentAmount:
               type: number
               format: float
-    
     Seat:
       type: object
       properties:
@@ -446,7 +697,6 @@ components:
           type: integer
         auditorium:
           type: string
-    
     Show:
       type: object
       properties:
@@ -460,10 +710,9 @@ components:
         startTime:
           type: string
           format: date-time
-        movie_id: # TODO: redundant
+        movie_id:
           type: integer
           format: int64
-      
     Region:
       type: object
       properties:
@@ -479,7 +728,6 @@ components:
             format: double
           minItems: 2
           maxItems: 2
-
     Address:
       type: object
       properties:
@@ -488,9 +736,8 @@ components:
         pincode:
           type: integer
           format: int32
-        city: # get from pincode?
+        city:
           type: string
-        
     Language:
       type: string
       enum:
@@ -512,6 +759,13 @@ components:
         - Scifi
         - Thriller
         - Romance
+    TopCategories:
+      allOf:
+        - $ref: '#/components/schemas/Genre'
+        - type: string
+          enum:
+            - NowShowing
+            - Upcoming
     Format:
       type: string
       enum:
@@ -540,8 +794,6 @@ components:
         - In-Theatres
         - Off-Theatres
         - To-be-Released
-    
-    # Schema for Response content placeholder
     ResponsePlaceholder:
       type: object
       properties:
@@ -552,7 +804,6 @@ components:
       required:
         - code
         - message
-    
   responses:
     Modified:
       description: The specified resource was modified
@@ -581,7 +832,7 @@ components:
           schema:
             $ref: '#/components/schemas/ResponsePlaceholder'
     Forbidden403:
-      description: Access forbidden to requested resource 
+      description: Access forbidden to requested resource
       content:
         application/json:
           schema:
@@ -595,29 +846,29 @@ components:
     RateLimited429:
       description: Too many requests
       headers:
-            X-Rate-Limit:
-              description: calls per hour allowed by the user
-              schema:
-                type: integer
-                format: int32
+        X-Rate-Limit:
+          description: calls per hour allowed by the user
+          schema:
+            type: integer
+            format: int32
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/ResponsePlaceholder'
-  
   securitySchemes:
+    jwt:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
     pp_auth:
       type: oauth2
       flows:
         implicit:
           authorizationUrl: 'https://domain.test/api/oauth/dialog'
           scopes:
-            write:pets: modify pets in your account
-            read:pets: read your pets
-    
+            'write:pets': modify pets in your account
+            'read:pets': read your pets
     api_key:
       type: apiKey
       name: api_key
       in: header
-
-    
