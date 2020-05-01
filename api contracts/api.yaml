@@ -1,4 +1,4 @@
-openapi: 3.0.1
+openapi: 3.0.2
 info:
   title: Picture Perfect
   description: "Sample API description. You can find more at [https://clumio.com](https://clumio.com/)."
@@ -20,9 +20,9 @@ tags:
   - name: Show
     description: This service lists the cineplexes where the movie is being screened in a given city
 
-
 paths:
-  /movies/catalogue:
+
+  /movies/catalogue:    
     get:
       tags:
         - Catalogue
@@ -94,19 +94,200 @@ paths:
                 type: array
                 items:
                   $ref: "#/components/schemas/MovieLite"
-        400:
-          description: Invalid status value
-          content: {}
+        
+    post: #replaces entire object
+      tags:
+        - Catalogue
+      summary: Add a movie to the catalogue
+      operationId: addMovie
+      requestBody:
+        description: Movie object that needs to be added to the store
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Movie"
+        required: true
 
-    
-  /movies/catalogue/{id}:
+      responses:
+        200:
+          $ref: '#/components/responses/Ok200'
 
-  /movies/topMoviesByCategory:
   
-  /movies/catalogue?{query}:
+  # /movies/catalogue/{id}:
+  #   get: #gets that movie catalogue object
+  #     tags:
+        
+  #   patch: #update specific attributes
+
+  # /movies/topMoviesByCategory:
+  
+  # /movies/catalogue?{query}:
+  
+  #region IAM
+
+  /user:
+    post:
+      tags:
+        - IAM
+      summary: Create user
+      description: This can only be done by the logged in user.
+      operationId: createUser
+      requestBody:
+        description: Created user object
+        content:
+          "*/*":
+            schema:
+              $ref: "#/components/schemas/User"
+        required: true
+      responses:
+        200:
+          description: successful operation
+          headers:
+            X-Rate-Limit:
+              description: calls per hour allowed by the user
+              schema:
+                type: integer
+                format: int32
+            X-Expires-After:
+              description: date in UTC when token expires
+              schema:
+                type: string
+                format: date-time
+          content: # TODO: auth
+            application/json:
+              schema:
+                type: string
+        400:
+          $ref: "#/components/responses/BadRequest400"
+        429:
+          $ref: "#/components/responses/RateLimited429"
+        
+  /user/login:
+    get:
+      tags:
+        - IAM
+      summary: Logs user into the system
+      operationId: loginUser
+      parameters:
+        - name: userID
+          in: query
+          description: The user name for login
+          required: true
+          schema:
+            type: string
+        - name: password
+          in: query
+          description: The password for login in clear text
+          required: true
+          schema:
+            type: string
+      responses:
+        200:
+          description: successful operation
+          headers:
+            X-Rate-Limit:
+              description: calls per hour allowed by the user
+              schema:
+                type: integer
+                format: int32
+            X-Expires-After:
+              description: date in UTC when token expires
+              schema:
+                type: string
+                format: date-time
+          content: # TODO: auth
+            application/json:
+              schema:
+                type: string
+        400:
+          description: Invalid username/password supplied
+          content: {}
+        429:
+          $ref: "#/components/responses/RateLimited429"
+  
+  /user/logout:
+    get:
+      tags:
+        - IAM
+      summary: Logs out current logged in user session
+      operationId: logoutUser
+      responses:
+        default:
+          description: successful operation
+          content: {}
+  
+  /user/{userID}:
+    get:
+      tags:
+        - IAM
+      summary: Get user by user name
+      operationId: getUser
+      parameters:
+        - name: userID
+          in: path
+          description: "The userID of the user needs to be fetched"
+          required: true
+          schema:
+            type: string
+
+      responses:
+        200:
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/User"
+        400:
+          $ref: "#/components/responses/BadRequest400"
+        404:
+          $ref: "#/components/responses/NotFound404"
     
+    put:
+      tags:
+        - IAM
+      summary: Updated user
+      description: This can only be done by the logged in user.
+      operationId: updateUser
+      parameters:
+        - name: userID
+          in: path
+          description: userID or the user that needs to be updated
+          required: true
+          schema:
+            type: string
+      requestBody:
+        description: Updated user object
+        content:
+          "*/*":
+            schema:
+              $ref: "#/components/schemas/User"
+        required: true
+      responses:
+        400:
+          $ref: "#/components/responses/BadRequest400"
+        404:
+          $ref: "#/components/responses/NotFound404"
+      
+    delete:
+      tags:
+        - IAM
+      summary: Delete user
+      description: This can only be done by the logged in user.
+      operationId: deleteUser
+      parameters:
+        - name: username
+          in: path
+          description: The name that needs to be deleted
+          required: true
+          schema:
+            type: string
+      responses:
+        400:
+          $ref: "#/components/responses/BadRequest400"
+        404:
+          $ref: "#/components/responses/NotFound404"
 
-
+  #endregion
 
 components:
   schemas:
@@ -137,6 +318,7 @@ components:
           $ref: '#/components/schemas/Address'
         region:
           $ref: '#/components/schemas/Region'
+        # TODO: Associated media
 
     Review:
       type: object
@@ -358,3 +540,84 @@ components:
         - In-Theatres
         - Off-Theatres
         - To-be-Released
+    
+    # Schema for Response content placeholder
+    ResponsePlaceholder:
+      type: object
+      properties:
+        code:
+          type: string
+        message:
+          type: string
+      required:
+        - code
+        - message
+    
+  responses:
+    Modified:
+      description: The specified resource was modified
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ResponsePlaceholder'
+    Ok200:
+      description: OK
+    Created201:
+      description: The requested resource was created
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ResponsePlaceholder'
+    BadRequest400:
+      description: Invalid parameters or syntax
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ResponsePlaceholder'
+    Unauthorized401:
+      description: Requested operation requires authorization
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ResponsePlaceholder'
+    Forbidden403:
+      description: Access forbidden to requested resource 
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ResponsePlaceholder'
+    NotFound404:
+      description: The specified resource was not found
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ResponsePlaceholder'
+    RateLimited429:
+      description: Too many requests
+      headers:
+            X-Rate-Limit:
+              description: calls per hour allowed by the user
+              schema:
+                type: integer
+                format: int32
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ResponsePlaceholder'
+  
+  securitySchemes:
+    pp_auth:
+      type: oauth2
+      flows:
+        implicit:
+          authorizationUrl: 'https://domain.test/api/oauth/dialog'
+          scopes:
+            write:pets: modify pets in your account
+            read:pets: read your pets
+    
+    api_key:
+      type: apiKey
+      name: api_key
+      in: header
+
+    

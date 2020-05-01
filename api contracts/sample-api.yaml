@@ -71,9 +71,6 @@ paths:
           application/json:
             schema:
               $ref: "#/components/schemas/Pet"
-          application/xml:
-            schema:
-              $ref: "#/components/schemas/Pet"
         required: true
       responses:
         405:
@@ -84,6 +81,7 @@ paths:
             - write:pets
             - read:pets
       x-codegen-request-body-name: body
+      
   /pet/findByStatus:
     get:
       tags:
