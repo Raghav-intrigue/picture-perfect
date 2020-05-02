@@ -1077,11 +1077,11 @@
             <li class="nav-fixed nav-header active" data-group="_"><a href="#api-_">API Summary</a></li>
 
                   <li class="nav-header" data-group="Admin"><a href="#api-Admin">API Methods - Admin</a></li>
-                    <li data-group="Admin" data-name="addFeaturedByCategory" class="">
-                      <a href="#api-Admin-addFeaturedByCategory">addFeaturedByCategory</a>
+                    <li data-group="Admin" data-name="addFeaturedToCategory" class="">
+                      <a href="#api-Admin-addFeaturedToCategory">addFeaturedToCategory</a>
                     </li>
-                    <li data-group="Admin" data-name="addMovie" class="">
-                      <a href="#api-Admin-addMovie">addMovie</a>
+                    <li data-group="Admin" data-name="addMovieToCatalogue" class="">
+                      <a href="#api-Admin-addMovieToCatalogue">addMovieToCatalogue</a>
                     </li>
                     <li data-group="Admin" data-name="deleteFeaturedByCategory" class="">
                       <a href="#api-Admin-deleteFeaturedByCategory">deleteFeaturedByCategory</a>
@@ -1095,17 +1095,17 @@
                     <li data-group="Admin" data-name="getAllUsers" class="">
                       <a href="#api-Admin-getAllUsers">getAllUsers</a>
                     </li>
-                    <li data-group="Admin" data-name="postMovieDetails" class="">
-                      <a href="#api-Admin-postMovieDetails">postMovieDetails</a>
-                    </li>
                     <li data-group="Admin" data-name="setFeaturedByCategory" class="">
                       <a href="#api-Admin-setFeaturedByCategory">setFeaturedByCategory</a>
                     </li>
                     <li data-group="Admin" data-name="setMovieDetails" class="">
                       <a href="#api-Admin-setMovieDetails">setMovieDetails</a>
                     </li>
-                    <li data-group="Admin" data-name="uploadFile" class="">
-                      <a href="#api-Admin-uploadFile">uploadFile</a>
+                    <li data-group="Admin" data-name="updateMovieDetails" class="">
+                      <a href="#api-Admin-updateMovieDetails">updateMovieDetails</a>
+                    </li>
+                    <li data-group="Admin" data-name="uploadMediaToMovie" class="">
+                      <a href="#api-Admin-uploadMediaToMovie">uploadMediaToMovie</a>
                     </li>
                   <li class="nav-header" data-group="IAM"><a href="#api-IAM">API Methods - IAM</a></li>
                     <li data-group="IAM" data-name="createUser" class="">
@@ -1130,11 +1130,11 @@
                       <a href="#api-IAM-updateUser">updateUser</a>
                     </li>
                   <li class="nav-header" data-group="Movie"><a href="#api-Movie">API Methods - Movie</a></li>
-                    <li data-group="Movie" data-name="addFeaturedByCategory" class="">
-                      <a href="#api-Movie-addFeaturedByCategory">addFeaturedByCategory</a>
+                    <li data-group="Movie" data-name="addFeaturedToCategory" class="">
+                      <a href="#api-Movie-addFeaturedToCategory">addFeaturedToCategory</a>
                     </li>
-                    <li data-group="Movie" data-name="addMovie" class="">
-                      <a href="#api-Movie-addMovie">addMovie</a>
+                    <li data-group="Movie" data-name="addMovieToCatalogue" class="">
+                      <a href="#api-Movie-addMovieToCatalogue">addMovieToCatalogue</a>
                     </li>
                     <li data-group="Movie" data-name="deleteFeaturedByCategory" class="">
                       <a href="#api-Movie-deleteFeaturedByCategory">deleteFeaturedByCategory</a>
@@ -1151,11 +1151,8 @@
                     <li data-group="Movie" data-name="getMovieDetails" class="">
                       <a href="#api-Movie-getMovieDetails">getMovieDetails</a>
                     </li>
-                    <li data-group="Movie" data-name="getTopMovies" class="">
-                      <a href="#api-Movie-getTopMovies">getTopMovies</a>
-                    </li>
-                    <li data-group="Movie" data-name="postMovieDetails" class="">
-                      <a href="#api-Movie-postMovieDetails">postMovieDetails</a>
+                    <li data-group="Movie" data-name="getTopMoviesByCategory" class="">
+                      <a href="#api-Movie-getTopMoviesByCategory">getTopMoviesByCategory</a>
                     </li>
                     <li data-group="Movie" data-name="setFeaturedByCategory" class="">
                       <a href="#api-Movie-setFeaturedByCategory">setFeaturedByCategory</a>
@@ -1163,8 +1160,11 @@
                     <li data-group="Movie" data-name="setMovieDetails" class="">
                       <a href="#api-Movie-setMovieDetails">setMovieDetails</a>
                     </li>
-                    <li data-group="Movie" data-name="uploadFile" class="">
-                      <a href="#api-Movie-uploadFile">uploadFile</a>
+                    <li data-group="Movie" data-name="updateMovieDetails" class="">
+                      <a href="#api-Movie-updateMovieDetails">updateMovieDetails</a>
+                    </li>
+                    <li data-group="Movie" data-name="uploadMediaToMovie" class="">
+                      <a href="#api-Movie-uploadMediaToMovie">uploadMediaToMovie</a>
                     </li>
           </ul>
         </nav>
@@ -1187,10 +1187,10 @@
         <div id="sections">
                 <section id="api-Admin">
                   <h1>Admin</h1>
-                    <div id="api-Admin-addFeaturedByCategory">
-                      <article id="api-Admin-addFeaturedByCategory-0" data-group="User" data-name="addFeaturedByCategory" data-version="0">
+                    <div id="api-Admin-addFeaturedToCategory">
+                      <article id="api-Admin-addFeaturedToCategory-0" data-group="User" data-name="addFeaturedToCategory" data-version="0">
                         <div class="pull-left">
-                          <h1>addFeaturedByCategory</h1>
+                          <h1>addFeaturedToCategory</h1>
                           <p>Add movies to the list of featured movies</p>
                         </div>
                         <div class="pull-right"></div>
@@ -1204,24 +1204,24 @@
                           <h3>Usage and SDK Samples</h3>
                         </p>
                         <ul class="nav nav-tabs nav-tabs-examples">
-                          <li class="active"><a href="#examples-Admin-addFeaturedByCategory-0-curl">Curl</a></li>
-                          <li class=""><a href="#examples-Admin-addFeaturedByCategory-0-java">Java</a></li>
-                          <li class=""><a href="#examples-Admin-addFeaturedByCategory-0-android">Android</a></li>
-                          <!--<li class=""><a href="#examples-Admin-addFeaturedByCategory-0-groovy">Groovy</a></li>-->
-                          <li class=""><a href="#examples-Admin-addFeaturedByCategory-0-objc">Obj-C</a></li>
-                          <li class=""><a href="#examples-Admin-addFeaturedByCategory-0-javascript">JavaScript</a></li>
-                          <!--<li class=""><a href="#examples-Admin-addFeaturedByCategory-0-angular">Angular</a></li>-->
-                          <li class=""><a href="#examples-Admin-addFeaturedByCategory-0-csharp">C#</a></li>
-                          <li class=""><a href="#examples-Admin-addFeaturedByCategory-0-php">PHP</a></li>
-                          <li class=""><a href="#examples-Admin-addFeaturedByCategory-0-perl">Perl</a></li>
-                          <li class=""><a href="#examples-Admin-addFeaturedByCategory-0-python">Python</a></li>
+                          <li class="active"><a href="#examples-Admin-addFeaturedToCategory-0-curl">Curl</a></li>
+                          <li class=""><a href="#examples-Admin-addFeaturedToCategory-0-java">Java</a></li>
+                          <li class=""><a href="#examples-Admin-addFeaturedToCategory-0-android">Android</a></li>
+                          <!--<li class=""><a href="#examples-Admin-addFeaturedToCategory-0-groovy">Groovy</a></li>-->
+                          <li class=""><a href="#examples-Admin-addFeaturedToCategory-0-objc">Obj-C</a></li>
+                          <li class=""><a href="#examples-Admin-addFeaturedToCategory-0-javascript">JavaScript</a></li>
+                          <!--<li class=""><a href="#examples-Admin-addFeaturedToCategory-0-angular">Angular</a></li>-->
+                          <li class=""><a href="#examples-Admin-addFeaturedToCategory-0-csharp">C#</a></li>
+                          <li class=""><a href="#examples-Admin-addFeaturedToCategory-0-php">PHP</a></li>
+                          <li class=""><a href="#examples-Admin-addFeaturedToCategory-0-perl">Perl</a></li>
+                          <li class=""><a href="#examples-Admin-addFeaturedToCategory-0-python">Python</a></li>
                         </ul>
 
                         <div class="tab-content">
-                          <div class="tab-pane active" id="examples-Admin-addFeaturedByCategory-0-curl">
+                          <div class="tab-pane active" id="examples-Admin-addFeaturedToCategory-0-curl">
                             <pre class="prettyprint"><code class="language-bsh">curl -X PUT "//movies/topMoviesByCategory?category="</code></pre>
                           </div>
-                          <div class="tab-pane" id="examples-Admin-addFeaturedByCategory-0-java">
+                          <div class="tab-pane" id="examples-Admin-addFeaturedToCategory-0-java">
                             <pre class="prettyprint"><code class="language-java">import io.swagger.client.*;
 import io.swagger.client.auth.*;
 import io.swagger.client.model.*;
@@ -1238,16 +1238,16 @@ public class AdminApiExample {
         array[Long] body = ; // array[Long] | list of MovieIDs to be added
         TopCategories category = ; // TopCategories | category to be updated
         try {
-            apiInstance.addFeaturedByCategory(body, category);
+            apiInstance.addFeaturedToCategory(body, category);
         } catch (ApiException e) {
-            System.err.println("Exception when calling AdminApi#addFeaturedByCategory");
+            System.err.println("Exception when calling AdminApi#addFeaturedToCategory");
             e.printStackTrace();
         }
     }
 }</code></pre>
                           </div>
 
-                          <div class="tab-pane" id="examples-Admin-addFeaturedByCategory-0-android">
+                          <div class="tab-pane" id="examples-Admin-addFeaturedToCategory-0-android">
                             <pre class="prettyprint"><code class="language-java">import io.swagger.client.api.AdminApi;
 
 public class AdminApiExample {
@@ -1257,26 +1257,26 @@ public class AdminApiExample {
         array[Long] body = ; // array[Long] | list of MovieIDs to be added
         TopCategories category = ; // TopCategories | category to be updated
         try {
-            apiInstance.addFeaturedByCategory(body, category);
+            apiInstance.addFeaturedToCategory(body, category);
         } catch (ApiException e) {
-            System.err.println("Exception when calling AdminApi#addFeaturedByCategory");
+            System.err.println("Exception when calling AdminApi#addFeaturedToCategory");
             e.printStackTrace();
         }
     }
 }</code></pre>
                           </div>
   <!--
-  <div class="tab-pane" id="examples-Admin-addFeaturedByCategory-0-groovy">
+  <div class="tab-pane" id="examples-Admin-addFeaturedToCategory-0-groovy">
   <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
   </div> -->
-                            <div class="tab-pane" id="examples-Admin-addFeaturedByCategory-0-objc">
+                            <div class="tab-pane" id="examples-Admin-addFeaturedToCategory-0-objc">
                               <pre class="prettyprint"><code class="language-cpp">array[Long] *body = ; // list of MovieIDs to be added
 TopCategories *category = ; // category to be updated
 
 AdminApi *apiInstance = [[AdminApi alloc] init];
 
 // Add movies to the list of featured movies
-[apiInstance addFeaturedByCategoryWith:body
+[apiInstance addFeaturedToCategoryWith:body
     category:category
               completionHandler: ^(NSError* error) {
                             if (error) {
@@ -1286,7 +1286,7 @@ AdminApi *apiInstance = [[AdminApi alloc] init];
 </code></pre>
                             </div>
 
-                            <div class="tab-pane" id="examples-Admin-addFeaturedByCategory-0-javascript">
+                            <div class="tab-pane" id="examples-Admin-addFeaturedToCategory-0-javascript">
                               <pre class="prettyprint"><code class="language-js">var PicturePerfect = require('picture_perfect');
 
 var api = new PicturePerfect.AdminApi()
@@ -1300,14 +1300,14 @@ var callback = function(error, data, response) {
     console.log('API called successfully.');
   }
 };
-api.addFeaturedByCategory(bodycategory, callback);
+api.addFeaturedToCategory(bodycategory, callback);
 </code></pre>
                             </div>
 
-                            <!--<div class="tab-pane" id="examples-Admin-addFeaturedByCategory-0-angular">
+                            <!--<div class="tab-pane" id="examples-Admin-addFeaturedToCategory-0-angular">
               <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
             </div>-->
-                            <div class="tab-pane" id="examples-Admin-addFeaturedByCategory-0-csharp">
+                            <div class="tab-pane" id="examples-Admin-addFeaturedToCategory-0-csharp">
                               <pre class="prettyprint"><code class="language-cs">using System;
 using System.Diagnostics;
 using IO.Swagger.Api;
@@ -1316,7 +1316,7 @@ using IO.Swagger.Model;
 
 namespace Example
 {
-    public class addFeaturedByCategoryExample
+    public class addFeaturedToCategoryExample
     {
         public void main()
         {
@@ -1328,11 +1328,11 @@ namespace Example
             try
             {
                 // Add movies to the list of featured movies
-                apiInstance.addFeaturedByCategory(body, category);
+                apiInstance.addFeaturedToCategory(body, category);
             }
             catch (Exception e)
             {
-                Debug.Print("Exception when calling AdminApi.addFeaturedByCategory: " + e.Message );
+                Debug.Print("Exception when calling AdminApi.addFeaturedToCategory: " + e.Message );
             }
         }
     }
@@ -1340,7 +1340,7 @@ namespace Example
 </code></pre>
                             </div>
 
-                            <div class="tab-pane" id="examples-Admin-addFeaturedByCategory-0-php">
+                            <div class="tab-pane" id="examples-Admin-addFeaturedToCategory-0-php">
                               <pre class="prettyprint"><code class="language-php"><&#63;php
 require_once(__DIR__ . '/vendor/autoload.php');
 
@@ -1349,14 +1349,14 @@ $body = ; // array[Long] | list of MovieIDs to be added
 $category = ; // TopCategories | category to be updated
 
 try {
-    $api_instance->addFeaturedByCategory($body, $category);
+    $api_instance->addFeaturedToCategory($body, $category);
 } catch (Exception $e) {
-    echo 'Exception when calling AdminApi->addFeaturedByCategory: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling AdminApi->addFeaturedToCategory: ', $e->getMessage(), PHP_EOL;
 }
 ?></code></pre>
                             </div>
 
-                            <div class="tab-pane" id="examples-Admin-addFeaturedByCategory-0-perl">
+                            <div class="tab-pane" id="examples-Admin-addFeaturedToCategory-0-perl">
                               <pre class="prettyprint"><code class="language-perl">use Data::Dumper;
 use WWW::SwaggerClient::Configuration;
 use WWW::SwaggerClient::AdminApi;
@@ -1366,14 +1366,14 @@ my $body = [WWW::SwaggerClient::Object::array[Long]->new()]; # array[Long] | lis
 my $category = ; # TopCategories | category to be updated
 
 eval { 
-    $api_instance->addFeaturedByCategory(body => $body, category => $category);
+    $api_instance->addFeaturedToCategory(body => $body, category => $category);
 };
 if ($@) {
-    warn "Exception when calling AdminApi->addFeaturedByCategory: $@\n";
+    warn "Exception when calling AdminApi->addFeaturedToCategory: $@\n";
 }</code></pre>
                             </div>
 
-                            <div class="tab-pane" id="examples-Admin-addFeaturedByCategory-0-python">
+                            <div class="tab-pane" id="examples-Admin-addFeaturedToCategory-0-python">
                               <pre class="prettyprint"><code class="language-python">from __future__ import print_statement
 import time
 import swagger_client
@@ -1387,9 +1387,9 @@ category =  # TopCategories | category to be updated
 
 try: 
     # Add movies to the list of featured movies
-    api_instance.add_featured_by_category(body, category)
+    api_instance.add_featured_to_category(body, category)
 except ApiException as e:
-    print("Exception when calling AdminApi->addFeaturedByCategory: %s\n" % e)</code></pre>
+    print("Exception when calling AdminApi->addFeaturedToCategory: %s\n" % e)</code></pre>
                             </div>
                           </div>
 
@@ -1436,12 +1436,12 @@ except ApiException as e:
                                   }
                                 
                                   var view = new JSONSchemaView(schema,2,{isBodyParam: true});
-                                  var result = $('#d2e199_addFeaturedByCategory_body');
+                                  var result = $('#d2e199_addFeaturedToCategory_body');
                                   result.empty();
                                   result.append(view.render());
                                 });
                                 </script>
-                                <div id="d2e199_addFeaturedByCategory_body"></div>
+                                <div id="d2e199_addFeaturedToCategory_body"></div>
                                 </td>
                                 </tr>
                             </table>
@@ -1457,7 +1457,7 @@ except ApiException as e:
                                 <td>
                                 
                                 
-                                    <div id="d2e199_addFeaturedByCategory_category">
+                                    <div id="d2e199_addFeaturedToCategory_category">
                                         <div class="json-schema-view">
                                             <div class="primitive">
                                                 <span class="type">
@@ -1489,10 +1489,10 @@ except ApiException as e:
                         </article>
                       </div>
                       <hr>
-                    <div id="api-Admin-addMovie">
-                      <article id="api-Admin-addMovie-0" data-group="User" data-name="addMovie" data-version="0">
+                    <div id="api-Admin-addMovieToCatalogue">
+                      <article id="api-Admin-addMovieToCatalogue-0" data-group="User" data-name="addMovieToCatalogue" data-version="0">
                         <div class="pull-left">
-                          <h1>addMovie</h1>
+                          <h1>addMovieToCatalogue</h1>
                           <p>Add a movie to the catalogue</p>
                         </div>
                         <div class="pull-right"></div>
@@ -1506,24 +1506,24 @@ except ApiException as e:
                           <h3>Usage and SDK Samples</h3>
                         </p>
                         <ul class="nav nav-tabs nav-tabs-examples">
-                          <li class="active"><a href="#examples-Admin-addMovie-0-curl">Curl</a></li>
-                          <li class=""><a href="#examples-Admin-addMovie-0-java">Java</a></li>
-                          <li class=""><a href="#examples-Admin-addMovie-0-android">Android</a></li>
-                          <!--<li class=""><a href="#examples-Admin-addMovie-0-groovy">Groovy</a></li>-->
-                          <li class=""><a href="#examples-Admin-addMovie-0-objc">Obj-C</a></li>
-                          <li class=""><a href="#examples-Admin-addMovie-0-javascript">JavaScript</a></li>
-                          <!--<li class=""><a href="#examples-Admin-addMovie-0-angular">Angular</a></li>-->
-                          <li class=""><a href="#examples-Admin-addMovie-0-csharp">C#</a></li>
-                          <li class=""><a href="#examples-Admin-addMovie-0-php">PHP</a></li>
-                          <li class=""><a href="#examples-Admin-addMovie-0-perl">Perl</a></li>
-                          <li class=""><a href="#examples-Admin-addMovie-0-python">Python</a></li>
+                          <li class="active"><a href="#examples-Admin-addMovieToCatalogue-0-curl">Curl</a></li>
+                          <li class=""><a href="#examples-Admin-addMovieToCatalogue-0-java">Java</a></li>
+                          <li class=""><a href="#examples-Admin-addMovieToCatalogue-0-android">Android</a></li>
+                          <!--<li class=""><a href="#examples-Admin-addMovieToCatalogue-0-groovy">Groovy</a></li>-->
+                          <li class=""><a href="#examples-Admin-addMovieToCatalogue-0-objc">Obj-C</a></li>
+                          <li class=""><a href="#examples-Admin-addMovieToCatalogue-0-javascript">JavaScript</a></li>
+                          <!--<li class=""><a href="#examples-Admin-addMovieToCatalogue-0-angular">Angular</a></li>-->
+                          <li class=""><a href="#examples-Admin-addMovieToCatalogue-0-csharp">C#</a></li>
+                          <li class=""><a href="#examples-Admin-addMovieToCatalogue-0-php">PHP</a></li>
+                          <li class=""><a href="#examples-Admin-addMovieToCatalogue-0-perl">Perl</a></li>
+                          <li class=""><a href="#examples-Admin-addMovieToCatalogue-0-python">Python</a></li>
                         </ul>
 
                         <div class="tab-content">
-                          <div class="tab-pane active" id="examples-Admin-addMovie-0-curl">
+                          <div class="tab-pane active" id="examples-Admin-addMovieToCatalogue-0-curl">
                             <pre class="prettyprint"><code class="language-bsh">curl -X POST "//movies/catalogue"</code></pre>
                           </div>
-                          <div class="tab-pane" id="examples-Admin-addMovie-0-java">
+                          <div class="tab-pane" id="examples-Admin-addMovieToCatalogue-0-java">
                             <pre class="prettyprint"><code class="language-java">import io.swagger.client.*;
 import io.swagger.client.auth.*;
 import io.swagger.client.model.*;
@@ -1539,16 +1539,16 @@ public class AdminApiExample {
         AdminApi apiInstance = new AdminApi();
         Movie body = ; // Movie | Movie object that needs to be added to the store
         try {
-            apiInstance.addMovie(body);
+            apiInstance.addMovieToCatalogue(body);
         } catch (ApiException e) {
-            System.err.println("Exception when calling AdminApi#addMovie");
+            System.err.println("Exception when calling AdminApi#addMovieToCatalogue");
             e.printStackTrace();
         }
     }
 }</code></pre>
                           </div>
 
-                          <div class="tab-pane" id="examples-Admin-addMovie-0-android">
+                          <div class="tab-pane" id="examples-Admin-addMovieToCatalogue-0-android">
                             <pre class="prettyprint"><code class="language-java">import io.swagger.client.api.AdminApi;
 
 public class AdminApiExample {
@@ -1557,25 +1557,25 @@ public class AdminApiExample {
         AdminApi apiInstance = new AdminApi();
         Movie body = ; // Movie | Movie object that needs to be added to the store
         try {
-            apiInstance.addMovie(body);
+            apiInstance.addMovieToCatalogue(body);
         } catch (ApiException e) {
-            System.err.println("Exception when calling AdminApi#addMovie");
+            System.err.println("Exception when calling AdminApi#addMovieToCatalogue");
             e.printStackTrace();
         }
     }
 }</code></pre>
                           </div>
   <!--
-  <div class="tab-pane" id="examples-Admin-addMovie-0-groovy">
+  <div class="tab-pane" id="examples-Admin-addMovieToCatalogue-0-groovy">
   <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
   </div> -->
-                            <div class="tab-pane" id="examples-Admin-addMovie-0-objc">
+                            <div class="tab-pane" id="examples-Admin-addMovieToCatalogue-0-objc">
                               <pre class="prettyprint"><code class="language-cpp">Movie *body = ; // Movie object that needs to be added to the store
 
 AdminApi *apiInstance = [[AdminApi alloc] init];
 
 // Add a movie to the catalogue
-[apiInstance addMovieWith:body
+[apiInstance addMovieToCatalogueWith:body
               completionHandler: ^(NSError* error) {
                             if (error) {
                                 NSLog(@"Error: %@", error);
@@ -1584,7 +1584,7 @@ AdminApi *apiInstance = [[AdminApi alloc] init];
 </code></pre>
                             </div>
 
-                            <div class="tab-pane" id="examples-Admin-addMovie-0-javascript">
+                            <div class="tab-pane" id="examples-Admin-addMovieToCatalogue-0-javascript">
                               <pre class="prettyprint"><code class="language-js">var PicturePerfect = require('picture_perfect');
 
 var api = new PicturePerfect.AdminApi()
@@ -1597,14 +1597,14 @@ var callback = function(error, data, response) {
     console.log('API called successfully.');
   }
 };
-api.addMovie(body, callback);
+api.addMovieToCatalogue(body, callback);
 </code></pre>
                             </div>
 
-                            <!--<div class="tab-pane" id="examples-Admin-addMovie-0-angular">
+                            <!--<div class="tab-pane" id="examples-Admin-addMovieToCatalogue-0-angular">
               <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
             </div>-->
-                            <div class="tab-pane" id="examples-Admin-addMovie-0-csharp">
+                            <div class="tab-pane" id="examples-Admin-addMovieToCatalogue-0-csharp">
                               <pre class="prettyprint"><code class="language-cs">using System;
 using System.Diagnostics;
 using IO.Swagger.Api;
@@ -1613,7 +1613,7 @@ using IO.Swagger.Model;
 
 namespace Example
 {
-    public class addMovieExample
+    public class addMovieToCatalogueExample
     {
         public void main()
         {
@@ -1624,11 +1624,11 @@ namespace Example
             try
             {
                 // Add a movie to the catalogue
-                apiInstance.addMovie(body);
+                apiInstance.addMovieToCatalogue(body);
             }
             catch (Exception e)
             {
-                Debug.Print("Exception when calling AdminApi.addMovie: " + e.Message );
+                Debug.Print("Exception when calling AdminApi.addMovieToCatalogue: " + e.Message );
             }
         }
     }
@@ -1636,7 +1636,7 @@ namespace Example
 </code></pre>
                             </div>
 
-                            <div class="tab-pane" id="examples-Admin-addMovie-0-php">
+                            <div class="tab-pane" id="examples-Admin-addMovieToCatalogue-0-php">
                               <pre class="prettyprint"><code class="language-php"><&#63;php
 require_once(__DIR__ . '/vendor/autoload.php');
 
@@ -1644,14 +1644,14 @@ $api_instance = new Swagger\Client\ApiAdminApi();
 $body = ; // Movie | Movie object that needs to be added to the store
 
 try {
-    $api_instance->addMovie($body);
+    $api_instance->addMovieToCatalogue($body);
 } catch (Exception $e) {
-    echo 'Exception when calling AdminApi->addMovie: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling AdminApi->addMovieToCatalogue: ', $e->getMessage(), PHP_EOL;
 }
 ?></code></pre>
                             </div>
 
-                            <div class="tab-pane" id="examples-Admin-addMovie-0-perl">
+                            <div class="tab-pane" id="examples-Admin-addMovieToCatalogue-0-perl">
                               <pre class="prettyprint"><code class="language-perl">use Data::Dumper;
 use WWW::SwaggerClient::Configuration;
 use WWW::SwaggerClient::AdminApi;
@@ -1660,14 +1660,14 @@ my $api_instance = WWW::SwaggerClient::AdminApi->new();
 my $body = WWW::SwaggerClient::Object::Movie->new(); # Movie | Movie object that needs to be added to the store
 
 eval { 
-    $api_instance->addMovie(body => $body);
+    $api_instance->addMovieToCatalogue(body => $body);
 };
 if ($@) {
-    warn "Exception when calling AdminApi->addMovie: $@\n";
+    warn "Exception when calling AdminApi->addMovieToCatalogue: $@\n";
 }</code></pre>
                             </div>
 
-                            <div class="tab-pane" id="examples-Admin-addMovie-0-python">
+                            <div class="tab-pane" id="examples-Admin-addMovieToCatalogue-0-python">
                               <pre class="prettyprint"><code class="language-python">from __future__ import print_statement
 import time
 import swagger_client
@@ -1680,9 +1680,9 @@ body =  # Movie | Movie object that needs to be added to the store
 
 try: 
     # Add a movie to the catalogue
-    api_instance.add_movie(body)
+    api_instance.add_movie_to_catalogue(body)
 except ApiException as e:
-    print("Exception when calling AdminApi->addMovie: %s\n" % e)</code></pre>
+    print("Exception when calling AdminApi->addMovieToCatalogue: %s\n" % e)</code></pre>
                             </div>
                           </div>
 
@@ -1725,12 +1725,12 @@ except ApiException as e:
                                   }
                                 
                                   var view = new JSONSchemaView(schema,2,{isBodyParam: true});
-                                  var result = $('#d2e199_addMovie_body');
+                                  var result = $('#d2e199_addMovieToCatalogue_body');
                                   result.empty();
                                   result.append(view.render());
                                 });
                                 </script>
-                                <div id="d2e199_addMovie_body"></div>
+                                <div id="d2e199_addMovieToCatalogue_body"></div>
                                 </td>
                                 </tr>
                             </table>
@@ -2614,7 +2614,7 @@ public class AdminApiExample {
   </div> -->
                             <div class="tab-pane" id="examples-Admin-getAllUsers-0-objc">
                               <pre class="prettyprint"><code class="language-cpp">String *q = q_example; // Search for a specific user by userID/phone number (optional)
-Integer *limit = 56; // limits query results (default size 50) (optional)
+Integer *limit = 56; // limits query results (default size 50) (optional) (default to 50)
 Integer *offset = 56; // paginates query results (optional)
 String *sort = sort_example; // sort by name (optional)
 
@@ -2676,7 +2676,7 @@ namespace Example
 
             var apiInstance = new AdminApi();
             var q = q_example;  // String | Search for a specific user by userID/phone number (optional) 
-            var limit = 56;  // Integer | limits query results (default size 50) (optional) 
+            var limit = 56;  // Integer | limits query results (default size 50) (optional)  (default to 50)
             var offset = 56;  // Integer | paginates query results (optional) 
             var sort = sort_example;  // String | sort by name (optional) 
 
@@ -2745,7 +2745,7 @@ from pprint import pprint
 # create an instance of the API class
 api_instance = swagger_client.AdminApi()
 q = q_example # String | Search for a specific user by userID/phone number (optional)
-limit = 56 # Integer | limits query results (default size 50) (optional)
+limit = 56 # Integer | limits query results (default size 50) (optional) (default to 50)
 offset = 56 # Integer | paginates query results (optional)
 sort = sort_example # String | sort by name (optional)
 
@@ -2899,307 +2899,6 @@ except ApiException as e:
                                   </div>
                                   <input id='responses-getAllUsers-200-schema-data' type='hidden' value=''></input>
                                 </div>
-                            </div>
-
-                        </article>
-                      </div>
-                      <hr>
-                    <div id="api-Admin-postMovieDetails">
-                      <article id="api-Admin-postMovieDetails-0" data-group="User" data-name="postMovieDetails" data-version="0">
-                        <div class="pull-left">
-                          <h1>postMovieDetails</h1>
-                          <p>Set movie details</p>
-                        </div>
-                        <div class="pull-right"></div>
-                        <div class="clearfix"></div>
-                        <p></p>
-                        <p class="marked">Replaces entire movie object</p>
-                        <p></p>
-                        <br />
-                        <pre class="prettyprint language-html prettyprinted" data-type="post"><code><span class="pln">/movies/catalogue/{movieID}</span></code></pre>
-                        <p>
-                          <h3>Usage and SDK Samples</h3>
-                        </p>
-                        <ul class="nav nav-tabs nav-tabs-examples">
-                          <li class="active"><a href="#examples-Admin-postMovieDetails-0-curl">Curl</a></li>
-                          <li class=""><a href="#examples-Admin-postMovieDetails-0-java">Java</a></li>
-                          <li class=""><a href="#examples-Admin-postMovieDetails-0-android">Android</a></li>
-                          <!--<li class=""><a href="#examples-Admin-postMovieDetails-0-groovy">Groovy</a></li>-->
-                          <li class=""><a href="#examples-Admin-postMovieDetails-0-objc">Obj-C</a></li>
-                          <li class=""><a href="#examples-Admin-postMovieDetails-0-javascript">JavaScript</a></li>
-                          <!--<li class=""><a href="#examples-Admin-postMovieDetails-0-angular">Angular</a></li>-->
-                          <li class=""><a href="#examples-Admin-postMovieDetails-0-csharp">C#</a></li>
-                          <li class=""><a href="#examples-Admin-postMovieDetails-0-php">PHP</a></li>
-                          <li class=""><a href="#examples-Admin-postMovieDetails-0-perl">Perl</a></li>
-                          <li class=""><a href="#examples-Admin-postMovieDetails-0-python">Python</a></li>
-                        </ul>
-
-                        <div class="tab-content">
-                          <div class="tab-pane active" id="examples-Admin-postMovieDetails-0-curl">
-                            <pre class="prettyprint"><code class="language-bsh">curl -X POST "//movies/catalogue/{movieID}"</code></pre>
-                          </div>
-                          <div class="tab-pane" id="examples-Admin-postMovieDetails-0-java">
-                            <pre class="prettyprint"><code class="language-java">import io.swagger.client.*;
-import io.swagger.client.auth.*;
-import io.swagger.client.model.*;
-import io.swagger.client.api.AdminApi;
-
-import java.io.File;
-import java.util.*;
-
-public class AdminApiExample {
-
-    public static void main(String[] args) {
-        
-        AdminApi apiInstance = new AdminApi();
-        Movie body = ; // Movie | movie object
-        Long movieID = 789; // Long | The movie ID
-        try {
-            apiInstance.postMovieDetails(body, movieID);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling AdminApi#postMovieDetails");
-            e.printStackTrace();
-        }
-    }
-}</code></pre>
-                          </div>
-
-                          <div class="tab-pane" id="examples-Admin-postMovieDetails-0-android">
-                            <pre class="prettyprint"><code class="language-java">import io.swagger.client.api.AdminApi;
-
-public class AdminApiExample {
-
-    public static void main(String[] args) {
-        AdminApi apiInstance = new AdminApi();
-        Movie body = ; // Movie | movie object
-        Long movieID = 789; // Long | The movie ID
-        try {
-            apiInstance.postMovieDetails(body, movieID);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling AdminApi#postMovieDetails");
-            e.printStackTrace();
-        }
-    }
-}</code></pre>
-                          </div>
-  <!--
-  <div class="tab-pane" id="examples-Admin-postMovieDetails-0-groovy">
-  <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
-  </div> -->
-                            <div class="tab-pane" id="examples-Admin-postMovieDetails-0-objc">
-                              <pre class="prettyprint"><code class="language-cpp">Movie *body = ; // movie object
-Long *movieID = 789; // The movie ID
-
-AdminApi *apiInstance = [[AdminApi alloc] init];
-
-// Set movie details
-[apiInstance postMovieDetailsWith:body
-    movieID:movieID
-              completionHandler: ^(NSError* error) {
-                            if (error) {
-                                NSLog(@"Error: %@", error);
-                            }
-                        }];
-</code></pre>
-                            </div>
-
-                            <div class="tab-pane" id="examples-Admin-postMovieDetails-0-javascript">
-                              <pre class="prettyprint"><code class="language-js">var PicturePerfect = require('picture_perfect');
-
-var api = new PicturePerfect.AdminApi()
-var body = ; // {{Movie}} movie object
-var movieID = 789; // {{Long}} The movie ID
-
-var callback = function(error, data, response) {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully.');
-  }
-};
-api.postMovieDetails(bodymovieID, callback);
-</code></pre>
-                            </div>
-
-                            <!--<div class="tab-pane" id="examples-Admin-postMovieDetails-0-angular">
-              <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
-            </div>-->
-                            <div class="tab-pane" id="examples-Admin-postMovieDetails-0-csharp">
-                              <pre class="prettyprint"><code class="language-cs">using System;
-using System.Diagnostics;
-using IO.Swagger.Api;
-using IO.Swagger.Client;
-using IO.Swagger.Model;
-
-namespace Example
-{
-    public class postMovieDetailsExample
-    {
-        public void main()
-        {
-
-            var apiInstance = new AdminApi();
-            var body = new Movie(); // Movie | movie object
-            var movieID = 789;  // Long | The movie ID
-
-            try
-            {
-                // Set movie details
-                apiInstance.postMovieDetails(body, movieID);
-            }
-            catch (Exception e)
-            {
-                Debug.Print("Exception when calling AdminApi.postMovieDetails: " + e.Message );
-            }
-        }
-    }
-}
-</code></pre>
-                            </div>
-
-                            <div class="tab-pane" id="examples-Admin-postMovieDetails-0-php">
-                              <pre class="prettyprint"><code class="language-php"><&#63;php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-$api_instance = new Swagger\Client\ApiAdminApi();
-$body = ; // Movie | movie object
-$movieID = 789; // Long | The movie ID
-
-try {
-    $api_instance->postMovieDetails($body, $movieID);
-} catch (Exception $e) {
-    echo 'Exception when calling AdminApi->postMovieDetails: ', $e->getMessage(), PHP_EOL;
-}
-?></code></pre>
-                            </div>
-
-                            <div class="tab-pane" id="examples-Admin-postMovieDetails-0-perl">
-                              <pre class="prettyprint"><code class="language-perl">use Data::Dumper;
-use WWW::SwaggerClient::Configuration;
-use WWW::SwaggerClient::AdminApi;
-
-my $api_instance = WWW::SwaggerClient::AdminApi->new();
-my $body = WWW::SwaggerClient::Object::Movie->new(); # Movie | movie object
-my $movieID = 789; # Long | The movie ID
-
-eval { 
-    $api_instance->postMovieDetails(body => $body, movieID => $movieID);
-};
-if ($@) {
-    warn "Exception when calling AdminApi->postMovieDetails: $@\n";
-}</code></pre>
-                            </div>
-
-                            <div class="tab-pane" id="examples-Admin-postMovieDetails-0-python">
-                              <pre class="prettyprint"><code class="language-python">from __future__ import print_statement
-import time
-import swagger_client
-from swagger_client.rest import ApiException
-from pprint import pprint
-
-# create an instance of the API class
-api_instance = swagger_client.AdminApi()
-body =  # Movie | movie object
-movieID = 789 # Long | The movie ID
-
-try: 
-    # Set movie details
-    api_instance.post_movie_details(body, movieID)
-except ApiException as e:
-    print("Exception when calling AdminApi->postMovieDetails: %s\n" % e)</code></pre>
-                            </div>
-                          </div>
-
-                          <h2>Parameters</h2>
-
-                            <div class="methodsubtabletitle">Path parameters</div>
-                            <table id="methodsubtable">
-                                <tr>
-                                  <th width="150px">Name</th>
-                                  <th>Description</th>
-                                </tr>
-                                  <tr><td style="width:150px;">movieID*</td>
-                                  <td>
-                                  
-                                  
-                                      <div id="d2e199_postMovieDetails_movieID">
-                                          <div class="json-schema-view">
-                                              <div class="primitive">
-                                                  <span class="type">
-                                                      Long
-                                                  </span>
-                                                      <span class="format">
-                                                          (int64)
-                                                      </span>
-                                  
-                                                      <div class="inner description">
-                                                          The movie ID
-                                                      </div>
-                                              </div>
-                                                  <div class="inner required">
-                                                      Required
-                                                  </div>
-                                          </div>
-                                      </div>
-                                  </td>
-                                  </tr>
-                            </table>
-
-
-                            <div class="methodsubtabletitle">Body parameters</div>
-                            <table id="methodsubtable">
-                              <tr>
-                                <th width="150px">Name</th>
-                                <th>Description</th>
-                              </tr>
-                                <tr><td style="width:150px;">body <span style="color:red;">*</span></td>
-                                <td>
-                                
-                                
-                                <script>
-                                $(document).ready(function() {
-                                  var schemaWrapper = {
-  "description" : "movie object",
-  "content" : {
-    "application/json" : {
-      "schema" : {
-        "$ref" : "#/components/schemas/Movie"
-      }
-    }
-  },
-  "required" : true
-};
-                                  var schema = schemaWrapper.content["application/json"].schema;
-                                  if (schema.$ref != null) {
-                                    schema = defsParser.$refs.get(schema.$ref);
-                                  } else {
-                                    schemaWrapper.components = {};
-                                    schemaWrapper.components.schemas = Object.assign({}, defs);
-                                    $RefParser.dereference(schemaWrapper).catch(function(err) {
-                                      console.log(err);
-                                    });
-                                  }
-                                
-                                  var view = new JSONSchemaView(schema,2,{isBodyParam: true});
-                                  var result = $('#d2e199_postMovieDetails_body');
-                                  result.empty();
-                                  result.append(view.render());
-                                });
-                                </script>
-                                <div id="d2e199_postMovieDetails_body"></div>
-                                </td>
-                                </tr>
-                            </table>
-
-
-
-                          <h2>Responses</h2>
-                            <h3> Status: 200 - OK </h3>
-
-                            <ul class="nav nav-tabs nav-tabs-examples" >
-                            </ul>
-
-                            <div class="tab-content" style='margin-bottom: 10px;'>
                             </div>
 
                         </article>
@@ -3511,15 +3210,15 @@ except ApiException as e:
                       <article id="api-Admin-setMovieDetails-0" data-group="User" data-name="setMovieDetails" data-version="0">
                         <div class="pull-left">
                           <h1>setMovieDetails</h1>
-                          <p>Update movie details</p>
+                          <p>Set full movie details</p>
                         </div>
                         <div class="pull-right"></div>
                         <div class="clearfix"></div>
                         <p></p>
-                        <p class="marked">Update movie catalogue attribute</p>
+                        <p class="marked">Replaces entire movie object</p>
                         <p></p>
                         <br />
-                        <pre class="prettyprint language-html prettyprinted" data-type="patch"><code><span class="pln">/movies/catalogue/{movieID}</span></code></pre>
+                        <pre class="prettyprint language-html prettyprinted" data-type="post"><code><span class="pln">/movies/catalogue/{movieID}</span></code></pre>
                         <p>
                           <h3>Usage and SDK Samples</h3>
                         </p>
@@ -3539,7 +3238,7 @@ except ApiException as e:
 
                         <div class="tab-content">
                           <div class="tab-pane active" id="examples-Admin-setMovieDetails-0-curl">
-                            <pre class="prettyprint"><code class="language-bsh">curl -X PATCH "//movies/catalogue/{movieID}"</code></pre>
+                            <pre class="prettyprint"><code class="language-bsh">curl -X POST "//movies/catalogue/{movieID}"</code></pre>
                           </div>
                           <div class="tab-pane" id="examples-Admin-setMovieDetails-0-java">
                             <pre class="prettyprint"><code class="language-java">import io.swagger.client.*;
@@ -3555,7 +3254,7 @@ public class AdminApiExample {
     public static void main(String[] args) {
         
         AdminApi apiInstance = new AdminApi();
-        Movie body = ; // Movie | Movie Attributes that need to be updated
+        Movie body = ; // Movie | movie object
         Long movieID = 789; // Long | The movie ID
         try {
             apiInstance.setMovieDetails(body, movieID);
@@ -3574,7 +3273,7 @@ public class AdminApiExample {
 
     public static void main(String[] args) {
         AdminApi apiInstance = new AdminApi();
-        Movie body = ; // Movie | Movie Attributes that need to be updated
+        Movie body = ; // Movie | movie object
         Long movieID = 789; // Long | The movie ID
         try {
             apiInstance.setMovieDetails(body, movieID);
@@ -3590,12 +3289,12 @@ public class AdminApiExample {
   <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
   </div> -->
                             <div class="tab-pane" id="examples-Admin-setMovieDetails-0-objc">
-                              <pre class="prettyprint"><code class="language-cpp">Movie *body = ; // Movie Attributes that need to be updated
+                              <pre class="prettyprint"><code class="language-cpp">Movie *body = ; // movie object
 Long *movieID = 789; // The movie ID
 
 AdminApi *apiInstance = [[AdminApi alloc] init];
 
-// Update movie details
+// Set full movie details
 [apiInstance setMovieDetailsWith:body
     movieID:movieID
               completionHandler: ^(NSError* error) {
@@ -3610,7 +3309,7 @@ AdminApi *apiInstance = [[AdminApi alloc] init];
                               <pre class="prettyprint"><code class="language-js">var PicturePerfect = require('picture_perfect');
 
 var api = new PicturePerfect.AdminApi()
-var body = ; // {{Movie}} Movie Attributes that need to be updated
+var body = ; // {{Movie}} movie object
 var movieID = 789; // {{Long}} The movie ID
 
 var callback = function(error, data, response) {
@@ -3642,12 +3341,12 @@ namespace Example
         {
 
             var apiInstance = new AdminApi();
-            var body = new Movie(); // Movie | Movie Attributes that need to be updated
+            var body = new Movie(); // Movie | movie object
             var movieID = 789;  // Long | The movie ID
 
             try
             {
-                // Update movie details
+                // Set full movie details
                 apiInstance.setMovieDetails(body, movieID);
             }
             catch (Exception e)
@@ -3665,7 +3364,7 @@ namespace Example
 require_once(__DIR__ . '/vendor/autoload.php');
 
 $api_instance = new Swagger\Client\ApiAdminApi();
-$body = ; // Movie | Movie Attributes that need to be updated
+$body = ; // Movie | movie object
 $movieID = 789; // Long | The movie ID
 
 try {
@@ -3682,7 +3381,7 @@ use WWW::SwaggerClient::Configuration;
 use WWW::SwaggerClient::AdminApi;
 
 my $api_instance = WWW::SwaggerClient::AdminApi->new();
-my $body = WWW::SwaggerClient::Object::Movie->new(); # Movie | Movie Attributes that need to be updated
+my $body = WWW::SwaggerClient::Object::Movie->new(); # Movie | movie object
 my $movieID = 789; # Long | The movie ID
 
 eval { 
@@ -3702,11 +3401,11 @@ from pprint import pprint
 
 # create an instance of the API class
 api_instance = swagger_client.AdminApi()
-body =  # Movie | Movie Attributes that need to be updated
+body =  # Movie | movie object
 movieID = 789 # Long | The movie ID
 
 try: 
-    # Update movie details
+    # Set full movie details
     api_instance.set_movie_details(body, movieID)
 except ApiException as e:
     print("Exception when calling AdminApi->setMovieDetails: %s\n" % e)</code></pre>
@@ -3726,6 +3425,307 @@ except ApiException as e:
                                   
                                   
                                       <div id="d2e199_setMovieDetails_movieID">
+                                          <div class="json-schema-view">
+                                              <div class="primitive">
+                                                  <span class="type">
+                                                      Long
+                                                  </span>
+                                                      <span class="format">
+                                                          (int64)
+                                                      </span>
+                                  
+                                                      <div class="inner description">
+                                                          The movie ID
+                                                      </div>
+                                              </div>
+                                                  <div class="inner required">
+                                                      Required
+                                                  </div>
+                                          </div>
+                                      </div>
+                                  </td>
+                                  </tr>
+                            </table>
+
+
+                            <div class="methodsubtabletitle">Body parameters</div>
+                            <table id="methodsubtable">
+                              <tr>
+                                <th width="150px">Name</th>
+                                <th>Description</th>
+                              </tr>
+                                <tr><td style="width:150px;">body <span style="color:red;">*</span></td>
+                                <td>
+                                
+                                
+                                <script>
+                                $(document).ready(function() {
+                                  var schemaWrapper = {
+  "description" : "movie object",
+  "content" : {
+    "application/json" : {
+      "schema" : {
+        "$ref" : "#/components/schemas/Movie"
+      }
+    }
+  },
+  "required" : true
+};
+                                  var schema = schemaWrapper.content["application/json"].schema;
+                                  if (schema.$ref != null) {
+                                    schema = defsParser.$refs.get(schema.$ref);
+                                  } else {
+                                    schemaWrapper.components = {};
+                                    schemaWrapper.components.schemas = Object.assign({}, defs);
+                                    $RefParser.dereference(schemaWrapper).catch(function(err) {
+                                      console.log(err);
+                                    });
+                                  }
+                                
+                                  var view = new JSONSchemaView(schema,2,{isBodyParam: true});
+                                  var result = $('#d2e199_setMovieDetails_body');
+                                  result.empty();
+                                  result.append(view.render());
+                                });
+                                </script>
+                                <div id="d2e199_setMovieDetails_body"></div>
+                                </td>
+                                </tr>
+                            </table>
+
+
+
+                          <h2>Responses</h2>
+                            <h3> Status: 200 - OK </h3>
+
+                            <ul class="nav nav-tabs nav-tabs-examples" >
+                            </ul>
+
+                            <div class="tab-content" style='margin-bottom: 10px;'>
+                            </div>
+
+                        </article>
+                      </div>
+                      <hr>
+                    <div id="api-Admin-updateMovieDetails">
+                      <article id="api-Admin-updateMovieDetails-0" data-group="User" data-name="updateMovieDetails" data-version="0">
+                        <div class="pull-left">
+                          <h1>updateMovieDetails</h1>
+                          <p>Update movie details</p>
+                        </div>
+                        <div class="pull-right"></div>
+                        <div class="clearfix"></div>
+                        <p></p>
+                        <p class="marked">Update movie catalogue attribute</p>
+                        <p></p>
+                        <br />
+                        <pre class="prettyprint language-html prettyprinted" data-type="patch"><code><span class="pln">/movies/catalogue/{movieID}</span></code></pre>
+                        <p>
+                          <h3>Usage and SDK Samples</h3>
+                        </p>
+                        <ul class="nav nav-tabs nav-tabs-examples">
+                          <li class="active"><a href="#examples-Admin-updateMovieDetails-0-curl">Curl</a></li>
+                          <li class=""><a href="#examples-Admin-updateMovieDetails-0-java">Java</a></li>
+                          <li class=""><a href="#examples-Admin-updateMovieDetails-0-android">Android</a></li>
+                          <!--<li class=""><a href="#examples-Admin-updateMovieDetails-0-groovy">Groovy</a></li>-->
+                          <li class=""><a href="#examples-Admin-updateMovieDetails-0-objc">Obj-C</a></li>
+                          <li class=""><a href="#examples-Admin-updateMovieDetails-0-javascript">JavaScript</a></li>
+                          <!--<li class=""><a href="#examples-Admin-updateMovieDetails-0-angular">Angular</a></li>-->
+                          <li class=""><a href="#examples-Admin-updateMovieDetails-0-csharp">C#</a></li>
+                          <li class=""><a href="#examples-Admin-updateMovieDetails-0-php">PHP</a></li>
+                          <li class=""><a href="#examples-Admin-updateMovieDetails-0-perl">Perl</a></li>
+                          <li class=""><a href="#examples-Admin-updateMovieDetails-0-python">Python</a></li>
+                        </ul>
+
+                        <div class="tab-content">
+                          <div class="tab-pane active" id="examples-Admin-updateMovieDetails-0-curl">
+                            <pre class="prettyprint"><code class="language-bsh">curl -X PATCH "//movies/catalogue/{movieID}"</code></pre>
+                          </div>
+                          <div class="tab-pane" id="examples-Admin-updateMovieDetails-0-java">
+                            <pre class="prettyprint"><code class="language-java">import io.swagger.client.*;
+import io.swagger.client.auth.*;
+import io.swagger.client.model.*;
+import io.swagger.client.api.AdminApi;
+
+import java.io.File;
+import java.util.*;
+
+public class AdminApiExample {
+
+    public static void main(String[] args) {
+        
+        AdminApi apiInstance = new AdminApi();
+        Movie body = ; // Movie | Movie Attributes that need to be updated
+        Long movieID = 789; // Long | The movie ID
+        try {
+            apiInstance.updateMovieDetails(body, movieID);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling AdminApi#updateMovieDetails");
+            e.printStackTrace();
+        }
+    }
+}</code></pre>
+                          </div>
+
+                          <div class="tab-pane" id="examples-Admin-updateMovieDetails-0-android">
+                            <pre class="prettyprint"><code class="language-java">import io.swagger.client.api.AdminApi;
+
+public class AdminApiExample {
+
+    public static void main(String[] args) {
+        AdminApi apiInstance = new AdminApi();
+        Movie body = ; // Movie | Movie Attributes that need to be updated
+        Long movieID = 789; // Long | The movie ID
+        try {
+            apiInstance.updateMovieDetails(body, movieID);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling AdminApi#updateMovieDetails");
+            e.printStackTrace();
+        }
+    }
+}</code></pre>
+                          </div>
+  <!--
+  <div class="tab-pane" id="examples-Admin-updateMovieDetails-0-groovy">
+  <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
+  </div> -->
+                            <div class="tab-pane" id="examples-Admin-updateMovieDetails-0-objc">
+                              <pre class="prettyprint"><code class="language-cpp">Movie *body = ; // Movie Attributes that need to be updated
+Long *movieID = 789; // The movie ID
+
+AdminApi *apiInstance = [[AdminApi alloc] init];
+
+// Update movie details
+[apiInstance updateMovieDetailsWith:body
+    movieID:movieID
+              completionHandler: ^(NSError* error) {
+                            if (error) {
+                                NSLog(@"Error: %@", error);
+                            }
+                        }];
+</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Admin-updateMovieDetails-0-javascript">
+                              <pre class="prettyprint"><code class="language-js">var PicturePerfect = require('picture_perfect');
+
+var api = new PicturePerfect.AdminApi()
+var body = ; // {{Movie}} Movie Attributes that need to be updated
+var movieID = 789; // {{Long}} The movie ID
+
+var callback = function(error, data, response) {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully.');
+  }
+};
+api.updateMovieDetails(bodymovieID, callback);
+</code></pre>
+                            </div>
+
+                            <!--<div class="tab-pane" id="examples-Admin-updateMovieDetails-0-angular">
+              <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
+            </div>-->
+                            <div class="tab-pane" id="examples-Admin-updateMovieDetails-0-csharp">
+                              <pre class="prettyprint"><code class="language-cs">using System;
+using System.Diagnostics;
+using IO.Swagger.Api;
+using IO.Swagger.Client;
+using IO.Swagger.Model;
+
+namespace Example
+{
+    public class updateMovieDetailsExample
+    {
+        public void main()
+        {
+
+            var apiInstance = new AdminApi();
+            var body = new Movie(); // Movie | Movie Attributes that need to be updated
+            var movieID = 789;  // Long | The movie ID
+
+            try
+            {
+                // Update movie details
+                apiInstance.updateMovieDetails(body, movieID);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling AdminApi.updateMovieDetails: " + e.Message );
+            }
+        }
+    }
+}
+</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Admin-updateMovieDetails-0-php">
+                              <pre class="prettyprint"><code class="language-php"><&#63;php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+$api_instance = new Swagger\Client\ApiAdminApi();
+$body = ; // Movie | Movie Attributes that need to be updated
+$movieID = 789; // Long | The movie ID
+
+try {
+    $api_instance->updateMovieDetails($body, $movieID);
+} catch (Exception $e) {
+    echo 'Exception when calling AdminApi->updateMovieDetails: ', $e->getMessage(), PHP_EOL;
+}
+?></code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Admin-updateMovieDetails-0-perl">
+                              <pre class="prettyprint"><code class="language-perl">use Data::Dumper;
+use WWW::SwaggerClient::Configuration;
+use WWW::SwaggerClient::AdminApi;
+
+my $api_instance = WWW::SwaggerClient::AdminApi->new();
+my $body = WWW::SwaggerClient::Object::Movie->new(); # Movie | Movie Attributes that need to be updated
+my $movieID = 789; # Long | The movie ID
+
+eval { 
+    $api_instance->updateMovieDetails(body => $body, movieID => $movieID);
+};
+if ($@) {
+    warn "Exception when calling AdminApi->updateMovieDetails: $@\n";
+}</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Admin-updateMovieDetails-0-python">
+                              <pre class="prettyprint"><code class="language-python">from __future__ import print_statement
+import time
+import swagger_client
+from swagger_client.rest import ApiException
+from pprint import pprint
+
+# create an instance of the API class
+api_instance = swagger_client.AdminApi()
+body =  # Movie | Movie Attributes that need to be updated
+movieID = 789 # Long | The movie ID
+
+try: 
+    # Update movie details
+    api_instance.update_movie_details(body, movieID)
+except ApiException as e:
+    print("Exception when calling AdminApi->updateMovieDetails: %s\n" % e)</code></pre>
+                            </div>
+                          </div>
+
+                          <h2>Parameters</h2>
+
+                            <div class="methodsubtabletitle">Path parameters</div>
+                            <table id="methodsubtable">
+                                <tr>
+                                  <th width="150px">Name</th>
+                                  <th>Description</th>
+                                </tr>
+                                  <tr><td style="width:150px;">movieID*</td>
+                                  <td>
+                                  
+                                  
+                                      <div id="d2e199_updateMovieDetails_movieID">
                                           <div class="json-schema-view">
                                               <div class="primitive">
                                                   <span class="type">
@@ -3784,12 +3784,12 @@ except ApiException as e:
                                   }
                                 
                                   var view = new JSONSchemaView(schema,2,{isBodyParam: true});
-                                  var result = $('#d2e199_setMovieDetails_body');
+                                  var result = $('#d2e199_updateMovieDetails_body');
                                   result.empty();
                                   result.append(view.render());
                                 });
                                 </script>
-                                <div id="d2e199_setMovieDetails_body"></div>
+                                <div id="d2e199_updateMovieDetails_body"></div>
                                 </td>
                                 </tr>
                             </table>
@@ -3808,10 +3808,10 @@ except ApiException as e:
                         </article>
                       </div>
                       <hr>
-                    <div id="api-Admin-uploadFile">
-                      <article id="api-Admin-uploadFile-0" data-group="User" data-name="uploadFile" data-version="0">
+                    <div id="api-Admin-uploadMediaToMovie">
+                      <article id="api-Admin-uploadMediaToMovie-0" data-group="User" data-name="uploadMediaToMovie" data-version="0">
                         <div class="pull-left">
-                          <h1>uploadFile</h1>
+                          <h1>uploadMediaToMovie</h1>
                           <p>upload an image related to the movie</p>
                         </div>
                         <div class="pull-right"></div>
@@ -3825,24 +3825,24 @@ except ApiException as e:
                           <h3>Usage and SDK Samples</h3>
                         </p>
                         <ul class="nav nav-tabs nav-tabs-examples">
-                          <li class="active"><a href="#examples-Admin-uploadFile-0-curl">Curl</a></li>
-                          <li class=""><a href="#examples-Admin-uploadFile-0-java">Java</a></li>
-                          <li class=""><a href="#examples-Admin-uploadFile-0-android">Android</a></li>
-                          <!--<li class=""><a href="#examples-Admin-uploadFile-0-groovy">Groovy</a></li>-->
-                          <li class=""><a href="#examples-Admin-uploadFile-0-objc">Obj-C</a></li>
-                          <li class=""><a href="#examples-Admin-uploadFile-0-javascript">JavaScript</a></li>
-                          <!--<li class=""><a href="#examples-Admin-uploadFile-0-angular">Angular</a></li>-->
-                          <li class=""><a href="#examples-Admin-uploadFile-0-csharp">C#</a></li>
-                          <li class=""><a href="#examples-Admin-uploadFile-0-php">PHP</a></li>
-                          <li class=""><a href="#examples-Admin-uploadFile-0-perl">Perl</a></li>
-                          <li class=""><a href="#examples-Admin-uploadFile-0-python">Python</a></li>
+                          <li class="active"><a href="#examples-Admin-uploadMediaToMovie-0-curl">Curl</a></li>
+                          <li class=""><a href="#examples-Admin-uploadMediaToMovie-0-java">Java</a></li>
+                          <li class=""><a href="#examples-Admin-uploadMediaToMovie-0-android">Android</a></li>
+                          <!--<li class=""><a href="#examples-Admin-uploadMediaToMovie-0-groovy">Groovy</a></li>-->
+                          <li class=""><a href="#examples-Admin-uploadMediaToMovie-0-objc">Obj-C</a></li>
+                          <li class=""><a href="#examples-Admin-uploadMediaToMovie-0-javascript">JavaScript</a></li>
+                          <!--<li class=""><a href="#examples-Admin-uploadMediaToMovie-0-angular">Angular</a></li>-->
+                          <li class=""><a href="#examples-Admin-uploadMediaToMovie-0-csharp">C#</a></li>
+                          <li class=""><a href="#examples-Admin-uploadMediaToMovie-0-php">PHP</a></li>
+                          <li class=""><a href="#examples-Admin-uploadMediaToMovie-0-perl">Perl</a></li>
+                          <li class=""><a href="#examples-Admin-uploadMediaToMovie-0-python">Python</a></li>
                         </ul>
 
                         <div class="tab-content">
-                          <div class="tab-pane active" id="examples-Admin-uploadFile-0-curl">
+                          <div class="tab-pane active" id="examples-Admin-uploadMediaToMovie-0-curl">
                             <pre class="prettyprint"><code class="language-bsh">curl -X POST "//movies/catalogue/{movieID}/uploadImage?setAsThumbnail="</code></pre>
                           </div>
-                          <div class="tab-pane" id="examples-Admin-uploadFile-0-java">
+                          <div class="tab-pane" id="examples-Admin-uploadMediaToMovie-0-java">
                             <pre class="prettyprint"><code class="language-java">import io.swagger.client.*;
 import io.swagger.client.auth.*;
 import io.swagger.client.model.*;
@@ -3861,16 +3861,16 @@ public class AdminApiExample {
         byte[] file = file_example; // byte[] | 
         Boolean setAsThumbnail = true; // Boolean | sets the image as thumbnail if true
         try {
-            apiInstance.uploadFile(movieID, additionalMetadata, file, setAsThumbnail);
+            apiInstance.uploadMediaToMovie(movieID, additionalMetadata, file, setAsThumbnail);
         } catch (ApiException e) {
-            System.err.println("Exception when calling AdminApi#uploadFile");
+            System.err.println("Exception when calling AdminApi#uploadMediaToMovie");
             e.printStackTrace();
         }
     }
 }</code></pre>
                           </div>
 
-                          <div class="tab-pane" id="examples-Admin-uploadFile-0-android">
+                          <div class="tab-pane" id="examples-Admin-uploadMediaToMovie-0-android">
                             <pre class="prettyprint"><code class="language-java">import io.swagger.client.api.AdminApi;
 
 public class AdminApiExample {
@@ -3882,19 +3882,19 @@ public class AdminApiExample {
         byte[] file = file_example; // byte[] | 
         Boolean setAsThumbnail = true; // Boolean | sets the image as thumbnail if true
         try {
-            apiInstance.uploadFile(movieID, additionalMetadata, file, setAsThumbnail);
+            apiInstance.uploadMediaToMovie(movieID, additionalMetadata, file, setAsThumbnail);
         } catch (ApiException e) {
-            System.err.println("Exception when calling AdminApi#uploadFile");
+            System.err.println("Exception when calling AdminApi#uploadMediaToMovie");
             e.printStackTrace();
         }
     }
 }</code></pre>
                           </div>
   <!--
-  <div class="tab-pane" id="examples-Admin-uploadFile-0-groovy">
+  <div class="tab-pane" id="examples-Admin-uploadMediaToMovie-0-groovy">
   <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
   </div> -->
-                            <div class="tab-pane" id="examples-Admin-uploadFile-0-objc">
+                            <div class="tab-pane" id="examples-Admin-uploadMediaToMovie-0-objc">
                               <pre class="prettyprint"><code class="language-cpp">Long *movieID = 789; // ID of movie to update
 String *additionalMetadata = additionalMetadata_example; //  (optional)
 byte[] *file = file_example; //  (optional)
@@ -3903,7 +3903,7 @@ Boolean *setAsThumbnail = true; // sets the image as thumbnail if true (optional
 AdminApi *apiInstance = [[AdminApi alloc] init];
 
 // upload an image related to the movie
-[apiInstance uploadFileWith:movieID
+[apiInstance uploadMediaToMovieWith:movieID
     additionalMetadata:additionalMetadata
     file:file
     setAsThumbnail:setAsThumbnail
@@ -3915,7 +3915,7 @@ AdminApi *apiInstance = [[AdminApi alloc] init];
 </code></pre>
                             </div>
 
-                            <div class="tab-pane" id="examples-Admin-uploadFile-0-javascript">
+                            <div class="tab-pane" id="examples-Admin-uploadMediaToMovie-0-javascript">
                               <pre class="prettyprint"><code class="language-js">var PicturePerfect = require('picture_perfect');
 
 var api = new PicturePerfect.AdminApi()
@@ -3932,14 +3932,14 @@ var callback = function(error, data, response) {
     console.log('API called successfully.');
   }
 };
-api.uploadFile(movieID, opts, callback);
+api.uploadMediaToMovie(movieID, opts, callback);
 </code></pre>
                             </div>
 
-                            <!--<div class="tab-pane" id="examples-Admin-uploadFile-0-angular">
+                            <!--<div class="tab-pane" id="examples-Admin-uploadMediaToMovie-0-angular">
               <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
             </div>-->
-                            <div class="tab-pane" id="examples-Admin-uploadFile-0-csharp">
+                            <div class="tab-pane" id="examples-Admin-uploadMediaToMovie-0-csharp">
                               <pre class="prettyprint"><code class="language-cs">using System;
 using System.Diagnostics;
 using IO.Swagger.Api;
@@ -3948,7 +3948,7 @@ using IO.Swagger.Model;
 
 namespace Example
 {
-    public class uploadFileExample
+    public class uploadMediaToMovieExample
     {
         public void main()
         {
@@ -3962,11 +3962,11 @@ namespace Example
             try
             {
                 // upload an image related to the movie
-                apiInstance.uploadFile(movieID, additionalMetadata, file, setAsThumbnail);
+                apiInstance.uploadMediaToMovie(movieID, additionalMetadata, file, setAsThumbnail);
             }
             catch (Exception e)
             {
-                Debug.Print("Exception when calling AdminApi.uploadFile: " + e.Message );
+                Debug.Print("Exception when calling AdminApi.uploadMediaToMovie: " + e.Message );
             }
         }
     }
@@ -3974,7 +3974,7 @@ namespace Example
 </code></pre>
                             </div>
 
-                            <div class="tab-pane" id="examples-Admin-uploadFile-0-php">
+                            <div class="tab-pane" id="examples-Admin-uploadMediaToMovie-0-php">
                               <pre class="prettyprint"><code class="language-php"><&#63;php
 require_once(__DIR__ . '/vendor/autoload.php');
 
@@ -3985,14 +3985,14 @@ $file = file_example; // byte[] |
 $setAsThumbnail = true; // Boolean | sets the image as thumbnail if true
 
 try {
-    $api_instance->uploadFile($movieID, $additionalMetadata, $file, $setAsThumbnail);
+    $api_instance->uploadMediaToMovie($movieID, $additionalMetadata, $file, $setAsThumbnail);
 } catch (Exception $e) {
-    echo 'Exception when calling AdminApi->uploadFile: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling AdminApi->uploadMediaToMovie: ', $e->getMessage(), PHP_EOL;
 }
 ?></code></pre>
                             </div>
 
-                            <div class="tab-pane" id="examples-Admin-uploadFile-0-perl">
+                            <div class="tab-pane" id="examples-Admin-uploadMediaToMovie-0-perl">
                               <pre class="prettyprint"><code class="language-perl">use Data::Dumper;
 use WWW::SwaggerClient::Configuration;
 use WWW::SwaggerClient::AdminApi;
@@ -4004,14 +4004,14 @@ my $file = file_example; # byte[] |
 my $setAsThumbnail = true; # Boolean | sets the image as thumbnail if true
 
 eval { 
-    $api_instance->uploadFile(movieID => $movieID, additionalMetadata => $additionalMetadata, file => $file, setAsThumbnail => $setAsThumbnail);
+    $api_instance->uploadMediaToMovie(movieID => $movieID, additionalMetadata => $additionalMetadata, file => $file, setAsThumbnail => $setAsThumbnail);
 };
 if ($@) {
-    warn "Exception when calling AdminApi->uploadFile: $@\n";
+    warn "Exception when calling AdminApi->uploadMediaToMovie: $@\n";
 }</code></pre>
                             </div>
 
-                            <div class="tab-pane" id="examples-Admin-uploadFile-0-python">
+                            <div class="tab-pane" id="examples-Admin-uploadMediaToMovie-0-python">
                               <pre class="prettyprint"><code class="language-python">from __future__ import print_statement
 import time
 import swagger_client
@@ -4027,9 +4027,9 @@ setAsThumbnail = true # Boolean | sets the image as thumbnail if true (optional)
 
 try: 
     # upload an image related to the movie
-    api_instance.upload_file(movieID, additionalMetadata=additionalMetadata, file=file, setAsThumbnail=setAsThumbnail)
+    api_instance.upload_media_to_movie(movieID, additionalMetadata=additionalMetadata, file=file, setAsThumbnail=setAsThumbnail)
 except ApiException as e:
-    print("Exception when calling AdminApi->uploadFile: %s\n" % e)</code></pre>
+    print("Exception when calling AdminApi->uploadMediaToMovie: %s\n" % e)</code></pre>
                             </div>
                           </div>
 
@@ -4045,7 +4045,7 @@ except ApiException as e:
                                   <td>
                                   
                                   
-                                      <div id="d2e199_uploadFile_movieID">
+                                      <div id="d2e199_uploadMediaToMovie_movieID">
                                           <div class="json-schema-view">
                                               <div class="primitive">
                                                   <span class="type">
@@ -4080,7 +4080,7 @@ except ApiException as e:
                                   <td>
                                   
                                   
-                                      <div id="d2e199_uploadFile_additionalMetadata">
+                                      <div id="d2e199_uploadMediaToMovie_additionalMetadata">
                                           <div class="json-schema-view">
                                               <div class="primitive">
                                                   <span class="type">
@@ -4096,7 +4096,7 @@ except ApiException as e:
                                   <td>
                                   
                                   
-                                      <div id="d2e199_uploadFile_file">
+                                      <div id="d2e199_uploadMediaToMovie_file">
                                           <div class="json-schema-view">
                                               <div class="primitive">
                                                   <span class="type">
@@ -4123,7 +4123,7 @@ except ApiException as e:
                                 <td>
                                 
                                 
-                                    <div id="d2e199_uploadFile_setAsThumbnail">
+                                    <div id="d2e199_uploadMediaToMovie_setAsThumbnail">
                                         <div class="json-schema-view">
                                             <div class="primitive">
                                                 <span class="type">
@@ -5062,7 +5062,7 @@ public class IAMApiExample {
   </div> -->
                             <div class="tab-pane" id="examples-IAM-getAllUsers-0-objc">
                               <pre class="prettyprint"><code class="language-cpp">String *q = q_example; // Search for a specific user by userID/phone number (optional)
-Integer *limit = 56; // limits query results (default size 50) (optional)
+Integer *limit = 56; // limits query results (default size 50) (optional) (default to 50)
 Integer *offset = 56; // paginates query results (optional)
 String *sort = sort_example; // sort by name (optional)
 
@@ -5124,7 +5124,7 @@ namespace Example
 
             var apiInstance = new IAMApi();
             var q = q_example;  // String | Search for a specific user by userID/phone number (optional) 
-            var limit = 56;  // Integer | limits query results (default size 50) (optional) 
+            var limit = 56;  // Integer | limits query results (default size 50) (optional)  (default to 50)
             var offset = 56;  // Integer | paginates query results (optional) 
             var sort = sort_example;  // String | sort by name (optional) 
 
@@ -5193,7 +5193,7 @@ from pprint import pprint
 # create an instance of the API class
 api_instance = swagger_client.IAMApi()
 q = q_example # String | Search for a specific user by userID/phone number (optional)
-limit = 56 # Integer | limits query results (default size 50) (optional)
+limit = 56 # Integer | limits query results (default size 50) (optional) (default to 50)
 offset = 56 # Integer | paginates query results (optional)
 sort = sort_example # String | sort by name (optional)
 
@@ -6801,10 +6801,10 @@ except ApiException as e:
                   </section>
                 <section id="api-Movie">
                   <h1>Movie</h1>
-                    <div id="api-Movie-addFeaturedByCategory">
-                      <article id="api-Movie-addFeaturedByCategory-0" data-group="User" data-name="addFeaturedByCategory" data-version="0">
+                    <div id="api-Movie-addFeaturedToCategory">
+                      <article id="api-Movie-addFeaturedToCategory-0" data-group="User" data-name="addFeaturedToCategory" data-version="0">
                         <div class="pull-left">
-                          <h1>addFeaturedByCategory</h1>
+                          <h1>addFeaturedToCategory</h1>
                           <p>Add movies to the list of featured movies</p>
                         </div>
                         <div class="pull-right"></div>
@@ -6818,24 +6818,24 @@ except ApiException as e:
                           <h3>Usage and SDK Samples</h3>
                         </p>
                         <ul class="nav nav-tabs nav-tabs-examples">
-                          <li class="active"><a href="#examples-Movie-addFeaturedByCategory-0-curl">Curl</a></li>
-                          <li class=""><a href="#examples-Movie-addFeaturedByCategory-0-java">Java</a></li>
-                          <li class=""><a href="#examples-Movie-addFeaturedByCategory-0-android">Android</a></li>
-                          <!--<li class=""><a href="#examples-Movie-addFeaturedByCategory-0-groovy">Groovy</a></li>-->
-                          <li class=""><a href="#examples-Movie-addFeaturedByCategory-0-objc">Obj-C</a></li>
-                          <li class=""><a href="#examples-Movie-addFeaturedByCategory-0-javascript">JavaScript</a></li>
-                          <!--<li class=""><a href="#examples-Movie-addFeaturedByCategory-0-angular">Angular</a></li>-->
-                          <li class=""><a href="#examples-Movie-addFeaturedByCategory-0-csharp">C#</a></li>
-                          <li class=""><a href="#examples-Movie-addFeaturedByCategory-0-php">PHP</a></li>
-                          <li class=""><a href="#examples-Movie-addFeaturedByCategory-0-perl">Perl</a></li>
-                          <li class=""><a href="#examples-Movie-addFeaturedByCategory-0-python">Python</a></li>
+                          <li class="active"><a href="#examples-Movie-addFeaturedToCategory-0-curl">Curl</a></li>
+                          <li class=""><a href="#examples-Movie-addFeaturedToCategory-0-java">Java</a></li>
+                          <li class=""><a href="#examples-Movie-addFeaturedToCategory-0-android">Android</a></li>
+                          <!--<li class=""><a href="#examples-Movie-addFeaturedToCategory-0-groovy">Groovy</a></li>-->
+                          <li class=""><a href="#examples-Movie-addFeaturedToCategory-0-objc">Obj-C</a></li>
+                          <li class=""><a href="#examples-Movie-addFeaturedToCategory-0-javascript">JavaScript</a></li>
+                          <!--<li class=""><a href="#examples-Movie-addFeaturedToCategory-0-angular">Angular</a></li>-->
+                          <li class=""><a href="#examples-Movie-addFeaturedToCategory-0-csharp">C#</a></li>
+                          <li class=""><a href="#examples-Movie-addFeaturedToCategory-0-php">PHP</a></li>
+                          <li class=""><a href="#examples-Movie-addFeaturedToCategory-0-perl">Perl</a></li>
+                          <li class=""><a href="#examples-Movie-addFeaturedToCategory-0-python">Python</a></li>
                         </ul>
 
                         <div class="tab-content">
-                          <div class="tab-pane active" id="examples-Movie-addFeaturedByCategory-0-curl">
+                          <div class="tab-pane active" id="examples-Movie-addFeaturedToCategory-0-curl">
                             <pre class="prettyprint"><code class="language-bsh">curl -X PUT "//movies/topMoviesByCategory?category="</code></pre>
                           </div>
-                          <div class="tab-pane" id="examples-Movie-addFeaturedByCategory-0-java">
+                          <div class="tab-pane" id="examples-Movie-addFeaturedToCategory-0-java">
                             <pre class="prettyprint"><code class="language-java">import io.swagger.client.*;
 import io.swagger.client.auth.*;
 import io.swagger.client.model.*;
@@ -6852,16 +6852,16 @@ public class MovieApiExample {
         array[Long] body = ; // array[Long] | list of MovieIDs to be added
         TopCategories category = ; // TopCategories | category to be updated
         try {
-            apiInstance.addFeaturedByCategory(body, category);
+            apiInstance.addFeaturedToCategory(body, category);
         } catch (ApiException e) {
-            System.err.println("Exception when calling MovieApi#addFeaturedByCategory");
+            System.err.println("Exception when calling MovieApi#addFeaturedToCategory");
             e.printStackTrace();
         }
     }
 }</code></pre>
                           </div>
 
-                          <div class="tab-pane" id="examples-Movie-addFeaturedByCategory-0-android">
+                          <div class="tab-pane" id="examples-Movie-addFeaturedToCategory-0-android">
                             <pre class="prettyprint"><code class="language-java">import io.swagger.client.api.MovieApi;
 
 public class MovieApiExample {
@@ -6871,26 +6871,26 @@ public class MovieApiExample {
         array[Long] body = ; // array[Long] | list of MovieIDs to be added
         TopCategories category = ; // TopCategories | category to be updated
         try {
-            apiInstance.addFeaturedByCategory(body, category);
+            apiInstance.addFeaturedToCategory(body, category);
         } catch (ApiException e) {
-            System.err.println("Exception when calling MovieApi#addFeaturedByCategory");
+            System.err.println("Exception when calling MovieApi#addFeaturedToCategory");
             e.printStackTrace();
         }
     }
 }</code></pre>
                           </div>
   <!--
-  <div class="tab-pane" id="examples-Movie-addFeaturedByCategory-0-groovy">
+  <div class="tab-pane" id="examples-Movie-addFeaturedToCategory-0-groovy">
   <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
   </div> -->
-                            <div class="tab-pane" id="examples-Movie-addFeaturedByCategory-0-objc">
+                            <div class="tab-pane" id="examples-Movie-addFeaturedToCategory-0-objc">
                               <pre class="prettyprint"><code class="language-cpp">array[Long] *body = ; // list of MovieIDs to be added
 TopCategories *category = ; // category to be updated
 
 MovieApi *apiInstance = [[MovieApi alloc] init];
 
 // Add movies to the list of featured movies
-[apiInstance addFeaturedByCategoryWith:body
+[apiInstance addFeaturedToCategoryWith:body
     category:category
               completionHandler: ^(NSError* error) {
                             if (error) {
@@ -6900,7 +6900,7 @@ MovieApi *apiInstance = [[MovieApi alloc] init];
 </code></pre>
                             </div>
 
-                            <div class="tab-pane" id="examples-Movie-addFeaturedByCategory-0-javascript">
+                            <div class="tab-pane" id="examples-Movie-addFeaturedToCategory-0-javascript">
                               <pre class="prettyprint"><code class="language-js">var PicturePerfect = require('picture_perfect');
 
 var api = new PicturePerfect.MovieApi()
@@ -6914,14 +6914,14 @@ var callback = function(error, data, response) {
     console.log('API called successfully.');
   }
 };
-api.addFeaturedByCategory(bodycategory, callback);
+api.addFeaturedToCategory(bodycategory, callback);
 </code></pre>
                             </div>
 
-                            <!--<div class="tab-pane" id="examples-Movie-addFeaturedByCategory-0-angular">
+                            <!--<div class="tab-pane" id="examples-Movie-addFeaturedToCategory-0-angular">
               <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
             </div>-->
-                            <div class="tab-pane" id="examples-Movie-addFeaturedByCategory-0-csharp">
+                            <div class="tab-pane" id="examples-Movie-addFeaturedToCategory-0-csharp">
                               <pre class="prettyprint"><code class="language-cs">using System;
 using System.Diagnostics;
 using IO.Swagger.Api;
@@ -6930,7 +6930,7 @@ using IO.Swagger.Model;
 
 namespace Example
 {
-    public class addFeaturedByCategoryExample
+    public class addFeaturedToCategoryExample
     {
         public void main()
         {
@@ -6942,11 +6942,11 @@ namespace Example
             try
             {
                 // Add movies to the list of featured movies
-                apiInstance.addFeaturedByCategory(body, category);
+                apiInstance.addFeaturedToCategory(body, category);
             }
             catch (Exception e)
             {
-                Debug.Print("Exception when calling MovieApi.addFeaturedByCategory: " + e.Message );
+                Debug.Print("Exception when calling MovieApi.addFeaturedToCategory: " + e.Message );
             }
         }
     }
@@ -6954,7 +6954,7 @@ namespace Example
 </code></pre>
                             </div>
 
-                            <div class="tab-pane" id="examples-Movie-addFeaturedByCategory-0-php">
+                            <div class="tab-pane" id="examples-Movie-addFeaturedToCategory-0-php">
                               <pre class="prettyprint"><code class="language-php"><&#63;php
 require_once(__DIR__ . '/vendor/autoload.php');
 
@@ -6963,14 +6963,14 @@ $body = ; // array[Long] | list of MovieIDs to be added
 $category = ; // TopCategories | category to be updated
 
 try {
-    $api_instance->addFeaturedByCategory($body, $category);
+    $api_instance->addFeaturedToCategory($body, $category);
 } catch (Exception $e) {
-    echo 'Exception when calling MovieApi->addFeaturedByCategory: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling MovieApi->addFeaturedToCategory: ', $e->getMessage(), PHP_EOL;
 }
 ?></code></pre>
                             </div>
 
-                            <div class="tab-pane" id="examples-Movie-addFeaturedByCategory-0-perl">
+                            <div class="tab-pane" id="examples-Movie-addFeaturedToCategory-0-perl">
                               <pre class="prettyprint"><code class="language-perl">use Data::Dumper;
 use WWW::SwaggerClient::Configuration;
 use WWW::SwaggerClient::MovieApi;
@@ -6980,14 +6980,14 @@ my $body = [WWW::SwaggerClient::Object::array[Long]->new()]; # array[Long] | lis
 my $category = ; # TopCategories | category to be updated
 
 eval { 
-    $api_instance->addFeaturedByCategory(body => $body, category => $category);
+    $api_instance->addFeaturedToCategory(body => $body, category => $category);
 };
 if ($@) {
-    warn "Exception when calling MovieApi->addFeaturedByCategory: $@\n";
+    warn "Exception when calling MovieApi->addFeaturedToCategory: $@\n";
 }</code></pre>
                             </div>
 
-                            <div class="tab-pane" id="examples-Movie-addFeaturedByCategory-0-python">
+                            <div class="tab-pane" id="examples-Movie-addFeaturedToCategory-0-python">
                               <pre class="prettyprint"><code class="language-python">from __future__ import print_statement
 import time
 import swagger_client
@@ -7001,9 +7001,9 @@ category =  # TopCategories | category to be updated
 
 try: 
     # Add movies to the list of featured movies
-    api_instance.add_featured_by_category(body, category)
+    api_instance.add_featured_to_category(body, category)
 except ApiException as e:
-    print("Exception when calling MovieApi->addFeaturedByCategory: %s\n" % e)</code></pre>
+    print("Exception when calling MovieApi->addFeaturedToCategory: %s\n" % e)</code></pre>
                             </div>
                           </div>
 
@@ -7050,12 +7050,12 @@ except ApiException as e:
                                   }
                                 
                                   var view = new JSONSchemaView(schema,2,{isBodyParam: true});
-                                  var result = $('#d2e199_addFeaturedByCategory_body');
+                                  var result = $('#d2e199_addFeaturedToCategory_body');
                                   result.empty();
                                   result.append(view.render());
                                 });
                                 </script>
-                                <div id="d2e199_addFeaturedByCategory_body"></div>
+                                <div id="d2e199_addFeaturedToCategory_body"></div>
                                 </td>
                                 </tr>
                             </table>
@@ -7071,7 +7071,7 @@ except ApiException as e:
                                 <td>
                                 
                                 
-                                    <div id="d2e199_addFeaturedByCategory_category">
+                                    <div id="d2e199_addFeaturedToCategory_category">
                                         <div class="json-schema-view">
                                             <div class="primitive">
                                                 <span class="type">
@@ -7103,10 +7103,10 @@ except ApiException as e:
                         </article>
                       </div>
                       <hr>
-                    <div id="api-Movie-addMovie">
-                      <article id="api-Movie-addMovie-0" data-group="User" data-name="addMovie" data-version="0">
+                    <div id="api-Movie-addMovieToCatalogue">
+                      <article id="api-Movie-addMovieToCatalogue-0" data-group="User" data-name="addMovieToCatalogue" data-version="0">
                         <div class="pull-left">
-                          <h1>addMovie</h1>
+                          <h1>addMovieToCatalogue</h1>
                           <p>Add a movie to the catalogue</p>
                         </div>
                         <div class="pull-right"></div>
@@ -7120,24 +7120,24 @@ except ApiException as e:
                           <h3>Usage and SDK Samples</h3>
                         </p>
                         <ul class="nav nav-tabs nav-tabs-examples">
-                          <li class="active"><a href="#examples-Movie-addMovie-0-curl">Curl</a></li>
-                          <li class=""><a href="#examples-Movie-addMovie-0-java">Java</a></li>
-                          <li class=""><a href="#examples-Movie-addMovie-0-android">Android</a></li>
-                          <!--<li class=""><a href="#examples-Movie-addMovie-0-groovy">Groovy</a></li>-->
-                          <li class=""><a href="#examples-Movie-addMovie-0-objc">Obj-C</a></li>
-                          <li class=""><a href="#examples-Movie-addMovie-0-javascript">JavaScript</a></li>
-                          <!--<li class=""><a href="#examples-Movie-addMovie-0-angular">Angular</a></li>-->
-                          <li class=""><a href="#examples-Movie-addMovie-0-csharp">C#</a></li>
-                          <li class=""><a href="#examples-Movie-addMovie-0-php">PHP</a></li>
-                          <li class=""><a href="#examples-Movie-addMovie-0-perl">Perl</a></li>
-                          <li class=""><a href="#examples-Movie-addMovie-0-python">Python</a></li>
+                          <li class="active"><a href="#examples-Movie-addMovieToCatalogue-0-curl">Curl</a></li>
+                          <li class=""><a href="#examples-Movie-addMovieToCatalogue-0-java">Java</a></li>
+                          <li class=""><a href="#examples-Movie-addMovieToCatalogue-0-android">Android</a></li>
+                          <!--<li class=""><a href="#examples-Movie-addMovieToCatalogue-0-groovy">Groovy</a></li>-->
+                          <li class=""><a href="#examples-Movie-addMovieToCatalogue-0-objc">Obj-C</a></li>
+                          <li class=""><a href="#examples-Movie-addMovieToCatalogue-0-javascript">JavaScript</a></li>
+                          <!--<li class=""><a href="#examples-Movie-addMovieToCatalogue-0-angular">Angular</a></li>-->
+                          <li class=""><a href="#examples-Movie-addMovieToCatalogue-0-csharp">C#</a></li>
+                          <li class=""><a href="#examples-Movie-addMovieToCatalogue-0-php">PHP</a></li>
+                          <li class=""><a href="#examples-Movie-addMovieToCatalogue-0-perl">Perl</a></li>
+                          <li class=""><a href="#examples-Movie-addMovieToCatalogue-0-python">Python</a></li>
                         </ul>
 
                         <div class="tab-content">
-                          <div class="tab-pane active" id="examples-Movie-addMovie-0-curl">
+                          <div class="tab-pane active" id="examples-Movie-addMovieToCatalogue-0-curl">
                             <pre class="prettyprint"><code class="language-bsh">curl -X POST "//movies/catalogue"</code></pre>
                           </div>
-                          <div class="tab-pane" id="examples-Movie-addMovie-0-java">
+                          <div class="tab-pane" id="examples-Movie-addMovieToCatalogue-0-java">
                             <pre class="prettyprint"><code class="language-java">import io.swagger.client.*;
 import io.swagger.client.auth.*;
 import io.swagger.client.model.*;
@@ -7153,16 +7153,16 @@ public class MovieApiExample {
         MovieApi apiInstance = new MovieApi();
         Movie body = ; // Movie | Movie object that needs to be added to the store
         try {
-            apiInstance.addMovie(body);
+            apiInstance.addMovieToCatalogue(body);
         } catch (ApiException e) {
-            System.err.println("Exception when calling MovieApi#addMovie");
+            System.err.println("Exception when calling MovieApi#addMovieToCatalogue");
             e.printStackTrace();
         }
     }
 }</code></pre>
                           </div>
 
-                          <div class="tab-pane" id="examples-Movie-addMovie-0-android">
+                          <div class="tab-pane" id="examples-Movie-addMovieToCatalogue-0-android">
                             <pre class="prettyprint"><code class="language-java">import io.swagger.client.api.MovieApi;
 
 public class MovieApiExample {
@@ -7171,25 +7171,25 @@ public class MovieApiExample {
         MovieApi apiInstance = new MovieApi();
         Movie body = ; // Movie | Movie object that needs to be added to the store
         try {
-            apiInstance.addMovie(body);
+            apiInstance.addMovieToCatalogue(body);
         } catch (ApiException e) {
-            System.err.println("Exception when calling MovieApi#addMovie");
+            System.err.println("Exception when calling MovieApi#addMovieToCatalogue");
             e.printStackTrace();
         }
     }
 }</code></pre>
                           </div>
   <!--
-  <div class="tab-pane" id="examples-Movie-addMovie-0-groovy">
+  <div class="tab-pane" id="examples-Movie-addMovieToCatalogue-0-groovy">
   <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
   </div> -->
-                            <div class="tab-pane" id="examples-Movie-addMovie-0-objc">
+                            <div class="tab-pane" id="examples-Movie-addMovieToCatalogue-0-objc">
                               <pre class="prettyprint"><code class="language-cpp">Movie *body = ; // Movie object that needs to be added to the store
 
 MovieApi *apiInstance = [[MovieApi alloc] init];
 
 // Add a movie to the catalogue
-[apiInstance addMovieWith:body
+[apiInstance addMovieToCatalogueWith:body
               completionHandler: ^(NSError* error) {
                             if (error) {
                                 NSLog(@"Error: %@", error);
@@ -7198,7 +7198,7 @@ MovieApi *apiInstance = [[MovieApi alloc] init];
 </code></pre>
                             </div>
 
-                            <div class="tab-pane" id="examples-Movie-addMovie-0-javascript">
+                            <div class="tab-pane" id="examples-Movie-addMovieToCatalogue-0-javascript">
                               <pre class="prettyprint"><code class="language-js">var PicturePerfect = require('picture_perfect');
 
 var api = new PicturePerfect.MovieApi()
@@ -7211,14 +7211,14 @@ var callback = function(error, data, response) {
     console.log('API called successfully.');
   }
 };
-api.addMovie(body, callback);
+api.addMovieToCatalogue(body, callback);
 </code></pre>
                             </div>
 
-                            <!--<div class="tab-pane" id="examples-Movie-addMovie-0-angular">
+                            <!--<div class="tab-pane" id="examples-Movie-addMovieToCatalogue-0-angular">
               <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
             </div>-->
-                            <div class="tab-pane" id="examples-Movie-addMovie-0-csharp">
+                            <div class="tab-pane" id="examples-Movie-addMovieToCatalogue-0-csharp">
                               <pre class="prettyprint"><code class="language-cs">using System;
 using System.Diagnostics;
 using IO.Swagger.Api;
@@ -7227,7 +7227,7 @@ using IO.Swagger.Model;
 
 namespace Example
 {
-    public class addMovieExample
+    public class addMovieToCatalogueExample
     {
         public void main()
         {
@@ -7238,11 +7238,11 @@ namespace Example
             try
             {
                 // Add a movie to the catalogue
-                apiInstance.addMovie(body);
+                apiInstance.addMovieToCatalogue(body);
             }
             catch (Exception e)
             {
-                Debug.Print("Exception when calling MovieApi.addMovie: " + e.Message );
+                Debug.Print("Exception when calling MovieApi.addMovieToCatalogue: " + e.Message );
             }
         }
     }
@@ -7250,7 +7250,7 @@ namespace Example
 </code></pre>
                             </div>
 
-                            <div class="tab-pane" id="examples-Movie-addMovie-0-php">
+                            <div class="tab-pane" id="examples-Movie-addMovieToCatalogue-0-php">
                               <pre class="prettyprint"><code class="language-php"><&#63;php
 require_once(__DIR__ . '/vendor/autoload.php');
 
@@ -7258,14 +7258,14 @@ $api_instance = new Swagger\Client\ApiMovieApi();
 $body = ; // Movie | Movie object that needs to be added to the store
 
 try {
-    $api_instance->addMovie($body);
+    $api_instance->addMovieToCatalogue($body);
 } catch (Exception $e) {
-    echo 'Exception when calling MovieApi->addMovie: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling MovieApi->addMovieToCatalogue: ', $e->getMessage(), PHP_EOL;
 }
 ?></code></pre>
                             </div>
 
-                            <div class="tab-pane" id="examples-Movie-addMovie-0-perl">
+                            <div class="tab-pane" id="examples-Movie-addMovieToCatalogue-0-perl">
                               <pre class="prettyprint"><code class="language-perl">use Data::Dumper;
 use WWW::SwaggerClient::Configuration;
 use WWW::SwaggerClient::MovieApi;
@@ -7274,14 +7274,14 @@ my $api_instance = WWW::SwaggerClient::MovieApi->new();
 my $body = WWW::SwaggerClient::Object::Movie->new(); # Movie | Movie object that needs to be added to the store
 
 eval { 
-    $api_instance->addMovie(body => $body);
+    $api_instance->addMovieToCatalogue(body => $body);
 };
 if ($@) {
-    warn "Exception when calling MovieApi->addMovie: $@\n";
+    warn "Exception when calling MovieApi->addMovieToCatalogue: $@\n";
 }</code></pre>
                             </div>
 
-                            <div class="tab-pane" id="examples-Movie-addMovie-0-python">
+                            <div class="tab-pane" id="examples-Movie-addMovieToCatalogue-0-python">
                               <pre class="prettyprint"><code class="language-python">from __future__ import print_statement
 import time
 import swagger_client
@@ -7294,9 +7294,9 @@ body =  # Movie | Movie object that needs to be added to the store
 
 try: 
     # Add a movie to the catalogue
-    api_instance.add_movie(body)
+    api_instance.add_movie_to_catalogue(body)
 except ApiException as e:
-    print("Exception when calling MovieApi->addMovie: %s\n" % e)</code></pre>
+    print("Exception when calling MovieApi->addMovieToCatalogue: %s\n" % e)</code></pre>
                             </div>
                           </div>
 
@@ -7339,12 +7339,12 @@ except ApiException as e:
                                   }
                                 
                                   var view = new JSONSchemaView(schema,2,{isBodyParam: true});
-                                  var result = $('#d2e199_addMovie_body');
+                                  var result = $('#d2e199_addMovieToCatalogue_body');
                                   result.empty();
                                   result.append(view.render());
                                 });
                                 </script>
-                                <div id="d2e199_addMovie_body"></div>
+                                <div id="d2e199_addMovieToCatalogue_body"></div>
                                 </td>
                                 </tr>
                             </table>
@@ -8843,10 +8843,10 @@ except ApiException as e:
                         </article>
                       </div>
                       <hr>
-                    <div id="api-Movie-getTopMovies">
-                      <article id="api-Movie-getTopMovies-0" data-group="User" data-name="getTopMovies" data-version="0">
+                    <div id="api-Movie-getTopMoviesByCategory">
+                      <article id="api-Movie-getTopMoviesByCategory-0" data-group="User" data-name="getTopMoviesByCategory" data-version="0">
                         <div class="pull-left">
-                          <h1>getTopMovies</h1>
+                          <h1>getTopMoviesByCategory</h1>
                           <p>Get a list of top/featured movies</p>
                         </div>
                         <div class="pull-right"></div>
@@ -8860,24 +8860,24 @@ except ApiException as e:
                           <h3>Usage and SDK Samples</h3>
                         </p>
                         <ul class="nav nav-tabs nav-tabs-examples">
-                          <li class="active"><a href="#examples-Movie-getTopMovies-0-curl">Curl</a></li>
-                          <li class=""><a href="#examples-Movie-getTopMovies-0-java">Java</a></li>
-                          <li class=""><a href="#examples-Movie-getTopMovies-0-android">Android</a></li>
-                          <!--<li class=""><a href="#examples-Movie-getTopMovies-0-groovy">Groovy</a></li>-->
-                          <li class=""><a href="#examples-Movie-getTopMovies-0-objc">Obj-C</a></li>
-                          <li class=""><a href="#examples-Movie-getTopMovies-0-javascript">JavaScript</a></li>
-                          <!--<li class=""><a href="#examples-Movie-getTopMovies-0-angular">Angular</a></li>-->
-                          <li class=""><a href="#examples-Movie-getTopMovies-0-csharp">C#</a></li>
-                          <li class=""><a href="#examples-Movie-getTopMovies-0-php">PHP</a></li>
-                          <li class=""><a href="#examples-Movie-getTopMovies-0-perl">Perl</a></li>
-                          <li class=""><a href="#examples-Movie-getTopMovies-0-python">Python</a></li>
+                          <li class="active"><a href="#examples-Movie-getTopMoviesByCategory-0-curl">Curl</a></li>
+                          <li class=""><a href="#examples-Movie-getTopMoviesByCategory-0-java">Java</a></li>
+                          <li class=""><a href="#examples-Movie-getTopMoviesByCategory-0-android">Android</a></li>
+                          <!--<li class=""><a href="#examples-Movie-getTopMoviesByCategory-0-groovy">Groovy</a></li>-->
+                          <li class=""><a href="#examples-Movie-getTopMoviesByCategory-0-objc">Obj-C</a></li>
+                          <li class=""><a href="#examples-Movie-getTopMoviesByCategory-0-javascript">JavaScript</a></li>
+                          <!--<li class=""><a href="#examples-Movie-getTopMoviesByCategory-0-angular">Angular</a></li>-->
+                          <li class=""><a href="#examples-Movie-getTopMoviesByCategory-0-csharp">C#</a></li>
+                          <li class=""><a href="#examples-Movie-getTopMoviesByCategory-0-php">PHP</a></li>
+                          <li class=""><a href="#examples-Movie-getTopMoviesByCategory-0-perl">Perl</a></li>
+                          <li class=""><a href="#examples-Movie-getTopMoviesByCategory-0-python">Python</a></li>
                         </ul>
 
                         <div class="tab-content">
-                          <div class="tab-pane active" id="examples-Movie-getTopMovies-0-curl">
+                          <div class="tab-pane active" id="examples-Movie-getTopMoviesByCategory-0-curl">
                             <pre class="prettyprint"><code class="language-bsh">curl -X GET "//movies/topMoviesByCategory?limit=&offset=&category="</code></pre>
                           </div>
-                          <div class="tab-pane" id="examples-Movie-getTopMovies-0-java">
+                          <div class="tab-pane" id="examples-Movie-getTopMoviesByCategory-0-java">
                             <pre class="prettyprint"><code class="language-java">import io.swagger.client.*;
 import io.swagger.client.auth.*;
 import io.swagger.client.model.*;
@@ -8895,17 +8895,17 @@ public class MovieApiExample {
         Integer limit = 56; // Integer | limits query results (default size 20)
         Integer offset = 56; // Integer | paginates query results
         try {
-            array[MovieLite] result = apiInstance.getTopMovies(category, limit, offset);
+            array[MovieLite] result = apiInstance.getTopMoviesByCategory(category, limit, offset);
             System.out.println(result);
         } catch (ApiException e) {
-            System.err.println("Exception when calling MovieApi#getTopMovies");
+            System.err.println("Exception when calling MovieApi#getTopMoviesByCategory");
             e.printStackTrace();
         }
     }
 }</code></pre>
                           </div>
 
-                          <div class="tab-pane" id="examples-Movie-getTopMovies-0-android">
+                          <div class="tab-pane" id="examples-Movie-getTopMoviesByCategory-0-android">
                             <pre class="prettyprint"><code class="language-java">import io.swagger.client.api.MovieApi;
 
 public class MovieApiExample {
@@ -8916,20 +8916,20 @@ public class MovieApiExample {
         Integer limit = 56; // Integer | limits query results (default size 20)
         Integer offset = 56; // Integer | paginates query results
         try {
-            array[MovieLite] result = apiInstance.getTopMovies(category, limit, offset);
+            array[MovieLite] result = apiInstance.getTopMoviesByCategory(category, limit, offset);
             System.out.println(result);
         } catch (ApiException e) {
-            System.err.println("Exception when calling MovieApi#getTopMovies");
+            System.err.println("Exception when calling MovieApi#getTopMoviesByCategory");
             e.printStackTrace();
         }
     }
 }</code></pre>
                           </div>
   <!--
-  <div class="tab-pane" id="examples-Movie-getTopMovies-0-groovy">
+  <div class="tab-pane" id="examples-Movie-getTopMoviesByCategory-0-groovy">
   <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
   </div> -->
-                            <div class="tab-pane" id="examples-Movie-getTopMovies-0-objc">
+                            <div class="tab-pane" id="examples-Movie-getTopMoviesByCategory-0-objc">
                               <pre class="prettyprint"><code class="language-cpp">TopCategories *category = ; // reqested category
 Integer *limit = 56; // limits query results (default size 20) (optional)
 Integer *offset = 56; // paginates query results (optional)
@@ -8937,7 +8937,7 @@ Integer *offset = 56; // paginates query results (optional)
 MovieApi *apiInstance = [[MovieApi alloc] init];
 
 // Get a list of top/featured movies
-[apiInstance getTopMoviesWith:category
+[apiInstance getTopMoviesByCategoryWith:category
     limit:limit
     offset:offset
               completionHandler: ^(array[MovieLite] output, NSError* error) {
@@ -8951,7 +8951,7 @@ MovieApi *apiInstance = [[MovieApi alloc] init];
 </code></pre>
                             </div>
 
-                            <div class="tab-pane" id="examples-Movie-getTopMovies-0-javascript">
+                            <div class="tab-pane" id="examples-Movie-getTopMoviesByCategory-0-javascript">
                               <pre class="prettyprint"><code class="language-js">var PicturePerfect = require('picture_perfect');
 
 var api = new PicturePerfect.MovieApi()
@@ -8967,14 +8967,14 @@ var callback = function(error, data, response) {
     console.log('API called successfully. Returned data: ' + data);
   }
 };
-api.getTopMovies(category, opts, callback);
+api.getTopMoviesByCategory(category, opts, callback);
 </code></pre>
                             </div>
 
-                            <!--<div class="tab-pane" id="examples-Movie-getTopMovies-0-angular">
+                            <!--<div class="tab-pane" id="examples-Movie-getTopMoviesByCategory-0-angular">
               <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
             </div>-->
-                            <div class="tab-pane" id="examples-Movie-getTopMovies-0-csharp">
+                            <div class="tab-pane" id="examples-Movie-getTopMoviesByCategory-0-csharp">
                               <pre class="prettyprint"><code class="language-cs">using System;
 using System.Diagnostics;
 using IO.Swagger.Api;
@@ -8983,7 +8983,7 @@ using IO.Swagger.Model;
 
 namespace Example
 {
-    public class getTopMoviesExample
+    public class getTopMoviesByCategoryExample
     {
         public void main()
         {
@@ -8996,12 +8996,12 @@ namespace Example
             try
             {
                 // Get a list of top/featured movies
-                array[MovieLite] result = apiInstance.getTopMovies(category, limit, offset);
+                array[MovieLite] result = apiInstance.getTopMoviesByCategory(category, limit, offset);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
             {
-                Debug.Print("Exception when calling MovieApi.getTopMovies: " + e.Message );
+                Debug.Print("Exception when calling MovieApi.getTopMoviesByCategory: " + e.Message );
             }
         }
     }
@@ -9009,7 +9009,7 @@ namespace Example
 </code></pre>
                             </div>
 
-                            <div class="tab-pane" id="examples-Movie-getTopMovies-0-php">
+                            <div class="tab-pane" id="examples-Movie-getTopMoviesByCategory-0-php">
                               <pre class="prettyprint"><code class="language-php"><&#63;php
 require_once(__DIR__ . '/vendor/autoload.php');
 
@@ -9019,15 +9019,15 @@ $limit = 56; // Integer | limits query results (default size 20)
 $offset = 56; // Integer | paginates query results
 
 try {
-    $result = $api_instance->getTopMovies($category, $limit, $offset);
+    $result = $api_instance->getTopMoviesByCategory($category, $limit, $offset);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling MovieApi->getTopMovies: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling MovieApi->getTopMoviesByCategory: ', $e->getMessage(), PHP_EOL;
 }
 ?></code></pre>
                             </div>
 
-                            <div class="tab-pane" id="examples-Movie-getTopMovies-0-perl">
+                            <div class="tab-pane" id="examples-Movie-getTopMoviesByCategory-0-perl">
                               <pre class="prettyprint"><code class="language-perl">use Data::Dumper;
 use WWW::SwaggerClient::Configuration;
 use WWW::SwaggerClient::MovieApi;
@@ -9038,15 +9038,15 @@ my $limit = 56; # Integer | limits query results (default size 20)
 my $offset = 56; # Integer | paginates query results
 
 eval { 
-    my $result = $api_instance->getTopMovies(category => $category, limit => $limit, offset => $offset);
+    my $result = $api_instance->getTopMoviesByCategory(category => $category, limit => $limit, offset => $offset);
     print Dumper($result);
 };
 if ($@) {
-    warn "Exception when calling MovieApi->getTopMovies: $@\n";
+    warn "Exception when calling MovieApi->getTopMoviesByCategory: $@\n";
 }</code></pre>
                             </div>
 
-                            <div class="tab-pane" id="examples-Movie-getTopMovies-0-python">
+                            <div class="tab-pane" id="examples-Movie-getTopMoviesByCategory-0-python">
                               <pre class="prettyprint"><code class="language-python">from __future__ import print_statement
 import time
 import swagger_client
@@ -9061,10 +9061,10 @@ offset = 56 # Integer | paginates query results (optional)
 
 try: 
     # Get a list of top/featured movies
-    api_response = api_instance.get_top_movies(category, limit=limit, offset=offset)
+    api_response = api_instance.get_top_movies_by_category(category, limit=limit, offset=offset)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling MovieApi->getTopMovies: %s\n" % e)</code></pre>
+    print("Exception when calling MovieApi->getTopMoviesByCategory: %s\n" % e)</code></pre>
                             </div>
                           </div>
 
@@ -9084,7 +9084,7 @@ except ApiException as e:
                                 <td>
                                 
                                 
-                                    <div id="d2e199_getTopMovies_limit">
+                                    <div id="d2e199_getTopMoviesByCategory_limit">
                                         <div class="json-schema-view">
                                             <div class="primitive">
                                                 <span class="type">
@@ -9103,7 +9103,7 @@ except ApiException as e:
                                 <td>
                                 
                                 
-                                    <div id="d2e199_getTopMovies_offset">
+                                    <div id="d2e199_getTopMoviesByCategory_offset">
                                         <div class="json-schema-view">
                                             <div class="primitive">
                                                 <span class="type">
@@ -9122,7 +9122,7 @@ except ApiException as e:
                                 <td>
                                 
                                 
-                                    <div id="d2e199_getTopMovies_category">
+                                    <div id="d2e199_getTopMoviesByCategory_category">
                                         <div class="json-schema-view">
                                             <div class="primitive">
                                                 <span class="type">
@@ -9147,14 +9147,14 @@ except ApiException as e:
 
                             <ul class="nav nav-tabs nav-tabs-examples" >
                                 <li class="active">
-                                  <a data-toggle="tab" href="#responses-getTopMovies-200-schema">Schema</a>
+                                  <a data-toggle="tab" href="#responses-getTopMoviesByCategory-200-schema">Schema</a>
                                 </li>
 
                             </ul>
 
                             <div class="tab-content" style='margin-bottom: 10px;'>
-                                <div class="tab-pane active" id="responses-getTopMovies-200-schema">
-                                  <div id='responses-getTopMovies-200-schema-200' style="padding: 30px; border-left: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
+                                <div class="tab-pane active" id="responses-getTopMoviesByCategory-200-schema">
+                                  <div id='responses-getTopMoviesByCategory-200-schema-200' style="padding: 30px; border-left: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
                                     <script>
                                       $(document).ready(function() {
                                         var schemaWrapper = {
@@ -9184,316 +9184,15 @@ except ApiException as e:
 
                                         //console.log(JSON.stringify(schema));
                                         var view = new JSONSchemaView(schema, 3);
-                                        $('#responses-getTopMovies-200-schema-data').val(stringify(schema));
-                                        var result = $('#responses-getTopMovies-200-schema-200');
+                                        $('#responses-getTopMoviesByCategory-200-schema-data').val(stringify(schema));
+                                        var result = $('#responses-getTopMoviesByCategory-200-schema-200');
                                         result.empty();
                                         result.append(view.render());
                                       });
                                     </script>
                                   </div>
-                                  <input id='responses-getTopMovies-200-schema-data' type='hidden' value=''></input>
+                                  <input id='responses-getTopMoviesByCategory-200-schema-data' type='hidden' value=''></input>
                                 </div>
-                            </div>
-
-                        </article>
-                      </div>
-                      <hr>
-                    <div id="api-Movie-postMovieDetails">
-                      <article id="api-Movie-postMovieDetails-0" data-group="User" data-name="postMovieDetails" data-version="0">
-                        <div class="pull-left">
-                          <h1>postMovieDetails</h1>
-                          <p>Set movie details</p>
-                        </div>
-                        <div class="pull-right"></div>
-                        <div class="clearfix"></div>
-                        <p></p>
-                        <p class="marked">Replaces entire movie object</p>
-                        <p></p>
-                        <br />
-                        <pre class="prettyprint language-html prettyprinted" data-type="post"><code><span class="pln">/movies/catalogue/{movieID}</span></code></pre>
-                        <p>
-                          <h3>Usage and SDK Samples</h3>
-                        </p>
-                        <ul class="nav nav-tabs nav-tabs-examples">
-                          <li class="active"><a href="#examples-Movie-postMovieDetails-0-curl">Curl</a></li>
-                          <li class=""><a href="#examples-Movie-postMovieDetails-0-java">Java</a></li>
-                          <li class=""><a href="#examples-Movie-postMovieDetails-0-android">Android</a></li>
-                          <!--<li class=""><a href="#examples-Movie-postMovieDetails-0-groovy">Groovy</a></li>-->
-                          <li class=""><a href="#examples-Movie-postMovieDetails-0-objc">Obj-C</a></li>
-                          <li class=""><a href="#examples-Movie-postMovieDetails-0-javascript">JavaScript</a></li>
-                          <!--<li class=""><a href="#examples-Movie-postMovieDetails-0-angular">Angular</a></li>-->
-                          <li class=""><a href="#examples-Movie-postMovieDetails-0-csharp">C#</a></li>
-                          <li class=""><a href="#examples-Movie-postMovieDetails-0-php">PHP</a></li>
-                          <li class=""><a href="#examples-Movie-postMovieDetails-0-perl">Perl</a></li>
-                          <li class=""><a href="#examples-Movie-postMovieDetails-0-python">Python</a></li>
-                        </ul>
-
-                        <div class="tab-content">
-                          <div class="tab-pane active" id="examples-Movie-postMovieDetails-0-curl">
-                            <pre class="prettyprint"><code class="language-bsh">curl -X POST "//movies/catalogue/{movieID}"</code></pre>
-                          </div>
-                          <div class="tab-pane" id="examples-Movie-postMovieDetails-0-java">
-                            <pre class="prettyprint"><code class="language-java">import io.swagger.client.*;
-import io.swagger.client.auth.*;
-import io.swagger.client.model.*;
-import io.swagger.client.api.MovieApi;
-
-import java.io.File;
-import java.util.*;
-
-public class MovieApiExample {
-
-    public static void main(String[] args) {
-        
-        MovieApi apiInstance = new MovieApi();
-        Movie body = ; // Movie | movie object
-        Long movieID = 789; // Long | The movie ID
-        try {
-            apiInstance.postMovieDetails(body, movieID);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling MovieApi#postMovieDetails");
-            e.printStackTrace();
-        }
-    }
-}</code></pre>
-                          </div>
-
-                          <div class="tab-pane" id="examples-Movie-postMovieDetails-0-android">
-                            <pre class="prettyprint"><code class="language-java">import io.swagger.client.api.MovieApi;
-
-public class MovieApiExample {
-
-    public static void main(String[] args) {
-        MovieApi apiInstance = new MovieApi();
-        Movie body = ; // Movie | movie object
-        Long movieID = 789; // Long | The movie ID
-        try {
-            apiInstance.postMovieDetails(body, movieID);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling MovieApi#postMovieDetails");
-            e.printStackTrace();
-        }
-    }
-}</code></pre>
-                          </div>
-  <!--
-  <div class="tab-pane" id="examples-Movie-postMovieDetails-0-groovy">
-  <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
-  </div> -->
-                            <div class="tab-pane" id="examples-Movie-postMovieDetails-0-objc">
-                              <pre class="prettyprint"><code class="language-cpp">Movie *body = ; // movie object
-Long *movieID = 789; // The movie ID
-
-MovieApi *apiInstance = [[MovieApi alloc] init];
-
-// Set movie details
-[apiInstance postMovieDetailsWith:body
-    movieID:movieID
-              completionHandler: ^(NSError* error) {
-                            if (error) {
-                                NSLog(@"Error: %@", error);
-                            }
-                        }];
-</code></pre>
-                            </div>
-
-                            <div class="tab-pane" id="examples-Movie-postMovieDetails-0-javascript">
-                              <pre class="prettyprint"><code class="language-js">var PicturePerfect = require('picture_perfect');
-
-var api = new PicturePerfect.MovieApi()
-var body = ; // {{Movie}} movie object
-var movieID = 789; // {{Long}} The movie ID
-
-var callback = function(error, data, response) {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully.');
-  }
-};
-api.postMovieDetails(bodymovieID, callback);
-</code></pre>
-                            </div>
-
-                            <!--<div class="tab-pane" id="examples-Movie-postMovieDetails-0-angular">
-              <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
-            </div>-->
-                            <div class="tab-pane" id="examples-Movie-postMovieDetails-0-csharp">
-                              <pre class="prettyprint"><code class="language-cs">using System;
-using System.Diagnostics;
-using IO.Swagger.Api;
-using IO.Swagger.Client;
-using IO.Swagger.Model;
-
-namespace Example
-{
-    public class postMovieDetailsExample
-    {
-        public void main()
-        {
-
-            var apiInstance = new MovieApi();
-            var body = new Movie(); // Movie | movie object
-            var movieID = 789;  // Long | The movie ID
-
-            try
-            {
-                // Set movie details
-                apiInstance.postMovieDetails(body, movieID);
-            }
-            catch (Exception e)
-            {
-                Debug.Print("Exception when calling MovieApi.postMovieDetails: " + e.Message );
-            }
-        }
-    }
-}
-</code></pre>
-                            </div>
-
-                            <div class="tab-pane" id="examples-Movie-postMovieDetails-0-php">
-                              <pre class="prettyprint"><code class="language-php"><&#63;php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-$api_instance = new Swagger\Client\ApiMovieApi();
-$body = ; // Movie | movie object
-$movieID = 789; // Long | The movie ID
-
-try {
-    $api_instance->postMovieDetails($body, $movieID);
-} catch (Exception $e) {
-    echo 'Exception when calling MovieApi->postMovieDetails: ', $e->getMessage(), PHP_EOL;
-}
-?></code></pre>
-                            </div>
-
-                            <div class="tab-pane" id="examples-Movie-postMovieDetails-0-perl">
-                              <pre class="prettyprint"><code class="language-perl">use Data::Dumper;
-use WWW::SwaggerClient::Configuration;
-use WWW::SwaggerClient::MovieApi;
-
-my $api_instance = WWW::SwaggerClient::MovieApi->new();
-my $body = WWW::SwaggerClient::Object::Movie->new(); # Movie | movie object
-my $movieID = 789; # Long | The movie ID
-
-eval { 
-    $api_instance->postMovieDetails(body => $body, movieID => $movieID);
-};
-if ($@) {
-    warn "Exception when calling MovieApi->postMovieDetails: $@\n";
-}</code></pre>
-                            </div>
-
-                            <div class="tab-pane" id="examples-Movie-postMovieDetails-0-python">
-                              <pre class="prettyprint"><code class="language-python">from __future__ import print_statement
-import time
-import swagger_client
-from swagger_client.rest import ApiException
-from pprint import pprint
-
-# create an instance of the API class
-api_instance = swagger_client.MovieApi()
-body =  # Movie | movie object
-movieID = 789 # Long | The movie ID
-
-try: 
-    # Set movie details
-    api_instance.post_movie_details(body, movieID)
-except ApiException as e:
-    print("Exception when calling MovieApi->postMovieDetails: %s\n" % e)</code></pre>
-                            </div>
-                          </div>
-
-                          <h2>Parameters</h2>
-
-                            <div class="methodsubtabletitle">Path parameters</div>
-                            <table id="methodsubtable">
-                                <tr>
-                                  <th width="150px">Name</th>
-                                  <th>Description</th>
-                                </tr>
-                                  <tr><td style="width:150px;">movieID*</td>
-                                  <td>
-                                  
-                                  
-                                      <div id="d2e199_postMovieDetails_movieID">
-                                          <div class="json-schema-view">
-                                              <div class="primitive">
-                                                  <span class="type">
-                                                      Long
-                                                  </span>
-                                                      <span class="format">
-                                                          (int64)
-                                                      </span>
-                                  
-                                                      <div class="inner description">
-                                                          The movie ID
-                                                      </div>
-                                              </div>
-                                                  <div class="inner required">
-                                                      Required
-                                                  </div>
-                                          </div>
-                                      </div>
-                                  </td>
-                                  </tr>
-                            </table>
-
-
-                            <div class="methodsubtabletitle">Body parameters</div>
-                            <table id="methodsubtable">
-                              <tr>
-                                <th width="150px">Name</th>
-                                <th>Description</th>
-                              </tr>
-                                <tr><td style="width:150px;">body <span style="color:red;">*</span></td>
-                                <td>
-                                
-                                
-                                <script>
-                                $(document).ready(function() {
-                                  var schemaWrapper = {
-  "description" : "movie object",
-  "content" : {
-    "application/json" : {
-      "schema" : {
-        "$ref" : "#/components/schemas/Movie"
-      }
-    }
-  },
-  "required" : true
-};
-                                  var schema = schemaWrapper.content["application/json"].schema;
-                                  if (schema.$ref != null) {
-                                    schema = defsParser.$refs.get(schema.$ref);
-                                  } else {
-                                    schemaWrapper.components = {};
-                                    schemaWrapper.components.schemas = Object.assign({}, defs);
-                                    $RefParser.dereference(schemaWrapper).catch(function(err) {
-                                      console.log(err);
-                                    });
-                                  }
-                                
-                                  var view = new JSONSchemaView(schema,2,{isBodyParam: true});
-                                  var result = $('#d2e199_postMovieDetails_body');
-                                  result.empty();
-                                  result.append(view.render());
-                                });
-                                </script>
-                                <div id="d2e199_postMovieDetails_body"></div>
-                                </td>
-                                </tr>
-                            </table>
-
-
-
-                          <h2>Responses</h2>
-                            <h3> Status: 200 - OK </h3>
-
-                            <ul class="nav nav-tabs nav-tabs-examples" >
-                            </ul>
-
-                            <div class="tab-content" style='margin-bottom: 10px;'>
                             </div>
 
                         </article>
@@ -9805,15 +9504,15 @@ except ApiException as e:
                       <article id="api-Movie-setMovieDetails-0" data-group="User" data-name="setMovieDetails" data-version="0">
                         <div class="pull-left">
                           <h1>setMovieDetails</h1>
-                          <p>Update movie details</p>
+                          <p>Set full movie details</p>
                         </div>
                         <div class="pull-right"></div>
                         <div class="clearfix"></div>
                         <p></p>
-                        <p class="marked">Update movie catalogue attribute</p>
+                        <p class="marked">Replaces entire movie object</p>
                         <p></p>
                         <br />
-                        <pre class="prettyprint language-html prettyprinted" data-type="patch"><code><span class="pln">/movies/catalogue/{movieID}</span></code></pre>
+                        <pre class="prettyprint language-html prettyprinted" data-type="post"><code><span class="pln">/movies/catalogue/{movieID}</span></code></pre>
                         <p>
                           <h3>Usage and SDK Samples</h3>
                         </p>
@@ -9833,7 +9532,7 @@ except ApiException as e:
 
                         <div class="tab-content">
                           <div class="tab-pane active" id="examples-Movie-setMovieDetails-0-curl">
-                            <pre class="prettyprint"><code class="language-bsh">curl -X PATCH "//movies/catalogue/{movieID}"</code></pre>
+                            <pre class="prettyprint"><code class="language-bsh">curl -X POST "//movies/catalogue/{movieID}"</code></pre>
                           </div>
                           <div class="tab-pane" id="examples-Movie-setMovieDetails-0-java">
                             <pre class="prettyprint"><code class="language-java">import io.swagger.client.*;
@@ -9849,7 +9548,7 @@ public class MovieApiExample {
     public static void main(String[] args) {
         
         MovieApi apiInstance = new MovieApi();
-        Movie body = ; // Movie | Movie Attributes that need to be updated
+        Movie body = ; // Movie | movie object
         Long movieID = 789; // Long | The movie ID
         try {
             apiInstance.setMovieDetails(body, movieID);
@@ -9868,7 +9567,7 @@ public class MovieApiExample {
 
     public static void main(String[] args) {
         MovieApi apiInstance = new MovieApi();
-        Movie body = ; // Movie | Movie Attributes that need to be updated
+        Movie body = ; // Movie | movie object
         Long movieID = 789; // Long | The movie ID
         try {
             apiInstance.setMovieDetails(body, movieID);
@@ -9884,12 +9583,12 @@ public class MovieApiExample {
   <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
   </div> -->
                             <div class="tab-pane" id="examples-Movie-setMovieDetails-0-objc">
-                              <pre class="prettyprint"><code class="language-cpp">Movie *body = ; // Movie Attributes that need to be updated
+                              <pre class="prettyprint"><code class="language-cpp">Movie *body = ; // movie object
 Long *movieID = 789; // The movie ID
 
 MovieApi *apiInstance = [[MovieApi alloc] init];
 
-// Update movie details
+// Set full movie details
 [apiInstance setMovieDetailsWith:body
     movieID:movieID
               completionHandler: ^(NSError* error) {
@@ -9904,7 +9603,7 @@ MovieApi *apiInstance = [[MovieApi alloc] init];
                               <pre class="prettyprint"><code class="language-js">var PicturePerfect = require('picture_perfect');
 
 var api = new PicturePerfect.MovieApi()
-var body = ; // {{Movie}} Movie Attributes that need to be updated
+var body = ; // {{Movie}} movie object
 var movieID = 789; // {{Long}} The movie ID
 
 var callback = function(error, data, response) {
@@ -9936,12 +9635,12 @@ namespace Example
         {
 
             var apiInstance = new MovieApi();
-            var body = new Movie(); // Movie | Movie Attributes that need to be updated
+            var body = new Movie(); // Movie | movie object
             var movieID = 789;  // Long | The movie ID
 
             try
             {
-                // Update movie details
+                // Set full movie details
                 apiInstance.setMovieDetails(body, movieID);
             }
             catch (Exception e)
@@ -9959,7 +9658,7 @@ namespace Example
 require_once(__DIR__ . '/vendor/autoload.php');
 
 $api_instance = new Swagger\Client\ApiMovieApi();
-$body = ; // Movie | Movie Attributes that need to be updated
+$body = ; // Movie | movie object
 $movieID = 789; // Long | The movie ID
 
 try {
@@ -9976,7 +9675,7 @@ use WWW::SwaggerClient::Configuration;
 use WWW::SwaggerClient::MovieApi;
 
 my $api_instance = WWW::SwaggerClient::MovieApi->new();
-my $body = WWW::SwaggerClient::Object::Movie->new(); # Movie | Movie Attributes that need to be updated
+my $body = WWW::SwaggerClient::Object::Movie->new(); # Movie | movie object
 my $movieID = 789; # Long | The movie ID
 
 eval { 
@@ -9996,11 +9695,11 @@ from pprint import pprint
 
 # create an instance of the API class
 api_instance = swagger_client.MovieApi()
-body =  # Movie | Movie Attributes that need to be updated
+body =  # Movie | movie object
 movieID = 789 # Long | The movie ID
 
 try: 
-    # Update movie details
+    # Set full movie details
     api_instance.set_movie_details(body, movieID)
 except ApiException as e:
     print("Exception when calling MovieApi->setMovieDetails: %s\n" % e)</code></pre>
@@ -10020,6 +9719,307 @@ except ApiException as e:
                                   
                                   
                                       <div id="d2e199_setMovieDetails_movieID">
+                                          <div class="json-schema-view">
+                                              <div class="primitive">
+                                                  <span class="type">
+                                                      Long
+                                                  </span>
+                                                      <span class="format">
+                                                          (int64)
+                                                      </span>
+                                  
+                                                      <div class="inner description">
+                                                          The movie ID
+                                                      </div>
+                                              </div>
+                                                  <div class="inner required">
+                                                      Required
+                                                  </div>
+                                          </div>
+                                      </div>
+                                  </td>
+                                  </tr>
+                            </table>
+
+
+                            <div class="methodsubtabletitle">Body parameters</div>
+                            <table id="methodsubtable">
+                              <tr>
+                                <th width="150px">Name</th>
+                                <th>Description</th>
+                              </tr>
+                                <tr><td style="width:150px;">body <span style="color:red;">*</span></td>
+                                <td>
+                                
+                                
+                                <script>
+                                $(document).ready(function() {
+                                  var schemaWrapper = {
+  "description" : "movie object",
+  "content" : {
+    "application/json" : {
+      "schema" : {
+        "$ref" : "#/components/schemas/Movie"
+      }
+    }
+  },
+  "required" : true
+};
+                                  var schema = schemaWrapper.content["application/json"].schema;
+                                  if (schema.$ref != null) {
+                                    schema = defsParser.$refs.get(schema.$ref);
+                                  } else {
+                                    schemaWrapper.components = {};
+                                    schemaWrapper.components.schemas = Object.assign({}, defs);
+                                    $RefParser.dereference(schemaWrapper).catch(function(err) {
+                                      console.log(err);
+                                    });
+                                  }
+                                
+                                  var view = new JSONSchemaView(schema,2,{isBodyParam: true});
+                                  var result = $('#d2e199_setMovieDetails_body');
+                                  result.empty();
+                                  result.append(view.render());
+                                });
+                                </script>
+                                <div id="d2e199_setMovieDetails_body"></div>
+                                </td>
+                                </tr>
+                            </table>
+
+
+
+                          <h2>Responses</h2>
+                            <h3> Status: 200 - OK </h3>
+
+                            <ul class="nav nav-tabs nav-tabs-examples" >
+                            </ul>
+
+                            <div class="tab-content" style='margin-bottom: 10px;'>
+                            </div>
+
+                        </article>
+                      </div>
+                      <hr>
+                    <div id="api-Movie-updateMovieDetails">
+                      <article id="api-Movie-updateMovieDetails-0" data-group="User" data-name="updateMovieDetails" data-version="0">
+                        <div class="pull-left">
+                          <h1>updateMovieDetails</h1>
+                          <p>Update movie details</p>
+                        </div>
+                        <div class="pull-right"></div>
+                        <div class="clearfix"></div>
+                        <p></p>
+                        <p class="marked">Update movie catalogue attribute</p>
+                        <p></p>
+                        <br />
+                        <pre class="prettyprint language-html prettyprinted" data-type="patch"><code><span class="pln">/movies/catalogue/{movieID}</span></code></pre>
+                        <p>
+                          <h3>Usage and SDK Samples</h3>
+                        </p>
+                        <ul class="nav nav-tabs nav-tabs-examples">
+                          <li class="active"><a href="#examples-Movie-updateMovieDetails-0-curl">Curl</a></li>
+                          <li class=""><a href="#examples-Movie-updateMovieDetails-0-java">Java</a></li>
+                          <li class=""><a href="#examples-Movie-updateMovieDetails-0-android">Android</a></li>
+                          <!--<li class=""><a href="#examples-Movie-updateMovieDetails-0-groovy">Groovy</a></li>-->
+                          <li class=""><a href="#examples-Movie-updateMovieDetails-0-objc">Obj-C</a></li>
+                          <li class=""><a href="#examples-Movie-updateMovieDetails-0-javascript">JavaScript</a></li>
+                          <!--<li class=""><a href="#examples-Movie-updateMovieDetails-0-angular">Angular</a></li>-->
+                          <li class=""><a href="#examples-Movie-updateMovieDetails-0-csharp">C#</a></li>
+                          <li class=""><a href="#examples-Movie-updateMovieDetails-0-php">PHP</a></li>
+                          <li class=""><a href="#examples-Movie-updateMovieDetails-0-perl">Perl</a></li>
+                          <li class=""><a href="#examples-Movie-updateMovieDetails-0-python">Python</a></li>
+                        </ul>
+
+                        <div class="tab-content">
+                          <div class="tab-pane active" id="examples-Movie-updateMovieDetails-0-curl">
+                            <pre class="prettyprint"><code class="language-bsh">curl -X PATCH "//movies/catalogue/{movieID}"</code></pre>
+                          </div>
+                          <div class="tab-pane" id="examples-Movie-updateMovieDetails-0-java">
+                            <pre class="prettyprint"><code class="language-java">import io.swagger.client.*;
+import io.swagger.client.auth.*;
+import io.swagger.client.model.*;
+import io.swagger.client.api.MovieApi;
+
+import java.io.File;
+import java.util.*;
+
+public class MovieApiExample {
+
+    public static void main(String[] args) {
+        
+        MovieApi apiInstance = new MovieApi();
+        Movie body = ; // Movie | Movie Attributes that need to be updated
+        Long movieID = 789; // Long | The movie ID
+        try {
+            apiInstance.updateMovieDetails(body, movieID);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling MovieApi#updateMovieDetails");
+            e.printStackTrace();
+        }
+    }
+}</code></pre>
+                          </div>
+
+                          <div class="tab-pane" id="examples-Movie-updateMovieDetails-0-android">
+                            <pre class="prettyprint"><code class="language-java">import io.swagger.client.api.MovieApi;
+
+public class MovieApiExample {
+
+    public static void main(String[] args) {
+        MovieApi apiInstance = new MovieApi();
+        Movie body = ; // Movie | Movie Attributes that need to be updated
+        Long movieID = 789; // Long | The movie ID
+        try {
+            apiInstance.updateMovieDetails(body, movieID);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling MovieApi#updateMovieDetails");
+            e.printStackTrace();
+        }
+    }
+}</code></pre>
+                          </div>
+  <!--
+  <div class="tab-pane" id="examples-Movie-updateMovieDetails-0-groovy">
+  <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
+  </div> -->
+                            <div class="tab-pane" id="examples-Movie-updateMovieDetails-0-objc">
+                              <pre class="prettyprint"><code class="language-cpp">Movie *body = ; // Movie Attributes that need to be updated
+Long *movieID = 789; // The movie ID
+
+MovieApi *apiInstance = [[MovieApi alloc] init];
+
+// Update movie details
+[apiInstance updateMovieDetailsWith:body
+    movieID:movieID
+              completionHandler: ^(NSError* error) {
+                            if (error) {
+                                NSLog(@"Error: %@", error);
+                            }
+                        }];
+</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Movie-updateMovieDetails-0-javascript">
+                              <pre class="prettyprint"><code class="language-js">var PicturePerfect = require('picture_perfect');
+
+var api = new PicturePerfect.MovieApi()
+var body = ; // {{Movie}} Movie Attributes that need to be updated
+var movieID = 789; // {{Long}} The movie ID
+
+var callback = function(error, data, response) {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully.');
+  }
+};
+api.updateMovieDetails(bodymovieID, callback);
+</code></pre>
+                            </div>
+
+                            <!--<div class="tab-pane" id="examples-Movie-updateMovieDetails-0-angular">
+              <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
+            </div>-->
+                            <div class="tab-pane" id="examples-Movie-updateMovieDetails-0-csharp">
+                              <pre class="prettyprint"><code class="language-cs">using System;
+using System.Diagnostics;
+using IO.Swagger.Api;
+using IO.Swagger.Client;
+using IO.Swagger.Model;
+
+namespace Example
+{
+    public class updateMovieDetailsExample
+    {
+        public void main()
+        {
+
+            var apiInstance = new MovieApi();
+            var body = new Movie(); // Movie | Movie Attributes that need to be updated
+            var movieID = 789;  // Long | The movie ID
+
+            try
+            {
+                // Update movie details
+                apiInstance.updateMovieDetails(body, movieID);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling MovieApi.updateMovieDetails: " + e.Message );
+            }
+        }
+    }
+}
+</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Movie-updateMovieDetails-0-php">
+                              <pre class="prettyprint"><code class="language-php"><&#63;php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+$api_instance = new Swagger\Client\ApiMovieApi();
+$body = ; // Movie | Movie Attributes that need to be updated
+$movieID = 789; // Long | The movie ID
+
+try {
+    $api_instance->updateMovieDetails($body, $movieID);
+} catch (Exception $e) {
+    echo 'Exception when calling MovieApi->updateMovieDetails: ', $e->getMessage(), PHP_EOL;
+}
+?></code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Movie-updateMovieDetails-0-perl">
+                              <pre class="prettyprint"><code class="language-perl">use Data::Dumper;
+use WWW::SwaggerClient::Configuration;
+use WWW::SwaggerClient::MovieApi;
+
+my $api_instance = WWW::SwaggerClient::MovieApi->new();
+my $body = WWW::SwaggerClient::Object::Movie->new(); # Movie | Movie Attributes that need to be updated
+my $movieID = 789; # Long | The movie ID
+
+eval { 
+    $api_instance->updateMovieDetails(body => $body, movieID => $movieID);
+};
+if ($@) {
+    warn "Exception when calling MovieApi->updateMovieDetails: $@\n";
+}</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Movie-updateMovieDetails-0-python">
+                              <pre class="prettyprint"><code class="language-python">from __future__ import print_statement
+import time
+import swagger_client
+from swagger_client.rest import ApiException
+from pprint import pprint
+
+# create an instance of the API class
+api_instance = swagger_client.MovieApi()
+body =  # Movie | Movie Attributes that need to be updated
+movieID = 789 # Long | The movie ID
+
+try: 
+    # Update movie details
+    api_instance.update_movie_details(body, movieID)
+except ApiException as e:
+    print("Exception when calling MovieApi->updateMovieDetails: %s\n" % e)</code></pre>
+                            </div>
+                          </div>
+
+                          <h2>Parameters</h2>
+
+                            <div class="methodsubtabletitle">Path parameters</div>
+                            <table id="methodsubtable">
+                                <tr>
+                                  <th width="150px">Name</th>
+                                  <th>Description</th>
+                                </tr>
+                                  <tr><td style="width:150px;">movieID*</td>
+                                  <td>
+                                  
+                                  
+                                      <div id="d2e199_updateMovieDetails_movieID">
                                           <div class="json-schema-view">
                                               <div class="primitive">
                                                   <span class="type">
@@ -10078,12 +10078,12 @@ except ApiException as e:
                                   }
                                 
                                   var view = new JSONSchemaView(schema,2,{isBodyParam: true});
-                                  var result = $('#d2e199_setMovieDetails_body');
+                                  var result = $('#d2e199_updateMovieDetails_body');
                                   result.empty();
                                   result.append(view.render());
                                 });
                                 </script>
-                                <div id="d2e199_setMovieDetails_body"></div>
+                                <div id="d2e199_updateMovieDetails_body"></div>
                                 </td>
                                 </tr>
                             </table>
@@ -10102,10 +10102,10 @@ except ApiException as e:
                         </article>
                       </div>
                       <hr>
-                    <div id="api-Movie-uploadFile">
-                      <article id="api-Movie-uploadFile-0" data-group="User" data-name="uploadFile" data-version="0">
+                    <div id="api-Movie-uploadMediaToMovie">
+                      <article id="api-Movie-uploadMediaToMovie-0" data-group="User" data-name="uploadMediaToMovie" data-version="0">
                         <div class="pull-left">
-                          <h1>uploadFile</h1>
+                          <h1>uploadMediaToMovie</h1>
                           <p>upload an image related to the movie</p>
                         </div>
                         <div class="pull-right"></div>
@@ -10119,24 +10119,24 @@ except ApiException as e:
                           <h3>Usage and SDK Samples</h3>
                         </p>
                         <ul class="nav nav-tabs nav-tabs-examples">
-                          <li class="active"><a href="#examples-Movie-uploadFile-0-curl">Curl</a></li>
-                          <li class=""><a href="#examples-Movie-uploadFile-0-java">Java</a></li>
-                          <li class=""><a href="#examples-Movie-uploadFile-0-android">Android</a></li>
-                          <!--<li class=""><a href="#examples-Movie-uploadFile-0-groovy">Groovy</a></li>-->
-                          <li class=""><a href="#examples-Movie-uploadFile-0-objc">Obj-C</a></li>
-                          <li class=""><a href="#examples-Movie-uploadFile-0-javascript">JavaScript</a></li>
-                          <!--<li class=""><a href="#examples-Movie-uploadFile-0-angular">Angular</a></li>-->
-                          <li class=""><a href="#examples-Movie-uploadFile-0-csharp">C#</a></li>
-                          <li class=""><a href="#examples-Movie-uploadFile-0-php">PHP</a></li>
-                          <li class=""><a href="#examples-Movie-uploadFile-0-perl">Perl</a></li>
-                          <li class=""><a href="#examples-Movie-uploadFile-0-python">Python</a></li>
+                          <li class="active"><a href="#examples-Movie-uploadMediaToMovie-0-curl">Curl</a></li>
+                          <li class=""><a href="#examples-Movie-uploadMediaToMovie-0-java">Java</a></li>
+                          <li class=""><a href="#examples-Movie-uploadMediaToMovie-0-android">Android</a></li>
+                          <!--<li class=""><a href="#examples-Movie-uploadMediaToMovie-0-groovy">Groovy</a></li>-->
+                          <li class=""><a href="#examples-Movie-uploadMediaToMovie-0-objc">Obj-C</a></li>
+                          <li class=""><a href="#examples-Movie-uploadMediaToMovie-0-javascript">JavaScript</a></li>
+                          <!--<li class=""><a href="#examples-Movie-uploadMediaToMovie-0-angular">Angular</a></li>-->
+                          <li class=""><a href="#examples-Movie-uploadMediaToMovie-0-csharp">C#</a></li>
+                          <li class=""><a href="#examples-Movie-uploadMediaToMovie-0-php">PHP</a></li>
+                          <li class=""><a href="#examples-Movie-uploadMediaToMovie-0-perl">Perl</a></li>
+                          <li class=""><a href="#examples-Movie-uploadMediaToMovie-0-python">Python</a></li>
                         </ul>
 
                         <div class="tab-content">
-                          <div class="tab-pane active" id="examples-Movie-uploadFile-0-curl">
+                          <div class="tab-pane active" id="examples-Movie-uploadMediaToMovie-0-curl">
                             <pre class="prettyprint"><code class="language-bsh">curl -X POST "//movies/catalogue/{movieID}/uploadImage?setAsThumbnail="</code></pre>
                           </div>
-                          <div class="tab-pane" id="examples-Movie-uploadFile-0-java">
+                          <div class="tab-pane" id="examples-Movie-uploadMediaToMovie-0-java">
                             <pre class="prettyprint"><code class="language-java">import io.swagger.client.*;
 import io.swagger.client.auth.*;
 import io.swagger.client.model.*;
@@ -10155,16 +10155,16 @@ public class MovieApiExample {
         byte[] file = file_example; // byte[] | 
         Boolean setAsThumbnail = true; // Boolean | sets the image as thumbnail if true
         try {
-            apiInstance.uploadFile(movieID, additionalMetadata, file, setAsThumbnail);
+            apiInstance.uploadMediaToMovie(movieID, additionalMetadata, file, setAsThumbnail);
         } catch (ApiException e) {
-            System.err.println("Exception when calling MovieApi#uploadFile");
+            System.err.println("Exception when calling MovieApi#uploadMediaToMovie");
             e.printStackTrace();
         }
     }
 }</code></pre>
                           </div>
 
-                          <div class="tab-pane" id="examples-Movie-uploadFile-0-android">
+                          <div class="tab-pane" id="examples-Movie-uploadMediaToMovie-0-android">
                             <pre class="prettyprint"><code class="language-java">import io.swagger.client.api.MovieApi;
 
 public class MovieApiExample {
@@ -10176,19 +10176,19 @@ public class MovieApiExample {
         byte[] file = file_example; // byte[] | 
         Boolean setAsThumbnail = true; // Boolean | sets the image as thumbnail if true
         try {
-            apiInstance.uploadFile(movieID, additionalMetadata, file, setAsThumbnail);
+            apiInstance.uploadMediaToMovie(movieID, additionalMetadata, file, setAsThumbnail);
         } catch (ApiException e) {
-            System.err.println("Exception when calling MovieApi#uploadFile");
+            System.err.println("Exception when calling MovieApi#uploadMediaToMovie");
             e.printStackTrace();
         }
     }
 }</code></pre>
                           </div>
   <!--
-  <div class="tab-pane" id="examples-Movie-uploadFile-0-groovy">
+  <div class="tab-pane" id="examples-Movie-uploadMediaToMovie-0-groovy">
   <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
   </div> -->
-                            <div class="tab-pane" id="examples-Movie-uploadFile-0-objc">
+                            <div class="tab-pane" id="examples-Movie-uploadMediaToMovie-0-objc">
                               <pre class="prettyprint"><code class="language-cpp">Long *movieID = 789; // ID of movie to update
 String *additionalMetadata = additionalMetadata_example; //  (optional)
 byte[] *file = file_example; //  (optional)
@@ -10197,7 +10197,7 @@ Boolean *setAsThumbnail = true; // sets the image as thumbnail if true (optional
 MovieApi *apiInstance = [[MovieApi alloc] init];
 
 // upload an image related to the movie
-[apiInstance uploadFileWith:movieID
+[apiInstance uploadMediaToMovieWith:movieID
     additionalMetadata:additionalMetadata
     file:file
     setAsThumbnail:setAsThumbnail
@@ -10209,7 +10209,7 @@ MovieApi *apiInstance = [[MovieApi alloc] init];
 </code></pre>
                             </div>
 
-                            <div class="tab-pane" id="examples-Movie-uploadFile-0-javascript">
+                            <div class="tab-pane" id="examples-Movie-uploadMediaToMovie-0-javascript">
                               <pre class="prettyprint"><code class="language-js">var PicturePerfect = require('picture_perfect');
 
 var api = new PicturePerfect.MovieApi()
@@ -10226,14 +10226,14 @@ var callback = function(error, data, response) {
     console.log('API called successfully.');
   }
 };
-api.uploadFile(movieID, opts, callback);
+api.uploadMediaToMovie(movieID, opts, callback);
 </code></pre>
                             </div>
 
-                            <!--<div class="tab-pane" id="examples-Movie-uploadFile-0-angular">
+                            <!--<div class="tab-pane" id="examples-Movie-uploadMediaToMovie-0-angular">
               <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
             </div>-->
-                            <div class="tab-pane" id="examples-Movie-uploadFile-0-csharp">
+                            <div class="tab-pane" id="examples-Movie-uploadMediaToMovie-0-csharp">
                               <pre class="prettyprint"><code class="language-cs">using System;
 using System.Diagnostics;
 using IO.Swagger.Api;
@@ -10242,7 +10242,7 @@ using IO.Swagger.Model;
 
 namespace Example
 {
-    public class uploadFileExample
+    public class uploadMediaToMovieExample
     {
         public void main()
         {
@@ -10256,11 +10256,11 @@ namespace Example
             try
             {
                 // upload an image related to the movie
-                apiInstance.uploadFile(movieID, additionalMetadata, file, setAsThumbnail);
+                apiInstance.uploadMediaToMovie(movieID, additionalMetadata, file, setAsThumbnail);
             }
             catch (Exception e)
             {
-                Debug.Print("Exception when calling MovieApi.uploadFile: " + e.Message );
+                Debug.Print("Exception when calling MovieApi.uploadMediaToMovie: " + e.Message );
             }
         }
     }
@@ -10268,7 +10268,7 @@ namespace Example
 </code></pre>
                             </div>
 
-                            <div class="tab-pane" id="examples-Movie-uploadFile-0-php">
+                            <div class="tab-pane" id="examples-Movie-uploadMediaToMovie-0-php">
                               <pre class="prettyprint"><code class="language-php"><&#63;php
 require_once(__DIR__ . '/vendor/autoload.php');
 
@@ -10279,14 +10279,14 @@ $file = file_example; // byte[] |
 $setAsThumbnail = true; // Boolean | sets the image as thumbnail if true
 
 try {
-    $api_instance->uploadFile($movieID, $additionalMetadata, $file, $setAsThumbnail);
+    $api_instance->uploadMediaToMovie($movieID, $additionalMetadata, $file, $setAsThumbnail);
 } catch (Exception $e) {
-    echo 'Exception when calling MovieApi->uploadFile: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling MovieApi->uploadMediaToMovie: ', $e->getMessage(), PHP_EOL;
 }
 ?></code></pre>
                             </div>
 
-                            <div class="tab-pane" id="examples-Movie-uploadFile-0-perl">
+                            <div class="tab-pane" id="examples-Movie-uploadMediaToMovie-0-perl">
                               <pre class="prettyprint"><code class="language-perl">use Data::Dumper;
 use WWW::SwaggerClient::Configuration;
 use WWW::SwaggerClient::MovieApi;
@@ -10298,14 +10298,14 @@ my $file = file_example; # byte[] |
 my $setAsThumbnail = true; # Boolean | sets the image as thumbnail if true
 
 eval { 
-    $api_instance->uploadFile(movieID => $movieID, additionalMetadata => $additionalMetadata, file => $file, setAsThumbnail => $setAsThumbnail);
+    $api_instance->uploadMediaToMovie(movieID => $movieID, additionalMetadata => $additionalMetadata, file => $file, setAsThumbnail => $setAsThumbnail);
 };
 if ($@) {
-    warn "Exception when calling MovieApi->uploadFile: $@\n";
+    warn "Exception when calling MovieApi->uploadMediaToMovie: $@\n";
 }</code></pre>
                             </div>
 
-                            <div class="tab-pane" id="examples-Movie-uploadFile-0-python">
+                            <div class="tab-pane" id="examples-Movie-uploadMediaToMovie-0-python">
                               <pre class="prettyprint"><code class="language-python">from __future__ import print_statement
 import time
 import swagger_client
@@ -10321,9 +10321,9 @@ setAsThumbnail = true # Boolean | sets the image as thumbnail if true (optional)
 
 try: 
     # upload an image related to the movie
-    api_instance.upload_file(movieID, additionalMetadata=additionalMetadata, file=file, setAsThumbnail=setAsThumbnail)
+    api_instance.upload_media_to_movie(movieID, additionalMetadata=additionalMetadata, file=file, setAsThumbnail=setAsThumbnail)
 except ApiException as e:
-    print("Exception when calling MovieApi->uploadFile: %s\n" % e)</code></pre>
+    print("Exception when calling MovieApi->uploadMediaToMovie: %s\n" % e)</code></pre>
                             </div>
                           </div>
 
@@ -10339,7 +10339,7 @@ except ApiException as e:
                                   <td>
                                   
                                   
-                                      <div id="d2e199_uploadFile_movieID">
+                                      <div id="d2e199_uploadMediaToMovie_movieID">
                                           <div class="json-schema-view">
                                               <div class="primitive">
                                                   <span class="type">
@@ -10374,7 +10374,7 @@ except ApiException as e:
                                   <td>
                                   
                                   
-                                      <div id="d2e199_uploadFile_additionalMetadata">
+                                      <div id="d2e199_uploadMediaToMovie_additionalMetadata">
                                           <div class="json-schema-view">
                                               <div class="primitive">
                                                   <span class="type">
@@ -10390,7 +10390,7 @@ except ApiException as e:
                                   <td>
                                   
                                   
-                                      <div id="d2e199_uploadFile_file">
+                                      <div id="d2e199_uploadMediaToMovie_file">
                                           <div class="json-schema-view">
                                               <div class="primitive">
                                                   <span class="type">
@@ -10417,7 +10417,7 @@ except ApiException as e:
                                 <td>
                                 
                                 
-                                    <div id="d2e199_uploadFile_setAsThumbnail">
+                                    <div id="d2e199_uploadMediaToMovie_setAsThumbnail">
                                         <div class="json-schema-view">
                                             <div class="primitive">
                                                 <span class="type">
