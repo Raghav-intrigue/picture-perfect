@@ -9,15 +9,14 @@ openapi: 3.0.2
 info:
   title: Picture Perfect
   description: >-
-    Sample API description. You can find more at
-    [https://clumio.com](https://clumio.com/).
-  termsOfService: 'http://swagger.io/terms/'
+    Sample API description. You can find more at.
   contact:
     email: 1raghavmahajan@gmail.com
   license:
     name: Apache 2.0
     url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
   version: 0.0.1
+
 tags:
   - name: Movie
     description: >-
@@ -30,20 +29,23 @@ tags:
       PicturePerfect operations based on a role and privilege
   - name: Review
     description: >-
-      This service lets users add, update or delete an existing rating/review
-      for a movie
+      This service lets users add, update or delete an existing rating/review for a movie
   - name: Show
     description: >-
-      This service lists the cineplexes where the movie is being screened in a
-      given city
+      This service lists the cineplexes where the movie is being screened in a given city
   - name: Admin
-    description: The services that require admin privileges
+    description: >-
+      The services that require admin privileges
+  - name: Cineplex
+    description: >-
+      Cineplex management related services.
+
 
 paths:
 
   #region Movies
 
-  /movies/catalogue:
+  /movies/:
     get:
       tags:
         - Movie
@@ -61,23 +63,22 @@ paths:
             type: string
         - name: limit
           in: query
-          description: limits query results (default size 20)
-          required: false
+          description: limits query result
           schema:
             type: integer
             minimum: 20
             maximum: 75
+            default: 20
         - name: offset
           in: query
           description: paginates query results
-          required: false
           schema:
             type: integer
             minimum: 0
+            default: 0
         - name: filterOptions
           in: query
           description: filter by category/genre/language
-          required: false
           allowEmptyValue: true
           schema:
             type: object
@@ -97,7 +98,6 @@ paths:
         - name: sort
           in: query
           description: sort by name/rating
-          required: false
           schema:
             type: string
             enum:
@@ -136,11 +136,11 @@ paths:
         - Movie
         - Admin
       description: deletes the list of movies
-      operationId: deleteMoviesByID
+      operationId: deleteMoviesById
       parameters:
-        - name: movieIDs
+        - name: movieIds
           in: query
-          description: IDs of movies that need to be deleted
+          description: Ids of movies that need to be deleted
           required: true
           schema:
             type: array
@@ -150,15 +150,15 @@ paths:
       responses:
         '200':
           $ref: '#/components/responses/Ok200'
-  '/movies/catalogue/{movieID}':
+  /movies/{movieId}:
     parameters:
       - in: path
-        name: movieID
+        name: movieId
         schema:
           type: integer
           format: int64
         required: true
-        description: The movie ID
+        description: The movie Id
     get:
       description: Get movie details
       tags:
@@ -171,7 +171,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Movie'
-    post:
+    put:
       summary: Set full movie details 
       tags:
         - Movie
@@ -199,12 +199,16 @@ paths:
         description: Movie Attributes that need to be updated
         required: true
         content:
-          '*/*':
+          application/json:
             schema:
               $ref: '#/components/schemas/Movie'
       responses:
         '200':
           description: OK
+          content:
+            application/json: 
+              schema:
+                $ref: '#/components/schemas/Movie'
     delete:
       summary: Delete movie from catalogue
       tags:
@@ -215,7 +219,7 @@ paths:
       responses:
         '200':
           $ref: '#/components/responses/Ok200'
-  '/movies/catalogue/{movieID}/uploadImage':
+  /movies/{movieId}/upload-image:
     post:
       tags:
         - Movie
@@ -223,9 +227,9 @@ paths:
       summary: upload an image related to the movie
       operationId: uploadMediaToMovie
       parameters:
-        - name: movieID
+        - name: movieId
           in: path
-          description: ID of movie to update
+          description: movie to update
           required: true
           schema:
             type: integer
@@ -250,7 +254,7 @@ paths:
       responses:
         '200':
           $ref: '#/components/responses/Ok200'
-  /movies/topMoviesByCategory:
+  /movies/featured:
     get:
       tags:
         - Movie
@@ -259,17 +263,19 @@ paths:
       parameters:
         - name: limit
           in: query
-          description: limits query results (default size 20)
+          description: limits query results
           schema:
             type: integer
             minimum: 20
             maximum: 50
+            default: 20
         - name: offset
           in: query
           description: paginates query results
           schema:
             type: integer
             minimum: 0
+            default: 0
         - name: category
           in: query
           description: reqested category
@@ -286,7 +292,7 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/MovieLite'
-    post:
+    put:
       tags:
         - Movie
         - Admin
@@ -301,7 +307,7 @@ paths:
           schema:
             $ref: '#/components/schemas/TopCategories'
       requestBody:
-        description: list of MovieIDs to be featured
+        description: list of MovieIds to be featured
         content:
           application/json:
             schema:
@@ -313,7 +319,7 @@ paths:
       responses:
         '200':
           $ref: '#/components/responses/Ok200'
-    put:
+    post:
       tags:
         - Movie
         - Admin
@@ -328,7 +334,7 @@ paths:
           schema:
             $ref: '#/components/schemas/TopCategories'
       requestBody:
-        description: list of MovieIDs to be added
+        description: list of MovieIds to be added
         content:
           application/json:
             schema:
@@ -354,9 +360,9 @@ paths:
           allowEmptyValue: true
           schema:
             $ref: '#/components/schemas/TopCategories'
-        - name: movieIDs
+        - name: movieIds
           in: query
-          description: IDs of movies that need to be deleted
+          description: Ids of movies that need to be deleted
           required: true
           schema:
             type: array
@@ -366,7 +372,51 @@ paths:
       responses:
         '200':
           $ref: '#/components/responses/Ok200'
-
+  /movies/{movieId}/shows:
+    parameters:
+      - name: movieId
+        in: path
+        description: movieId of the show
+        required: true
+        schema:
+          type: integer
+          format: int64
+    post:
+      tags:
+        - Show
+        - Admin
+      summary: Add a show for the movie
+      operationId: addShowToMovie
+      requestBody:
+        description: Show object that needs to be added to the store
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Show'
+        required: true
+      responses:
+        '200':
+          $ref: '#/components/responses/Ok200'
+    delete:
+      summary: Delete all shows for the movie
+      tags:
+        - Show
+        - Admin #l2
+      operationId: deleteShowsForMovie
+      parameters:
+        - name: movieIds
+          in: query
+          description: Ids of movies that need to be deleted
+          required: true
+          schema:
+            type: array
+            items:
+              type: integer
+              format: int64
+      responses:
+        '200':
+          $ref: '#/components/responses/Ok200'
+  
   #endregion
   
   #region IAM
@@ -382,12 +432,12 @@ paths:
       parameters:
         - name: q
           in: query
-          description: Search for a specific user by userID/phone number
+          description: Search for a specific user by userId/phone number
           schema:
             type: string
         - name: limit
           in: query
-          description: limits query results (default size 50)
+          description: limits query results
           schema:
             type: integer
             minimum: 20
@@ -399,6 +449,7 @@ paths:
           schema:
             type: integer
             minimum: 0
+            default: 0
         - name: sort
           in: query
           description: sort by name
@@ -458,7 +509,7 @@ paths:
       summary: Logs user into the system
       operationId: loginUser
       parameters:
-        - name: userID
+        - name: userId
           in: query
           description: The user name for login
           required: true
@@ -503,15 +554,15 @@ paths:
         default:
           description: successful operation
           content: {}
-  '/user/{userID}':
+  /user/{userId}:
     parameters:
       - in: path
-        name: userID
+        name: userId
         schema:
           type: integer
           format: int64
         required: true
-        description: The user ID
+        description: The user Id
     get:
       tags:
         - IAM
@@ -542,6 +593,8 @@ paths:
               $ref: '#/components/schemas/User'
         required: true
       responses:
+        '200':
+          $ref: '#/components/responses/Ok200'
         '400':
           $ref: '#/components/responses/BadRequest400'
         '404':
@@ -557,8 +610,557 @@ paths:
           $ref: '#/components/responses/BadRequest400'
         '404':
           $ref: '#/components/responses/NotFound404'
+  #TODO: /user/reset
+
+  #endregion 
+  
+  #region Shows
+
+  /shows/:
+    get:
+      tags:
+        - Show
+      summary: 'Get a paginated list of shows'
+      operationId: getShows
+      parameters:
+        - name: limit
+          in: query
+          description: limits query result
+          schema:
+            type: integer
+            minimum: 20
+            maximum: 75
+            default: 20
+        - name: offset
+          in: query
+          description: paginates query results
+          schema:
+            type: integer
+            minimum: 0
+            default: 0
+        - name: filterOptions
+          in: query
+          description: filter by movie/region/cineplex
+          allowEmptyValue: true
+          schema:
+            type: object
+            properties:
+              movieId:
+                type: integer
+                format: int64
+              regionId:
+                type: integer
+                format: int64
+              cineplexId:
+                type: integer
+                format: int64
+        - name: sort
+          in: query
+          description: sort by datetime/cineplex
+          schema:
+            type: string
+            enum:
+              - ASC_byTime
+              - DESC_byTime
+              - ASC_byCineplex
+              - DESC_byCineplex
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Show'
+    post:
+      tags:
+        - Show
+        - Admin #l2
+      summary: Add a show to the catalogue
+      operationId: addShow
+      requestBody:
+        description: Add a new show
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Show'
+        required: true
+      responses:
+        '200':
+          $ref: '#/components/responses/Ok200'
+    delete:
+      summary: Delete a list of shows 
+      tags:
+        - Show
+        - Admin #l2
+      operationId: deleteShowList
+      parameters:
+        - name: showIds
+          in: query
+          description: Ids of shows that need to be deleted
+          required: true
+          schema:
+            type: array
+            items:
+              type: integer
+              format: int64
+      responses:
+        '200':
+          $ref: '#/components/responses/Ok200'
+  
+  /shows/{showId}:
+    parameters:
+      - in: path
+        name: showId
+        schema:
+          type: integer
+          format: int64
+        required: true
+        description: The show Id
+    get:
+      description: Get show details
+      tags:
+        - Show
+      operationId: getShowDetails
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Show'
+    put:
+      summary: Replaces show details
+      tags:
+        - Show
+        - Admin
+      operationId: setShowDetails
+      requestBody:
+        description: show object
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Show'
+      responses:
+        '200':
+          $ref: '#/components/responses/Ok200'
+    patch:
+      summary: Update Show details
+      tags:
+        - Show
+        - Admin
+      description: Updates show attributes
+      operationId: updateShowDetails
+      requestBody:
+        description: Show Attributes that need to be updated
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Show'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json: 
+              schema:
+                $ref: '#/components/schemas/Show'
+    delete:
+      summary: Delete specific show
+      tags:
+        - Show
+        - Admin
+      description: deletes the show
+      operationId: deleteShow
+      responses:
+        '200':
+          $ref: '#/components/responses/Ok200'
+
+  #endregion
+
+  #region Cineplex
+
+  /cineplex:
+    post:
+      summary: add new cineplex
+      tags:
+        - Admin #l2
+        - Cineplex
+      operationId: addCineplex
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Cineplex'
+        required: true
+      responses:
+        '200':
+          $ref: '#/components/responses/Ok200'
+    
+  /cineplex/{cineplexId}:
+    parameters:
+      - in: path
+        name: cineplexId
+        schema:
+          type: integer
+          format: int64
+        required: true
+        description: The cineplex Id
+    get:
+      description: Get cineplex details
+      tags:
+        - Cineplex
+      operationId: getCineplexDetails
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Cineplex'
+    put:
+      summary: Replaces cineplex details
+      tags:
+        - Cineplex
+        - Admin
+      operationId: setCineplexDetails
+      requestBody:
+        description: cineplex object
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Cineplex'
+      responses:
+        '200':
+          $ref: '#/components/responses/Ok200'
+    patch:
+      summary: Update Cineplex details
+      tags:
+        - Cineplex
+        - Admin
+      description: Updates cineplex attributes
+      operationId: updateCineplexDetails
+      requestBody:
+        description: Cineplex Attributes that need to be updated
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Cineplex'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json: 
+              schema:
+                $ref: '#/components/schemas/Cineplex'
+    delete:
+      summary: Delete specific cineplex
+      tags:
+        - Cineplex
+        - Admin #l2
+      description: deletes the cineplex
+      operationId: deleteCineplex
+      responses:
+        '200':
+          $ref: '#/components/responses/Ok200'
+  
+  /cineplex/{cineplexId}/shows:
+    parameters:
+      - in: path
+        name: cineplexId
+        schema:
+          type: integer
+          format: int64
+        required: true
+        description: The cineplex Id
+    post:
+      tags:
+        - Show
+        - Admin
+      summary: Add a show for the cineplex
+      operationId: addShowToCineplex
+      requestBody:
+        description: Show object that needs to be added to the store
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Show'
+        required: true
+      responses:
+        '200':
+          $ref: '#/components/responses/Ok200'
+    delete:
+      summary: Delete all shows for the cineplex
+      tags:
+        - Show
+        - Admin #l2
+      operationId: deleteShowsForCineplex
+      parameters:
+        - name: movieIds
+          in: query
+          description: Ids of movies that need to be deleted
+          required: true
+          schema:
+            type: array
+            items:
+              type: integer
+              format: int64
+      responses:
+        '200':
+          $ref: '#/components/responses/Ok200'
   
   #endregion
+
+  #region Region
+
+  #TODO: /region/{regionId}/movies get
+  #TODO: /region/{regionId}/cineplexes get
+
+  #endregion
+
+  #region Rating/Review
+
+  /movies/{movieId}/reviews:
+    parameters:
+      - name: movieId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+    get:
+      tags:
+        - Review
+      summary: 'Get the list of reviews for the movie'
+      operationId: getReviewsByMovie
+      parameters:
+        - name: limit
+          in: query
+          description: limits query result
+          schema:
+            type: integer
+            minimum: 10
+            maximum: 100
+            default: 50
+        - name: offset
+          in: query
+          description: paginates query results
+          schema:
+            type: integer
+            minimum: 0
+            default: 0
+        - name: filterOptions
+          in: query
+          description: filter by movie/user/date
+          allowEmptyValue: true
+          schema:
+            type: object
+            properties:
+              movieId:
+                type: integer
+                format: int64
+              userId:
+                type: integer
+                format: int64
+              start_date:
+                type: string
+                format: date
+              end_date:
+                type: string
+                format: date
+        - name: sort
+          in: query
+          description: sort by datetime
+          schema:
+            type: string
+            enum:
+              - ASC_byTime
+              - DESC_byTime
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Review'
+    post:
+      tags:
+        - Review
+        - Admin
+      summary: Add a review for the movie
+      operationId: addReviewToMovie
+      requestBody:
+        description: Review object that needs to be added to the store
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Review'
+        required: true
+      responses:
+        '200':
+          $ref: '#/components/responses/Ok200'
+    delete:
+      summary: Delete all reviews for the movie
+      tags:
+        - Review
+        - Admin #l2
+      operationId: deleteReviewsForMovie
+      parameters:
+        - name: movieIds
+          in: query
+          description: Ids of movies that need to be deleted
+          required: true
+          schema:
+            type: array
+            items:
+              type: integer
+              format: int64
+      responses:
+        '200':
+          $ref: '#/components/responses/Ok200'
+  
+  #TODO: /user/{userId}/reviews get, delete
+
+  #TODO: /reviews/{reviewId} get, post, delete #maybe
+
+  /reviews/:
+    get:
+      tags:
+        - Review
+      summary: 'Get a list of reviews'
+      operationId: getReviews
+      parameters:
+        - name: limit
+          in: query
+          description: limits query result
+          schema:
+            type: integer
+            minimum: 10
+            maximum: 100
+            default: 50
+        - name: offset
+          in: query
+          description: paginates query results
+          schema:
+            type: integer
+            minimum: 0
+            default: 0
+        - name: filterOptions
+          in: query
+          description: filter by movie/user/date
+          allowEmptyValue: true
+          schema:
+            type: object
+            properties:
+              movieId:
+                type: integer
+                format: int64
+              userId:
+                type: integer
+                format: int64
+              start_date:
+                type: string
+                format: date
+              end_date:
+                type: string
+                format: date
+        - name: sort
+          in: query
+          description: sort by datetime
+          schema:
+            type: string
+            enum:
+              - ASC_byTime
+              - DESC_byTime
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Review'
+
+  /reviews/{reviewId}:
+    parameters:
+      - in: path
+        name: reviewId
+        schema:
+          type: integer
+          format: int64
+        required: true
+        description: The review Id
+    get:
+      description: Get review details
+      tags:
+        - Review
+      operationId: getReviewDetails
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Review'
+    put:
+      summary: Replaces review details
+      tags:
+        - Review
+        - Admin
+      operationId: setReviewDetails
+      requestBody:
+        description: review object
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Review'
+      responses:
+        '200':
+          $ref: '#/components/responses/Ok200'
+    patch:
+      summary: Update Review details
+      tags:
+        - Review
+        - Admin
+      description: Updates review attributes
+      operationId: updateReviewDetails
+      requestBody:
+        description: Review Attributes that need to be updated
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Review'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json: 
+              schema:
+                $ref: '#/components/schemas/Review'
+    delete:
+      summary: Delete specific review
+      tags:
+        - Review
+        - Admin
+      description: deletes the review
+      operationId: deleteReview
+      responses:
+        '200':
+          $ref: '#/components/responses/Ok200'
+
+
+  #endregion
+
+
 
 components:
   schemas:
@@ -607,6 +1209,9 @@ components:
           type: integer
           minimum: 1
           maximum: 5
+        time:
+          type: string
+          format: date-time
         author:
           $ref: '#/components/schemas/User'
         movie:
@@ -673,10 +1278,10 @@ components:
           $ref: '#/components/schemas/Region'
         contactNo:
           type: string
-        shows:
-          type: array
-          items:
-            $ref: '#/components/schemas/Show'
+        # shows:
+        #   type: array
+        #   items:
+        #     $ref: '#/components/schemas/Show'
     Reservation:
       type: object
       properties:
@@ -685,6 +1290,9 @@ components:
           format: int64
         show:
           $ref: '#/components/schemas/Show'
+        time:
+          type: string
+          format: date-time
         reservedStatus:
           type: boolean
           default: false
@@ -731,9 +1339,10 @@ components:
         startTime:
           type: string
           format: date-time
-        movie_id:
-          type: integer
-          format: int64
+        movie: # Alternate for movie_id:
+          $ref: '#/components/schemas/MovieLite'
+        cineplex:
+          $ref: '#/components/schemas/Cineplex'
     
     Region:
       type: object
@@ -864,10 +1473,6 @@ components:
             $ref: '#/components/schemas/ResponsePlaceholder'
     NotFound404:
       description: The specified resource was not found
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ResponsePlaceholder'
     RateLimited429:
       description: Too many requests
       headers:

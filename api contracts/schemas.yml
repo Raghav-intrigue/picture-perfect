@@ -1,0 +1,267 @@
+schemas:
+    UserLite:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
+        emailId:
+          type: string
+          format: email
+        ifVerified:
+          type: boolean
+          default: false
+        phone_no:
+          type: string
+        role:
+          type: integer
+        region:
+          $ref: '#/components/schemas/Region'
+        billingAddress:
+          $ref: '#/components/schemas/Address'
+    User:
+      allOf:
+        - $ref: '#/components/schemas/MovieLite'
+        - type: object
+          properties:
+            reviews:
+              type: array
+              items:
+                $ref: '#/components/schemas/Review'
+            profile_pic:
+              type: string
+              format: uri
+    Review:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        rating:
+          type: integer
+          minimum: 1
+          maximum: 5
+        author:
+          $ref: '#/components/schemas/User'
+        movie:
+          $ref: '#/components/schemas/Movie'
+    MovieLite:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        title:
+          type: string
+        language:
+          $ref: '#/components/schemas/Language'
+        status:
+          $ref: '#/components/schemas/MovieStatus'
+        releaseData:
+          type: string
+          format: date
+        genre:
+          $ref: '#/components/schemas/Genre'
+        duration:
+          type: integer
+          format: int32
+        thumbnail:
+          type: string
+          format: uri
+        certificate:
+          $ref: '#/components/schemas/Certificate'
+        category:
+          $ref: '#/components/schemas/Category'
+    Movie:
+      allOf:
+        - $ref: '#/components/schemas/MovieLite'
+        - type: object
+          properties:
+            media:
+              type: array
+              items:
+                type: string
+                format: uri
+            synopsis:
+              type: string
+            writtenBy:
+              type: string
+            directedBy:
+              type: string
+            upcomingShows:
+              type: array
+              items:
+                $ref: '#/components/schemas/Show'
+              maxItems: 5
+    Cineplex:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
+        address:
+          $ref: '#/components/schemas/Address'
+        region:
+          $ref: '#/components/schemas/Region'
+        contactNo:
+          type: string
+        shows:
+          type: array
+          items:
+            $ref: '#/components/schemas/Show'
+    Reservation:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        show:
+          $ref: '#/components/schemas/Show'
+        reservedStatus:
+          type: boolean
+          default: false
+        paid:
+          type: boolean
+          default: false
+        active:
+          type: boolean
+          default: false
+        userId:
+          type: integer
+          format: int64
+        seatsReserved:
+          type: array
+          items:
+            $ref: '#/components/schemas/Seat'
+        transactionDetails:
+          type: object
+          properties:
+            paymentMethod:
+              type: string
+            paymentAmount:
+              type: number
+              format: float
+    Seat:
+      type: object
+      properties:
+        row:
+          type: string
+        number:
+          type: integer
+        auditorium:
+          type: string
+    Show:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        capacity:
+          type: integer
+        format:
+          $ref: '#/components/schemas/Format'
+        startTime:
+          type: string
+          format: date-time
+        movie: # Alternate for movie_id:
+          $ref: '#/components/schemas/MovieLite'
+        cineplex:
+          $ref: '#/components/schemas/Cineplex'
+    
+    Region:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        name:
+          type: string
+        latlng:
+          type: array
+          items:
+            type: number
+            format: double
+          minItems: 2
+          maxItems: 2
+    Address:
+      type: object
+      properties:
+        streetAdresses:
+          type: string
+        pincode:
+          type: integer
+          format: int32
+        city:
+          type: string
+    
+    Language:
+      type: string
+      enum:
+        - English
+        - Hindi
+        - Marathi
+        - Punjabi
+        - Tamil
+        - Telugu
+    Genre:
+      type: string
+      enum:
+        - Action
+        - Adventure
+        - Animation
+        - Comedy
+        - Drama
+        - Horror
+        - Scifi
+        - Thriller
+        - Romance
+    TopCategories:
+      allOf:
+        - $ref: '#/components/schemas/Genre'
+        - type: string
+          enum:
+            - NowShowing
+            - Upcoming
+    Format:
+      type: string
+      enum:
+        - 2D
+        - 3D
+        - 4DX
+        - IMAX-2D
+        - IMAX-3D
+    Certificate:
+      type: string
+      enum:
+        - U
+        - UA
+        - A
+        - S
+    Category:
+      type: string
+      enum:
+        - TV-Show
+        - Movie
+        - Documentary
+        - Short-Film
+    MovieStatus:
+      type: string
+      enum:
+        - In-Theatres
+        - Off-Theatres
+        - To-be-Released
+    
+    ResponsePlaceholder:
+      type: object
+      properties:
+        code:
+          type: string
+        message:
+          type: string
+      required:
+        - code
+        - message
