@@ -666,7 +666,7 @@ paths:
               movieId:
                 type: integer
                 format: int64
-              regionId:
+              regionName:
                 type: string
               cineplexId:
                 type: integer
@@ -806,6 +806,64 @@ paths:
   #region Cineplex
 
   /cineplex:
+    get:
+      description: Get list of cineplexes
+      tags:
+        - Cineplex
+      operationId: getCineplexesInRegion
+      parameters:
+        - name: q
+          in: query
+          description: Search query
+          required: true
+          allowEmptyValue: true
+          style: form
+          explode: true
+          schema:
+            type: string
+        - name: limit
+          in: query
+          description: limits query result
+          schema:
+            type: integer
+            minimum: 20
+            maximum: 75
+            default: 20
+        - name: offset
+          in: query
+          description: paginates query results
+          schema:
+            type: integer
+            minimum: 0
+            default: 0
+        - name: regionName
+          in: query
+          description: Region Name
+          schema:
+            type: string
+        - name: sort
+          in: query
+          description: sort by name/rating
+          schema:
+            type: string
+            enum:
+              - ASC_byName
+              - DESC_byName
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  total_count:
+                    type: integer
+                    format: int32
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Cineplex'
     post:
       summary: add new cineplex
       tags:
@@ -821,6 +879,7 @@ paths:
       responses:
         '200':
           $ref: '#/components/responses/Ok200'
+    
     
   /cineplex/{cineplexId}:
     parameters:
@@ -979,14 +1038,14 @@ paths:
         '200':
           $ref: '#/components/responses/Ok200'
   
-  /regions/{regionId}:
+  /regions/{regionName}:
     parameters:
       - in: path
-        name: regionId
+        name: regionName
         schema:
           type: string
         required: true
-        description: The region Id
+        description: Unique region name
     get:
       description: Get region details
       tags:
@@ -1384,14 +1443,14 @@ paths:
 
   #region Special
 
-  /region/{regionId}/movies:
+  /region/{regionName}/movies:
     parameters:
       - in: path
-        name: regionId
+        name: regionName
         schema:
           type: string
         required: true
-        description: The region Id
+        description: Unique region name
     get:
       description: Get movies in cineplexes in the region
       tags:
@@ -1414,36 +1473,6 @@ paths:
                     items:
                       $ref: '#/components/schemas/MovieLite'
   
-  /region/{regionId}/cineplexes: 
-    parameters:
-      - in: path
-        name: regionId
-        schema:
-          type: string
-        required: true
-        description: The region Id
-    get:
-      description: Get cineplexes in the region
-      tags:
-        - Region
-        - Cineplex
-      operationId: getMoviesInRegion
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  total_count:
-                    type: integer
-                    format: int32
-                  data:
-                    type: array
-                    items:
-                      $ref: '#/components/schemas/MovieLite'
-    
   #endregion
 
 
