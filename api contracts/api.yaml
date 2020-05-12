@@ -4,7 +4,7 @@ openapi: 3.0.2
 
 #servers:
 #  - description: SwaggerHub API Auto Mocking
-#    url: https://virtserver.swaggerhub.com/Raghav-intrigue/PicturePerfect/0.0.1
+#    url: https://virtserver.swaggerhub.com/Raghav-intrigue/PicturePerfect/0.1
 
 info:
   title: Picture Perfect
@@ -15,7 +15,7 @@ info:
   license:
     name: Apache 2.0
     url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
-  version: 0.0.1
+  version: 0.1.0
 
 tags:
   - name: Movie
@@ -39,7 +39,6 @@ tags:
   - name: Cineplex
     description: >-
       Cineplex management related services.
-
 
 paths:
 
@@ -634,6 +633,7 @@ paths:
   
   #region Shows
 
+  #TooMuchData
   /shows/:
     get:
       tags:
@@ -879,8 +879,7 @@ paths:
       responses:
         '200':
           $ref: '#/components/responses/Ok200'
-    
-    
+       
   /cineplex/{cineplexId}:
     parameters:
       - in: path
@@ -1110,6 +1109,7 @@ paths:
 
   #region Rating/Review
 
+  #TooMuchData
   /reviews/:
     get:
       tags:
@@ -1475,7 +1475,6 @@ paths:
   
   #endregion
 
-
 components:
   schemas:
 
@@ -1503,7 +1502,7 @@ components:
           $ref: '#/components/schemas/Address'
     User:
       allOf:
-        - $ref: '#/components/schemas/MovieLite'
+        - $ref: '#/components/schemas/UserLite'
         - type: object
           properties:
             reviews:
@@ -1527,9 +1526,9 @@ components:
           type: string
           format: date-time
         author:
-          $ref: '#/components/schemas/User'
+          $ref: '#/components/schemas/UserLite'
         movie:
-          $ref: '#/components/schemas/Movie'
+          $ref: '#/components/schemas/MovieLite'
     MovieLite:
       type: object
       properties:
@@ -1573,7 +1572,7 @@ components:
               type: string
             directedBy:
               type: string
-            upcomingShows:
+            upcomingShows: #TODO: check if feasible
               type: array
               items:
                 $ref: '#/components/schemas/Show'
@@ -1813,4 +1812,3 @@ components:
       type: apiKey
       name: api_key
       in: header
-
