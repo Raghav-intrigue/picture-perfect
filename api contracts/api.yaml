@@ -8,8 +8,7 @@ openapi: 3.0.2
 
 info:
   title: Picture Perfect
-  description: >-
-    Sample API description. You can find more at.
+  description: Tentative API description.
   contact:
     email: 1raghavmahajan@gmail.com
   license:
@@ -1318,7 +1317,6 @@ paths:
     post:
       tags:
         - Review
-        - User
       summary: Add a review for the movie
       operationId: addReviewToMovie
       requestBody:
@@ -1476,6 +1474,7 @@ paths:
   #endregion
 
 components:
+  
   schemas:
 
     UserLite:
@@ -1747,7 +1746,7 @@ components:
       required:
         - code
         - message
-  
+
   responses:
     Modified:
       description: The specified resource was modified

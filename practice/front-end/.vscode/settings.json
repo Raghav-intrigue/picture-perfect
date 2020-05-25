@@ -1,0 +1,8 @@
+{
+    "editor.foldingStrategy": "indentation",
+    "go.buildOnSave": "package",
+    "go.vetOnSave": "package",
+    "go.lintOnSave": "package",
+    "go.useCodeSnippetsOnFunctionSuggest": true,
+    
+}

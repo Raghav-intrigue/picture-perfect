@@ -1,0 +1,36 @@
+
+{{.Title}}                      Data command
+{{template "content"}}          Function arg1
+{{.hashMD5 "123"}}              context.memberFn arg1
+
+| // pipes result // imagine bash
+
+
+{{(index .Categories 0).URL}}
+
+{{template "_header.html" .}} // . passes context
+
+{{block "scripts" .}}
+// default value
+// replaced if declared
+{{end}}
+
+{{ printf "%.2f" .Price }}  // print/printf/println
+{{ .Price | printf "$ %.2f" }}  Passes it as last arg
+
+{{ if pipeline }}  //  (zero nil false)
+{{ else if pipeline }}
+{{ end }}
+
+{{ define "temp_name" }}
+{{ end }}
+
+{{ len }}
+
+{{ with }} //defines scope
+
+{{ html }}
+
+{{ js }}
+ 
+{{ urlquery }}
