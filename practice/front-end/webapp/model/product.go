@@ -1,6 +1,10 @@
 package model
 
-import "fmt"
+import (
+	"fmt"
+	"sort"
+	"strings"
+)
 
 // Product :
 type Product struct {
@@ -16,7 +20,7 @@ type Product struct {
 	CategoryID       int
 }
 
-// GetProductsForCategory :
+// GetProductsForCategory : returns the list of products for the specific category
 func GetProductsForCategory(categoryID int) []Product {
 	result := []Product{}
 	for _, p := range products {
@@ -27,7 +31,7 @@ func GetProductsForCategory(categoryID int) []Product {
 	return result
 }
 
-// GetProduct :
+// GetProduct : returns product for given productID
 func GetProduct(productID int) (*Product, error) {
 	for _, p := range products {
 		if p.ID == productID {
@@ -35,6 +39,25 @@ func GetProduct(productID int) (*Product, error) {
 		}
 	}
 	return nil, fmt.Errorf("Product not found with ID %v", productID)
+}
+
+// SearchForProduct : gets products containing the given query string
+func SearchForProduct(q string) []Product {
+	fp := make(map[Product]int)
+	sortedProducts := make([]Product, 0)
+	for i := 0; i < len(products); i++ {
+		p := products[i]
+		numt := strings.Count(strings.ToLower(p.Name), q)
+		numt += strings.Count(strings.ToLower(p.DescriptionLong), q)
+		fp[p] = numt
+		if numt > 0 {
+			sortedProducts = append(sortedProducts, p)
+		}
+	}
+	sort.Slice(sortedProducts, func(i, j int) bool {
+		return fp[sortedProducts[i]] > fp[sortedProducts[j]]
+	})
+	return sortedProducts
 }
 
 var products []Product = []Product{
@@ -50,7 +73,7 @@ var products []Product = []Product{
 		IsOrganic:       true,
 		ImageURL:        "lemon.png",
 		ID:              1,
-		CategoryID:      1,
+		CategoryID:      2,
 	}, {
 		Name:             "Apple Juice",
 		DescriptionShort: "The perfect blend of Washington apples.",
@@ -94,7 +117,7 @@ var products []Product = []Product{
 		IsOrganic:        false,
 		ImageURL:         "mangosteen.png",
 		ID:               5,
-		CategoryID:       1,
+		CategoryID:       2,
 	}, {
 		Name:             "Orange Juice",
 		DescriptionShort: "Fresh squeezed from Florida's best oranges.",
@@ -127,6 +150,22 @@ var products []Product = []Product{
 		IsOrganic:        false,
 		ImageURL:         "strawberry.png",
 		ID:               8,
-		CategoryID:       1,
+		CategoryID:       2,
 	},
+}
+
+// Max returns the larger of x or y.
+func max(x, y int) int {
+	if x < y {
+		return y
+	}
+	return x
+}
+
+// Min returns the smaller of x or y.
+func min(x, y int) int {
+	if x > y {
+		return y
+	}
+	return x
 }

@@ -4,16 +4,16 @@ import (
 	"clumio.com/roger/picture-perfect/webapp/model"
 )
 
-// ShopDetail : shop details page's view model
-type ShopDetail struct {
+// ProductList : product list page's view model
+type ProductList struct {
 	Title    string
 	Active   string
 	Products []Product
 }
 
-// NewShopDetail : returns a ShopDetails viewmodel, given the list of products
-func NewShopDetail(products []model.Product) ShopDetail {
-	result := ShopDetail{
+// NewProductList : returns the viewmodel, given the list of products
+func NewProductList(products []model.Product) ProductList {
+	result := ProductList{
 		Title:    "Lemonade Stand Supply",
 		Active:   "shop",
 		Products: []Product{},

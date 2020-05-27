@@ -7,14 +7,20 @@ import (
 	"os"
 
 	"clumio.com/roger/picture-perfect/webapp/controller"
+	"clumio.com/roger/picture-perfect/webapp/middleware"
 )
 
 func main() {
 	fmt.Println("Initialising...")
+
 	templates := populateTemplates()
 	controller.Startup(templates)
+
 	fmt.Println("Server ready")
-	http.ListenAndServe(":8000", nil)
+
+	http.ListenAndServe(":8000",
+		&middleware.TimeoutMiddleware{
+			Next: new(middleware.GzipMiddleware)})
 }
 
 func populateTemplates() map[string]*template.Template {

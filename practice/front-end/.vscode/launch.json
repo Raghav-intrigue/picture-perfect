@@ -9,7 +9,6 @@
             "name": "Launch Website",
             "type": "chrome",
             "request": "launch",
-            "preLaunchTask": "go run",
             "url": "http://localhost:8000/home",
             "webRoot": "${workspaceFolder}/public"
         },
@@ -18,7 +17,7 @@
             "type": "go",
             "request": "launch",
             "mode": "auto",
-            "program": "${workspaceFolder}/webapp",
+            "program": "${workspaceFolder}/webapp/main.go",
             "env": {},
             "args": [],
             "cwd": "${workspaceFolder}"
