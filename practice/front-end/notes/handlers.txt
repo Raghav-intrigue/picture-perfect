@@ -1,0 +1,76 @@
+/**
+** Built-in Handlers
+** NotFoundHandler:
+** RedirectHandler: redirects to another url
+** StripPrefix: passes to handler after stripping a prefix
+** TimoutHandler: passes to handler with a timelimit
+** FileServer: takes in a FileSystem interface ( ) // Dir type that implements FileSystem for the os
+**
+**
+** Struct that implements the handler interface (http.Handler)
+** type myHandler struct {
+** 	greeting string
+** }
+** func (mh myHandler) ServeHTTP(response http.ResponseWriter, request *http Request) {
+** 	response.Write([]byte(fmt.Sprintf("%v world", mh.greeting)))
+** }
+*/
+
+
+func functionAsHandler() {
+
+	// direct function that handles (no need for struct)
+	http.HandleFunc("/public", func(response http.ResponseWriter, request *http.Request) {
+		file, err := os.Open("public" + request.URL.Path)
+		if err != nil {
+			response.WriteHeader(http.StatusInternalServerError)
+			log.Println(err)
+		}
+		defer file.Close()
+
+		// required to differentiate between plaintext and special types
+		var contentType string
+		switch {
+		case strings.HasSuffix(request.URL.Path, "css"):
+			contentType = "text/css"
+		case strings.HasSuffix(request.URL.Path, "html"):
+			contentType = "text/html"
+		case strings.HasSuffix(request.URL.Path, "png"):
+			contentType = "image/png"
+		default:
+			contentType = "text/plain"
+		}
+		response.Header().Add("Content-Type", contentType)
+
+		io.Copy(response, file) // copies the file to the ResponseWriter
+	})
+
+	// Serve file method
+	http.HandleFunc("/css", func(response http.ResponseWriter, request *http.Request) {
+		http.ServeFile(response, request, "public")
+	})
+}
+
+func staticStringTemplate() {
+
+	// use tick to escape characters
+	templateString := `This is a dynamic title`
+	// html/template safer as it escapes characters
+	t, err := template.New("title").Parse(templateString)
+	if err != nil {
+		fmt.Println(err)
+	}
+	err = t.Execute(os.Stdout, nil)
+	if err != nil {
+		fmt.Println(err)
+	}
+}
+
+func parseGlobTemplates() *template.Template {
+	const basePath = "templates"
+	result := template.New("templates")
+	template.Must(result.ParseGlob(basePath + "/*.html"))
+
+	return result
+}
+

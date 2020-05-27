@@ -1,14 +1,18 @@
 # Steps to setup
 
-## To install local assets
+## Prerequisites
 
 * install NodeJs (https://nodejs.org)
+* install Go 1.14 (https://golang.org)
+
+## To install local assets
+
 * install `grunt-cli` globally via `npm install -g grunt-cli`
 * run `npm install` from the root directory of the project
 * run `grunt` from the root directory of the project to compile CSS
 
 ## To run the application
 
-* install `http-server` via `npm install -g http-server`
-* run `http-server` in application's root directory
-* navigate to `http://localhost:8080/html/home.html`
+* install go module using `go install .` in the root directory
+* run server using `go run clumio.com/roger/picture-perfect/webapp`
+* navigate to `http://localhost:8000/`

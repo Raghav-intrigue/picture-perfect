@@ -1,26 +1,35 @@
-package viewmodel
+package model
 
-type Shop struct {
-	Title      string
-	Active     string
-	Categories []Category
-}
+import (
+	"fmt"
+)
 
+// Category :
 type Category struct {
-	URL           string
-	ImageURL      string
-	Title         string
-	Description   string
-	IsOrientRight bool
+	ID          int
+	ImageURL    string
+	Title       string
+	Description string
 }
 
-func NewShop() Shop {
-	result := Shop{
-		Title:  "Lemonade Stand Supply - Shop",
-		Active: "shop",
+// GetCategories :
+func GetCategories() []Category {
+	return categories
+}
+
+// GetCategory :
+func GetCategory(ID int) (*Category, error) {
+	for _, c := range categories {
+		if c.ID == ID {
+			return &c, nil
+		}
 	}
-	juiceCategory := Category{
-		URL:      "/shop_details",
+	return nil, fmt.Errorf("Category with ID %v not found", ID)
+}
+
+var categories []Category = []Category{
+	{
+		ID:       1,
 		ImageURL: "lemon.png",
 		Title:    "Juices and Mixes",
 		Description: `Explore our wide assortment of juices and mixes expected by
@@ -28,26 +37,19 @@ func NewShop() Shop {
 							organic juices that are guaranteed to be obtained from trees that
 							have never been treated with pesticides or artificial
 							fertilizers.`,
-		IsOrientRight: false,
-	}
-	supplyCategory := Category{
-		URL:      ".",
+	}, {
+		ID:       2,
 		ImageURL: "kiwi.png",
 		Title:    "Cups, Straws, and Other Supplies",
 		Description: `From paper cups to bio-degradable plastic to straws and
 						napkins, LSS is your source for the sundries that keep your stand
 						running smoothly.`,
-		IsOrientRight: true,
-	}
-	advertiseCategory := Category{
-		URL:      ".",
+	}, {
+		ID:       3,
 		ImageURL: "pineapple.png",
 		Title:    "Signs and Advertising",
 		Description: `Sure, you could just wait for people to find your stand
 						along the side of the road, but if you want to take it to the next
 						level, our premium line of advertising supplies.`,
-		IsOrientRight: false,
-	}
-	result.Categories = []Category{juiceCategory, supplyCategory, advertiseCategory}
-	return result
+	},
 }

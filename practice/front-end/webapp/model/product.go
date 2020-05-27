@@ -1,5 +1,8 @@
-package viewmodel
+package model
 
+import "fmt"
+
+// Product :
 type Product struct {
 	Name             string
 	DescriptionShort string
@@ -10,10 +13,32 @@ type Product struct {
 	IsOrganic        bool
 	ImageURL         string
 	ID               int
+	CategoryID       int
 }
 
-func MakeLemonJuiceProduct() Product {
-	result := Product{
+// GetProductsForCategory :
+func GetProductsForCategory(categoryID int) []Product {
+	result := []Product{}
+	for _, p := range products {
+		if p.CategoryID == categoryID {
+			result = append(result, p)
+		}
+	}
+	return result
+}
+
+// GetProduct :
+func GetProduct(productID int) (*Product, error) {
+	for _, p := range products {
+		if p.ID == productID {
+			return &p, nil
+		}
+	}
+	return nil, fmt.Errorf("Product not found with ID %v", productID)
+}
+
+var products []Product = []Product{
+	{
 		Name:             "Lemon Juice",
 		DescriptionShort: "Made from fresh, organic California lemons.",
 		DescriptionLong: `Made from premium, organic Meyer lemons. These fruit are left on the tree until they reach the peak of ripeness and then juiced within 8 hours of being picked.
@@ -25,12 +50,8 @@ func MakeLemonJuiceProduct() Product {
 		IsOrganic:       true,
 		ImageURL:        "lemon.png",
 		ID:              1,
-	}
-	return result
-}
-
-func MakeAppleJuiceProduct() Product {
-	result := Product{
+		CategoryID:      1,
+	}, {
 		Name:             "Apple Juice",
 		DescriptionShort: "The perfect blend of Washington apples.",
 		DescriptionLong:  "The perfect blend of Washington apples.",
@@ -40,12 +61,8 @@ func MakeAppleJuiceProduct() Product {
 		IsOrganic:        true,
 		ImageURL:         "apple.png",
 		ID:               2,
-	}
-	return result
-}
-
-func MakeWatermelonJuiceProduct() Product {
-	result := Product{
+		CategoryID:       1,
+	}, {
 		Name:             "Watermelon Juice",
 		DescriptionShort: "From sun-drenched fields in Florida.",
 		DescriptionLong:  "From sun-drenched fields in Florida.",
@@ -55,12 +72,8 @@ func MakeWatermelonJuiceProduct() Product {
 		IsOrganic:        true,
 		ImageURL:         "watermelon.png",
 		ID:               3,
-	}
-	return result
-}
-
-func MakeKiwiJuiceProduct() Product {
-	result := Product{
+		CategoryID:       1,
+	}, {
 		Name:             "Kiwi Juice",
 		DescriptionShort: "California sunshine and rain distilled into sweet goodness",
 		DescriptionLong:  "California sunshine and rain distilled into sweet goodness",
@@ -70,12 +83,8 @@ func MakeKiwiJuiceProduct() Product {
 		IsOrganic:        false,
 		ImageURL:         "kiwi.png",
 		ID:               4,
-	}
-	return result
-}
-
-func MakeMangosteenJuiceProduct() Product {
-	result := Product{
+		CategoryID:       1,
+	}, {
 		Name:             "Mangosteen Juice",
 		DescriptionShort: "Our latest taste sensation, imported directly from Hawaii",
 		DescriptionLong:  "Our latest taste sensation, imported directly from Hawaii",
@@ -85,12 +94,8 @@ func MakeMangosteenJuiceProduct() Product {
 		IsOrganic:        false,
 		ImageURL:         "mangosteen.png",
 		ID:               5,
-	}
-	return result
-}
-
-func MakeOrangeJuiceProduct() Product {
-	result := Product{
+		CategoryID:       1,
+	}, {
 		Name:             "Orange Juice",
 		DescriptionShort: "Fresh squeezed from Florida's best oranges.",
 		DescriptionLong:  "Fresh squeezed from Florida's best oranges.",
@@ -100,12 +105,8 @@ func MakeOrangeJuiceProduct() Product {
 		IsOrganic:        false,
 		ImageURL:         "orange.png",
 		ID:               6,
-	}
-	return result
-}
-
-func MakePineappleJuiceProduct() Product {
-	result := Product{
+		CategoryID:       1,
+	}, {
 		Name:             "Pineapple Juice",
 		DescriptionShort: "An exotic and refreshing offering. Straight from Hawaii.",
 		DescriptionLong:  "An exotic and refreshing offering. Straight from Hawaii.",
@@ -115,12 +116,8 @@ func MakePineappleJuiceProduct() Product {
 		IsOrganic:        false,
 		ImageURL:         "pineapple.png",
 		ID:               7,
-	}
-	return result
-}
-
-func MakeStrawberryJuiceProduct() Product {
-	result := Product{
+		CategoryID:       1,
+	}, {
 		Name:             "Strawberry Juice",
 		DescriptionShort: "MThe perfect balance of sweet and tart.",
 		DescriptionLong:  "The perfect balance of sweet and tart.",
@@ -130,6 +127,6 @@ func MakeStrawberryJuiceProduct() Product {
 		IsOrganic:        false,
 		ImageURL:         "strawberry.png",
 		ID:               8,
-	}
-	return result
+		CategoryID:       1,
+	},
 }

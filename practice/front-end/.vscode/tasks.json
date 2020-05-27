@@ -1,0 +1,21 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "go run",
+            "type": "shell",
+            "command": "go run clumio.com/roger/picture-perfect/webapp",
+            "isBackground": true,
+            "problemMatcher": {
+                "base": "$go",
+                "background": {
+                    "activeOnStart": true,
+                    "beginsPattern": "Initialising...",
+                    "endsPattern": "Server ready"
+                }
+            }
+        }
+    ]
+}

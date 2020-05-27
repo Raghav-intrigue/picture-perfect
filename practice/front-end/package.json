@@ -8,9 +8,9 @@
   },
   "repository": {
     "type": "git",
-    "url": " "
+    "url": "https://github.com/Raghav-intrigue/picture-perfect/"
   },
-  "author": "",
+  "author": "Raghav Mahajan",
   "license": "ISC",
   "dependencies": {
     "zurb-foundation-5": "^5.4.7"
@@ -19,6 +19,6 @@
     "grunt": "^1.0.1",
     "grunt-contrib-watch": "^1.0.0",
     "grunt-sass": "^2.0.0",
-    "load-grunt-tasks": "^ 3.5.2"
+    "load-grunt-tasks": "^3.5.2"
   }
 }
